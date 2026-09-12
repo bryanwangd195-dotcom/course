@@ -1,0 +1,2549 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="碩士在職專班研究方法第一、二章課堂講義">
+  <title>研究方法｜第1–2章課堂講義</title>
+  <style>
+    :root {
+      --navy-950: #071426;
+      --navy-900: #0b1e36;
+      --navy-800: #123253;
+      --blue-700: #1768ac;
+      --blue-500: #3498db;
+      --cyan-400: #53c5da;
+      --paper: #ffffff;
+      --canvas: #eef3f8;
+      --ink: #162235;
+      --muted: #5d6a7b;
+      --line: #d9e2ec;
+      --gold: #f3b33d;
+      --case: #e9f4ff;
+      --case-border: #2d7dbd;
+      --ai: #f0ebff;
+      --ai-border: #7357c8;
+      --activity: #e8f7ef;
+      --activity-border: #24845a;
+      --warning: #fff2e4;
+      --warning-border: #d96c22;
+      --teacher: #fff9dc;
+      --teacher-border: #b48b16;
+      --sidebar-bg: #f2f7f4;
+      --sidebar-panel: #ffffff;
+      --sidebar-ink: #29443d;
+      --sidebar-muted: #6f827c;
+      --sidebar-accent: #5f9487;
+      --sidebar-accent-soft: #dcece7;
+      --sidebar-line: #d5e2dd;
+      --font-scale: 1;
+      --sidebar-width: 330px;
+      --topbar-height: 64px;
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--topbar-height) + 24px);
+    }
+
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+      font-size: calc(19px * var(--font-scale));
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
+
+    button, select { font: inherit; }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .app-shell { min-height: 100vh; }
+
+    .sidebar, .topbar, .bottom-nav { font-size: 19px; }
+
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 40;
+      width: var(--sidebar-width);
+      padding: 24px 18px;
+      color: var(--sidebar-ink);
+      background:
+        radial-gradient(circle at 10% 4%, rgba(123, 178, 164, .18), transparent 28%),
+        linear-gradient(165deg, #f9fcfa, var(--sidebar-bg));
+      border-right: 1px solid var(--sidebar-line);
+      overflow-y: auto;
+      transition: transform .25s ease;
+    }
+
+    .brand {
+      padding: 2px 8px 22px;
+      border-bottom: 1px solid var(--sidebar-line);
+    }
+
+    .brand-kicker {
+      margin: 0 0 6px;
+      color: var(--sidebar-accent);
+      font-size: .72em;
+      font-weight: 800;
+      letter-spacing: .18em;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: var(--sidebar-ink);
+      font-size: 1.28em;
+      line-height: 1.35;
+      letter-spacing: .03em;
+    }
+
+    .brand p {
+      margin: 8px 0 0;
+      color: var(--sidebar-muted);
+      font-size: .76em;
+      line-height: 1.5;
+    }
+
+    .course-tree { margin-top: 18px; }
+
+    .tree-chapter {
+      margin: 10px 0;
+      border: 1px solid var(--sidebar-line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.72);
+      overflow: hidden;
+    }
+
+    .tree-toggle {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      width: 100%;
+      border: 0;
+      color: var(--sidebar-ink);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .chapter-tree-toggle {
+      padding: 13px 14px;
+      font-weight: 850;
+    }
+
+    .chapter-tree-toggle.is-active { background: var(--sidebar-accent-soft); }
+
+    .tree-toggle::before {
+      content: "›";
+      color: var(--sidebar-accent);
+      font-size: 1.25em;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform .2s ease;
+    }
+
+    .tree-toggle[aria-expanded="true"]::before { transform: rotate(90deg); }
+    .tree-children, .resource-panel { display: none; }
+    .tree-children.is-open, .resource-panel.is-open { display: block; }
+
+    .resource-panel.is-open {
+      max-height: 42vh;
+      overflow-y: auto;
+      scrollbar-color: #aac7be transparent;
+      scrollbar-width: thin;
+    }
+
+    .tree-children {
+      padding: 6px 9px 10px;
+      border-top: 1px solid var(--sidebar-line);
+    }
+
+    .tree-group + .tree-group { margin-top: 5px; }
+
+    .resource-toggle {
+      padding: 9px 10px;
+      border-radius: 9px;
+      color: #47635b;
+      font-size: .82em;
+      font-weight: 750;
+    }
+
+    .resource-toggle:hover,
+    .resource-toggle.is-active { background: #eaf3ef; }
+
+    .resource-toggle:disabled {
+      color: #98a8a3;
+      cursor: not-allowed;
+      opacity: .72;
+    }
+
+    .toc { padding: 3px 0 6px 18px; }
+
+    .toc a {
+      display: block;
+      margin: 3px 0;
+      padding: 7px 9px;
+      border-left: 3px solid transparent;
+      border-radius: 0 8px 8px 0;
+      color: #60756f;
+      font-size: .72em;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: .15s ease;
+    }
+
+    .toc a:hover {
+      color: var(--sidebar-ink);
+      background: #edf5f2;
+    }
+
+    .toc a.is-current {
+      border-left-color: var(--sidebar-accent);
+      color: #24453c;
+      background: var(--sidebar-accent-soft);
+      font-weight: 700;
+    }
+
+    .toc a.is-subsection {
+      padding-left: 18px;
+      color: #748781;
+      font-size: .68em;
+    }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto var(--sidebar-width);
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--topbar-height);
+      padding: 0 22px;
+      border-bottom: 1px solid rgba(10,38,67,.12);
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      transition: left .25s ease;
+    }
+
+    .topbar-left, .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .topbar-left {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .menu-button { display: inline-grid; }
+
+    .section-indicator {
+      max-width: min(48vw, 680px);
+      color: var(--navy-800);
+      font-size: .82em;
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      color: var(--navy-800);
+      background: #fff;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+
+    .icon-button:hover {
+      border-color: #a9bdd0;
+      background: #f5f9fc;
+      transform: translateY(-1px);
+    }
+
+    .icon-button:disabled { opacity: .38; cursor: not-allowed; transform: none; }
+
+    .icon-button.is-active {
+      border-color: var(--navy-800);
+      color: #fff;
+      background: var(--navy-800);
+    }
+
+    .font-indicator {
+      min-width: 52px;
+      color: var(--muted);
+      font-size: .68em;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .progress-track {
+      position: fixed;
+      inset: var(--topbar-height) 0 auto var(--sidebar-width);
+      z-index: 31;
+      height: 4px;
+      background: rgba(23,104,172,.1);
+      transition: left .25s ease;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue-500), var(--cyan-400));
+      transition: width .1s linear;
+    }
+
+    .main {
+      margin-left: var(--sidebar-width);
+      padding: calc(var(--topbar-height) + 38px) 34px 80px;
+      transition: margin-left .25s ease;
+    }
+
+    .lecture-note {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+    }
+
+    .chapter, .full-material { display: none; }
+    .chapter.is-active, .full-material.is-active { display: block; }
+
+    .chapter > h1, .full-material > h1 {
+      position: relative;
+      margin: 0 0 26px;
+      padding: 42px 48px 38px;
+      border-radius: 24px;
+      color: #fff;
+      background:
+        linear-gradient(115deg, rgba(83,197,218,.2), transparent 46%),
+        linear-gradient(145deg, var(--navy-800), var(--navy-950));
+      font-size: 2.15em;
+      line-height: 1.35;
+      letter-spacing: .02em;
+      box-shadow: 0 20px 50px rgba(8,28,50,.16);
+      overflow: hidden;
+    }
+
+    .chapter > h1::after, .full-material > h1::after {
+      content: "RESEARCH METHODS";
+      display: block;
+      margin-top: 18px;
+      color: var(--cyan-400);
+      font-size: .28em;
+      font-weight: 800;
+      letter-spacing: .22em;
+    }
+
+    .chapter > blockquote:first-of-type {
+      margin: -8px 22px 34px;
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 12px;
+      color: #455669;
+      background: #e7edf3;
+      font-size: .9em;
+    }
+
+    section.level1 {
+      margin: 34px 0;
+      padding: 34px 42px 38px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: 0 12px 35px rgba(26,50,75,.075);
+    }
+
+    section.level1 > h1 {
+      margin: -34px -42px 30px;
+      padding: 22px 42px;
+      border-bottom: 1px solid var(--line);
+      border-radius: 22px 22px 0 0;
+      color: var(--navy-800);
+      background: linear-gradient(90deg, #f7fafc, #fff);
+      font-size: 1.42em;
+      line-height: 1.4;
+    }
+
+    section.level2 {
+      margin: 28px 0;
+      padding: 25px 28px;
+      border-left: 5px solid #b9c9d7;
+      border-radius: 0 16px 16px 0;
+      background: #f8fafc;
+    }
+
+    section.level2.case-card { border-left-color: var(--case-border); background: var(--case); }
+    section.level2.ai-card { border-left-color: var(--ai-border); background: var(--ai); }
+    section.level2.activity-card { border-left-color: var(--activity-border); background: var(--activity); }
+    section.level2.warning-card { border-left-color: var(--warning-border); background: var(--warning); }
+    section.level2.teacher-card { border-left-color: var(--teacher-border); background: var(--teacher); }
+
+    section.level2 > h2 {
+      margin: 0 0 16px;
+      color: var(--navy-800);
+      font-size: 1.3em;
+      line-height: 1.45;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      color: var(--blue-700);
+      font-size: 1.08em;
+      line-height: 1.5;
+    }
+
+    p { margin: 10px 0 18px; }
+
+    ul, ol {
+      margin: 12px 0 20px;
+      padding-left: 1.55em;
+    }
+
+    li { margin: 7px 0; padding-left: .18em; }
+    li::marker { color: var(--blue-700); font-weight: 800; }
+
+    blockquote {
+      margin: 22px 0;
+      padding: 20px 24px;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      color: #28384a;
+      background: #fff8e8;
+      font-size: 1.08em;
+      font-weight: 700;
+    }
+
+    blockquote p { margin: 0; }
+
+    table {
+      width: 100%;
+      margin: 22px 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 1px solid #cbd8e4;
+      border-radius: 14px;
+      background: #fff;
+      font-size: .9em;
+      line-height: 1.55;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-right: 1px solid #dce5ed;
+      border-bottom: 1px solid #dce5ed;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th:last-child, td:last-child { border-right: 0; }
+    tr:last-child td { border-bottom: 0; }
+
+    th {
+      color: #fff;
+      background: var(--navy-800);
+      font-weight: 800;
+    }
+
+    tbody tr:nth-child(even) td { background: #f6f9fb; }
+
+    hr {
+      margin: 46px 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    code {
+      padding: .12em .35em;
+      border-radius: 5px;
+      color: #7c2450;
+      background: #f9eaf2;
+      font-family: ui-monospace, monospace;
+      font-size: .87em;
+    }
+
+    .teacher-card[data-collapsible="true"] > :not(h2) { display: none; }
+    .teacher-card[data-collapsible="true"].is-open > :not(h2) { display: block; }
+
+    .teacher-card[data-collapsible="true"] > h2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .teacher-card[data-collapsible="true"] > h2::after {
+      content: "展開";
+      padding: 4px 10px;
+      border: 1px solid rgba(86,67,11,.25);
+      border-radius: 999px;
+      font-size: .55em;
+      font-weight: 700;
+    }
+
+    .teacher-card[data-collapsible="true"].is-open > h2::after { content: "收合"; }
+
+    .bottom-nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+      width: min(100%, 1120px);
+      margin: 34px auto 0;
+    }
+
+    .nav-action {
+      padding: 13px 18px;
+      border: 1px solid #bed0df;
+      border-radius: 13px;
+      color: var(--navy-800);
+      background: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .nav-action:last-child { justify-self: end; }
+    .nav-action:disabled { opacity: .35; cursor: not-allowed; }
+
+    .shortcut-note {
+      color: var(--muted);
+      font-size: .72em;
+      text-align: center;
+    }
+
+    .backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 35;
+      background: rgba(2,12,24,.55);
+    }
+
+    body.sidebar-collapsed .sidebar { transform: translateX(-100%); }
+    body.sidebar-collapsed .topbar,
+    body.sidebar-collapsed .progress-track { left: 0; }
+    body.sidebar-collapsed .main { margin-left: 0; }
+
+    .paired-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 18px;
+      padding: 8px 13px;
+      border: 1px solid #a9c8bf;
+      border-radius: 999px;
+      color: #315f54;
+      background: #eef7f4;
+      font-size: .7em;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .paired-link:hover { background: #dcece7; }
+
+    .screen-reader-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      :root { --sidebar-width: 300px; }
+      body { font-size: calc(17px * var(--font-scale)); }
+
+      .sidebar { transform: translateX(-100%); }
+      body.sidebar-open .sidebar { transform: translateX(0); }
+      body.sidebar-open .backdrop { display: block; }
+      .topbar, .progress-track { left: 0; }
+      .main { margin-left: 0; padding-inline: 20px; }
+      .chapter > h1, .full-material > h1 { padding: 32px; font-size: 1.7em; }
+      section.level1 { padding: 28px 24px; }
+      section.level1 > h1 { margin: -28px -24px 24px; padding: 18px 24px; }
+      .section-indicator { max-width: 44vw; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0 12px; }
+      .topbar-actions .font-indicator,
+      .topbar-actions #content-toggle,
+      .topbar-actions #fullscreen,
+      .section-indicator { display: none; }
+      .main { padding: calc(var(--topbar-height) + 22px) 12px 54px; }
+      .chapter > h1, .full-material > h1 { padding: 26px 22px; border-radius: 18px; font-size: 1.45em; }
+      .chapter > blockquote:first-of-type { margin-inline: 6px; }
+      section.level1 { margin: 22px 0; padding: 22px 17px; border-radius: 16px; }
+      section.level1 > h1 { margin: -22px -17px 20px; padding: 16px 17px; border-radius: 16px 16px 0 0; font-size: 1.22em; }
+      section.level2 { margin: 21px 0; padding: 20px 17px; }
+      .table-wrap { margin-inline: -8px; overflow-x: auto; }
+      table { min-width: 660px; }
+      .shortcut-note { display: none; }
+      .bottom-nav { grid-template-columns: 1fr 1fr; }
+      .nav-action:last-child { justify-self: stretch; }
+    }
+
+    @media print {
+      .sidebar, .topbar, .progress-track, .bottom-nav, .backdrop { display: none !important; }
+      .main { margin: 0; padding: 0; }
+      .chapter { display: block !important; }
+      .chapter + .chapter { break-before: page; }
+      section.level1 { box-shadow: none; break-inside: avoid; }
+      body { background: #fff; font-size: 12pt; }
+    }
+  </style>
+  <link rel="stylesheet" href="../../assets/theme.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="課程章節導覽">
+      <div class="brand">
+        <p class="brand-kicker">碩士在職專班</p>
+        <h1>研究方法</h1>
+        <p>教師課堂講義｜第 1–2 章</p>
+      </div>
+      <nav class="course-tree" aria-label="課程目錄">
+        <section class="tree-chapter" data-tree-chapter="1">
+          <button class="tree-toggle chapter-tree-toggle is-active" type="button" data-target-chapter="1" aria-expanded="true" aria-controls="chapter-tree-1">第 1 章　研究是什麼</button>
+          <div class="tree-children is-open" id="chapter-tree-1">
+            <div class="tree-group">
+              <button class="tree-toggle resource-toggle is-active" type="button" data-target-chapter="1" data-view="guide" aria-expanded="true" aria-controls="toc-1-guide">課程導讀</button>
+              <div class="resource-panel is-open" id="toc-1-guide"><div class="toc" data-toc-chapter="1" data-toc-view="guide"></div></div>
+            </div>
+            <div class="tree-group">
+              <button class="tree-toggle resource-toggle" type="button" data-target-chapter="1" data-view="full" aria-expanded="false" aria-controls="toc-1-full">完整教材</button>
+              <div class="resource-panel" id="toc-1-full"><div class="toc" data-toc-chapter="1" data-toc-view="full"></div></div>
+            </div>
+          </div>
+        </section>
+        <section class="tree-chapter" data-tree-chapter="2">
+          <button class="tree-toggle chapter-tree-toggle" type="button" data-target-chapter="2" aria-expanded="false" aria-controls="chapter-tree-2">第 2 章　發現研究問題</button>
+          <div class="tree-children" id="chapter-tree-2">
+            <div class="tree-group">
+              <button class="tree-toggle resource-toggle" type="button" data-target-chapter="2" data-view="guide" aria-expanded="false" aria-controls="toc-2-guide">課程導讀</button>
+              <div class="resource-panel" id="toc-2-guide"><div class="toc" data-toc-chapter="2" data-toc-view="guide"></div></div>
+            </div>
+            <div class="tree-group">
+              <button class="tree-toggle resource-toggle" type="button" data-target-chapter="2" data-view="full" aria-expanded="false" aria-controls="toc-2-full" disabled>完整教材（待加入）</button>
+              <div class="resource-panel" id="toc-2-full"><div class="toc" data-toc-chapter="2" data-toc-view="full"></div></div>
+            </div>
+          </div>
+        </section>
+      </nav>
+    </aside>
+
+    <div class="backdrop" id="backdrop"></div>
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="icon-button menu-button" id="menu-button" type="button" title="開啟目錄" aria-label="開啟目錄" aria-controls="sidebar" aria-expanded="false">☰</button>
+        <div class="section-indicator" id="section-indicator">第1章｜研究是什麼</div>
+      </div>
+      <div class="topbar-actions" aria-label="閱讀工具">
+        <button class="icon-button" id="font-down" type="button" title="縮小文字（最小 85%）" aria-label="縮小文字">A−</button>
+        <span class="font-indicator" id="font-indicator" aria-live="polite">100%</span>
+        <button class="icon-button" id="font-up" type="button" title="放大文字（最大 240%）" aria-label="放大文字">A＋</button>
+        <button class="icon-button" id="content-toggle" type="button" title="切換完整教材" aria-label="切換完整教材">完整教材</button>
+        <button class="icon-button" id="fullscreen" type="button" title="全螢幕（F）" aria-label="切換全螢幕">全螢幕</button>
+      </div>
+    </header>
+
+    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
+
+    <main class="main">
+      <article class="lecture-note" id="lecture-note">
+        <div id="chapter-1" class="chapter is-active" data-chapter="1">
+<h1 id="guide-ch1-1">第1章　研究是什麼：從經驗判斷到系統性證據</h1>
+<h2 id="guide-ch1-2">章首導讀</h2>
+<p>在職專班學生通常不缺少工作問題。製造現場可能長期出現重工，行政單位可能一再遇到補件，企業主管可能擔心年輕員工留任率降低，教師也可能發現學生完成課程後仍不會應用。這些都是真實而重要的經驗，也可能成為研究的起點。</p>
+<p>真正的困難，是我們很容易把第一個想到的原因當成答案。主管看到幾位年輕員工離職，便歸因於「抗壓性不足」；教師看到學生表現不佳，便認為是「學習動機不足」；公司導入生成式 AI 後文件撰寫變快，便宣布整體效率已經提升。這些說法可能有部分道理，卻也可能忽略其他同時存在的因素。</p>
+<p>研究不是否定經驗，而是把經驗轉換成可以說明、檢查與修正的證據。我們要問的不是「這個說法聽起來合不合理」，而是：問題是否清楚？依據是什麼？還有哪些解釋？需要什麼資料？這些資料最多能支持多大的結論？</p>
+<blockquote><p>工作經驗讓我們看見值得注意的現象；研究方法則幫助我們判斷，這個現象究竟能說明什麼。</p></blockquote>
+<h2 id="guide-ch1-3">本章核心問題</h2>
+<ol>
+<li>研究與工作經驗、調查報告及改善方案有什麼不同？</li>
+<li>一項主張如何從觀察，經由資料與分析，形成可接受的證據？</li>
+<li>為什麼研究者必須主動尋找替代解釋？</li>
+<li>研究如何協助實務決策，又有哪些事情不能由單一研究回答？</li>
+<li>生成式 AI 可以協助哪些研究工作，又不能代替研究者承擔哪些責任？</li>
+</ol>
+<h2 id="guide-ch1-4">本章學習目標</h2>
+<p>完成本章後，應能：</p>
+<ol>
+<li>說明研究的基本意義與核心構成。</li>
+<li>區分工作經驗、意見蒐集、管理報告、改善專案與研究。</li>
+<li>分辨觀察、推測、資料、證據、主張與結論。</li>
+<li>對直覺判斷提出合理的替代解釋。</li>
+<li>判斷描述、比較、關聯、解釋及評估等研究目的。</li>
+<li>將一項工作困擾轉換成可以繼續查證的研究現象。</li>
+<li>依循「提問、驗證、解釋、決策」原則使用生成式 AI。</li>
+</ol>
+<h2 id="guide-ch1-5">本章學習路徑</h2>
+<p>工作經驗與現象 → 提出值得回答的問題 → 區分觀察與推測 → 規劃資料與方法 → 形成可檢查的證據 → 提出有限度的結論 → 回到實務進行判斷</p>
+<hr>
+<h2 id="guide-ch1-6">1.1　從工作經驗走向研究</h2>
+<h3 id="guide-ch1-7">1.1.1　經驗是重要起點，但不是研究終點</h3>
+<p>在職學生熟悉組織的制度、流程與例外情況，常能看到外部研究者不容易發現的問題。這是研究的重要優勢。許多具有價值的研究題目，正是從長期工作中不斷出現的異常、差異或矛盾開始。</p>
+<p>但是，經驗也有侷限。我們容易記得近期、特殊或情緒強烈的事件，也比較容易接受符合原先立場的資訊。例如，曾遇到兩位新進員工突然離職，之後便可能特別注意年輕員工的不穩定行為，卻忽略更多穩定留任的案例。</p>
+<p>研究要求多做一步：把「認為如此」改成「根據什麼認為如此」，再追問「是否還有其他合理解釋」。經驗仍然重要，但不能直接成為研究終點。</p>
+<p><strong>課堂判斷</strong></p>
+<p>請想一項工作中「大家都認為原因很明顯」的問題。這個原因是已被資料確認，還是長期流傳的共同印象？</p>
+<h3 id="guide-ch1-8">1.1.2　工作困擾與研究問題並不相同</h3>
+<p>「學生都不願意學」「同仁不配合新系統」「顧客一直抱怨」都是工作困擾。它們表達了不滿與改善期待，卻沒有說明誰、何時、在哪個情境發生，也沒有指出目前真正不知道的是什麼。</p>
+<p>以「同仁不配合新系統」為例，可以先改成：「新系統上線三個月後，不同職務人員的實際使用頻率、使用任務與放棄使用情形為何？」這還不是最後的研究題目，但已經從情緒評價走向可觀察現象。</p>
+<p>越希望提出有效改善，越需要先把問題定義清楚。若問題定義錯誤，再積極的方案也可能只處理表面症狀。</p>
+<h3 id="guide-ch1-9">1.1.3　五種常被混在一起的活動</h3>
+<p>研究不是唯一使用資料的活動。經驗判斷、意見調查、管理報告、改善專案與研究都可能有價值，只是目的與證據要求不同。</p>
+<p><strong>表 1-1　五種活動的比較</strong></p>
+<table><thead><tr><th>活動</th><th>主要目的</th><th>常見依據</th><th>主要產出</th></tr></thead><tbody><tr><td>經驗判斷</td><td>快速理解與決策</td><td>個人經驗、少數事件</td><td>判斷或建議</td></tr><tr><td>意見調查</td><td>了解特定對象的回答</td><td>問卷、投票、訪談</td><td>比例或意見摘要</td></tr><tr><td>管理報告</td><td>支援組織管理</td><td>營運資料與指標</td><td>現況與決策資訊</td></tr><tr><td>改善專案</td><td>改變現況</td><td>問題分析、方案與績效</td><td>改善措施與成果</td></tr><tr><td>研究</td><td>回答明確問題</td><td>文獻、系統性資料與分析</td><td>有證據邊界的結論</td></tr></tbody></table>
+<p>判斷一件工作是否為研究，不能只看「有沒有問卷」「有沒有統計」或「報告寫得多長」，而要看問題、方法、資料與結論之間是否形成可以檢查的邏輯。</p>
+<p><strong>課堂案例：離職率升高</strong></p>
+<ul>
+<li>主管憑經驗認為薪資太低：較接近經驗判斷。</li>
+<li>人資整理三年離職紀錄：較接近管理報告。</li>
+<li>公司發放員工滿意度問卷：屬於意見調查。</li>
+<li>根據文獻提出可能因素，再蒐集資料檢驗：已呈現研究邏輯。</li>
+<li>導入留才方案並持續記錄、反思與修正：若程序完整，可能形成行動研究。</li>
+</ul>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>經驗是發現題目的來源，但不能自動成為結論。</li>
+<li>工作困擾需要轉換成可觀察、可取得資料的現象。</li>
+<li>研究的關鍵是問題、方法、資料與結論彼此一致。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-10">1.2　研究的基本意義與構成</h2>
+<h3 id="guide-ch1-11">1.2.1　一個可操作的研究定義</h3>
+<p>本課程採用一個容易操作的定義：</p>
+<blockquote><p>研究是針對一個清楚且值得回答的問題，參考既有知識，採取可以說明與檢查的方法蒐集或分析資料，形成有證據支持、且不超出證據範圍的結論。</p></blockquote>
+<p>這個定義包含六個連動部分：問題、既有知識、方法、資料、證據，以及論證與結論。資料很多但問題模糊，分析便會失去方向；問題重要但方法不合適，取得的資料便無法回答；分析程序正確但結論超出資料範圍，研究仍然不可靠。</p>
+<h3 id="guide-ch1-12">1.2.2　問題：研究究竟要回答什麼</h3>
+<p>「員工離職」「人工智慧」「課程滿意度」只是主題，還不是研究問題。研究問題需要指出對象、情境、關係或未知之處。例如：「完成職業訓練後，學員的課程滿意度與自評學習效果之間呈現什麼關聯？」這才開始形成可以由資料回答的問題。</p>
+<p>研究問題也要考慮可行性：資料是否取得得到？樣本是否適合？時間與權限是否允許？題目重要卻完全無法執行，仍不是適合當下的研究問題。</p>
+<h3 id="guide-ch1-13">1.2.3　既有知識：研究不從零開始</h3>
+<p>前人可能已提出概念、理論與測量方式，也可能得到互相矛盾的結果。文獻幫助我們確認目前已經知道什麼、還不知道什麼，並避免把已被反覆回答的問題當成全新發現。</p>
+<p>文獻來源可以包括期刊論文、專書、政府統計、技術報告與組織文件。不同來源支持的主張不同，不能把搜尋到的資料全部放進研究，而要依研究問題進行選擇。</p>
+<h3 id="guide-ch1-14">1.2.4　方法：安排如何取得答案</h3>
+<p>問卷、訪談、觀察、實驗、文件分析與次級資料分析都是方法，沒有哪一種天生比較高級。想知道「有多少」「是否不同」「是否相關」，可能採用量化資料；想理解「如何經歷」「為何如此理解」，可能使用訪談或觀察。</p>
+<p>方法的關鍵不是名稱，而是能不能取得回答研究問題所需要的證據。如果研究問題關注實際使用行為，只問使用意願可能不足；如果關注長期改變，只做一次問卷也難以完整回答。</p>
+<h3 id="guide-ch1-15">1.2.5　資料：研究者實際取得了什麼</h3>
+<p>問卷回答、訪談逐字稿、觀察筆記、系統日誌、出勤紀錄、成績與交易紀錄都可能是資料。資料並不是現實的全部，而是研究者透過特定方法留下的部分紀錄。</p>
+<p>同一概念可以有不同資料表示。「學習效果」可以用測驗、實作、後續應用或學員自評表示。若取得的是自評學習效果，就不能直接把它改稱為客觀能力或實際績效。</p>
+<h3 id="guide-ch1-16">1.2.6　證據：資料經過判斷後才能支持主張</h3>
+<p>資料需要經過整理、品質檢查、適當分析與合理解釋，才可能成為證據。同一份資料可能支持較保守的說法，卻不足以支持更強的主張。</p>
+<p>例如，結訓問卷顯示課程滿意度與自評學習效果正相關，可以說兩者在該樣本中共同變化；卻不能直接宣稱，提高滿意度一定會造成實際工作能力提升。</p>
+<h3 id="guide-ch1-17">1.2.7　論證與結論：說清楚如何從資料走到主張</h3>
+<p>論證是把問題、文獻、方法、資料、分析與結論連接起來的推理過程。研究者不能只說「結果顯著」或「多數人同意」，還要解釋結果的意義、替代解釋、適用對象與限制。</p>
+<p>好的結論通常比日常判斷保守。保守並不是逃避回答，而是準確分開「資料已支持」與「仍需進一步研究」的部分。</p>
+<p><strong>表 1-2　研究六項構成的快速檢查</strong></p>
+<table><thead><tr><th>構成</th><th>要問的問題</th><th>常見錯誤</th></tr></thead><tbody><tr><td>問題</td><td>究竟想回答什麼？</td><td>只有主題，沒有問題</td></tr><tr><td>既有知識</td><td>前人已知道什麼？</td><td>只靠個人經驗</td></tr><tr><td>方法</td><td>如何取得答案？</td><td>先決定問卷再配題目</td></tr><tr><td>資料</td><td>實際記錄了什麼？</td><td>資料與概念不一致</td></tr><tr><td>證據</td><td>結果能支持什麼？</td><td>把資料直接當成證據</td></tr><tr><td>結論</td><td>是否超出證據？</td><td>把相關說成因果</td></tr></tbody></table>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>研究是一套連動系統，不是單一工具。</li>
+<li>資料名稱必須忠實反映實際測量內容。</li>
+<li>結論不能超過研究設計與資料可以支持的範圍。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-18">1.3　從觀察到結論：證據如何形成</h2>
+<h3 id="guide-ch1-19">1.3.1　觀察、推測與主張</h3>
+<p>「最近離職的幾位員工都很年輕，所以年輕員工抗壓性不足，是離職率升高的主要原因。」這句話混合了觀察、推測與因果主張。</p>
+<p>可以直接確認的部分可能只有「近期離職者中有數位年輕員工」；「抗壓性不足」是需要定義與資料支持的推測；「主要原因」則要求研究者比較薪資、職務、主管支持、工時、職涯機會與外部市場等其他可能因素。</p>
+<p>研究的第一項能力，就是把看見的事實與對原因的解釋分開。</p>
+<h3 id="guide-ch1-20">1.3.2　資料不等於證據</h3>
+<p>取得三年的離職紀錄，只代表手上有資料。研究者還要檢查紀錄是否完整、原因如何分類、不同部門的母數是多少，以及比較方式是否合理，資料才可能形成證據。</p>
+<p>例如，一個 20 人部門有 4 人離職，另一個 200 人部門有 10 人離職。後者人數較多，前者比例卻更高。若只看人數，不看部門規模，就可能得到錯誤判斷。</p>
+<h3 id="guide-ch1-21">1.3.3　替代解釋是研究品質的一部分</h3>
+<p>年輕員工離職也可能因為集中在高流動職務、起薪偏低、排班不穩、主管支持不足、職涯機會有限，或外部工作機會較多。替代解釋的功能，不是要求一篇論文處理所有因素，而是避免把第一個答案直接當成結論。</p>
+<p>研究者最後仍可選擇一個較小的焦點，但必須知道哪些因素沒有納入，並在研究限制中誠實說明。</p>
+<h3 id="guide-ch1-22">1.3.4　證據強度與結論強度必須相稱</h3>
+<p>一次性問卷適合描述當下回答或分析關聯，卻很難單獨證明長期改變與因果。訪談能深入理解經驗，卻不能把少數人的說法直接變成整體人口比例。系統紀錄能呈現實際行為，卻不一定知道行為背後的動機。</p>
+<p>每一種資料都有能回答與不能回答的部分。研究品質不是選到「最厲害的方法」，而是知道所選方法的邊界。</p>
+<p><strong>課堂練習：拆解一句主張</strong></p>
+<p>選擇工作中常聽到的一句判斷，依序寫下：可直接觀察的部分、推測、需要的資料、三項替代解釋、目前最多能支持的結論，以及尚不能支持的結論。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>日常判斷經常混合觀察、推測與因果主張。</li>
+<li>資料要經過品質檢查、分析與推理，才可能成為證據。</li>
+<li>證據越有限，結論就必須越保守。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-23">1.4　研究的特徵與基本品質</h2>
+<h3 id="guide-ch1-24">1.4.1　系統性</h3>
+<p>系統性表示研究者依研究問題安排每一個步驟，不是先拿到什麼資料就分析什麼。研究對象、資料來源、蒐集程序與分析方式都要有選擇理由。</p>
+<p>例如，要了解實際使用行為，系統紀錄可能比使用意願更接近問題；要理解員工為何放棄使用，則可能需要訪談。問題不同，方法也應不同。</p>
+<h3 id="guide-ch1-25">1.4.2　透明性與可檢查性</h3>
+<p>研究者要交代資料從哪裡來、如何取得、如何整理，以及結論如何形成。透明不代表所有人都必須同意，而是讓其他人有足夠資訊檢查研究過程。</p>
+<p>量化研究要說明樣本、題項與分析程序；質性研究也要說明受訪者選擇、訪談方式、分析歷程與研究者角色。只公布漂亮結果而不說明方法，無法判斷可信度。</p>
+<h3 id="guide-ch1-26">1.4.3　可修正性</h3>
+<p>研究結論是在特定資料、方法與情境下形成的理解。新的資料、更好的方法或不同情境，都可能使原結論需要修正。</p>
+<p>研究執行中也會調整題目、概念或工具。只要修改有理由、有紀錄，而且不是為了迎合想要的結果，這些修正就是研究逐漸成熟的過程。</p>
+<h3 id="guide-ch1-27">1.4.4　累積性</h3>
+<p>研究要與既有知識連接。即使只研究單一組織，只要清楚說明情境、方法與限制，也能為後續研究提供可參考的概念與經驗。</p>
+<p>碩士研究不一定要提出巨大理論。把一個重要的實務現象定義清楚、取得合適資料，並說明結果與既有知識的關係，就具有研究價值。</p>
+<h3 id="guide-ch1-28">1.4.5　倫理與責任</h3>
+<p>研究涉及學生、員工或顧客時，必須考慮知情同意、隱私、資料保護、權力關係與可能傷害。資料容易取得，不代表可以任意使用。</p>
+<p>主管研究部屬、教師研究自己的學生時，參與者可能感到難以拒絕，也可能不敢真實回答。研究倫理不只是行政程序，也直接影響資料品質。</p>
+<p><strong>課堂討論</strong></p>
+<p>主管要求所有部屬填寫具名壓力問卷，並表示資料只供研究使用。這項安排可能產生哪些倫理與資料可信度問題？</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>系統性要求研究步驟彼此連接，透明性要求過程可以被檢查。</li>
+<li>研究可以修正，也應與既有知識累積連接。</li>
+<li>倫理不只是程序問題，也會影響參與者是否願意提供真實資料。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-29">1.5　研究與實務改善的關係</h2>
+<h3 id="guide-ch1-30">1.5.1　研究先增加理解，改善再形成行動</h3>
+<p>實務工作者通常希望研究可以解決問題，但研究與改善的任務不完全相同。研究先回答「現象是什麼」「如何發生」「哪些因素可能相關」；改善則在理解問題後，選擇行動、配置資源並承擔執行風險。</p>
+<p>例如，學生在註冊流程中經常補件。研究可以分析補件發生在哪些步驟、哪些學生較常遇到，以及不同管道的說明是否一致。改善方案則可能是重寫說明、調整網頁、增加自動檢核或改變跨單位流程。研究提供依據，最後採用哪個方案仍要考量經費、人力與權責。</p>
+<h3 id="guide-ch1-31">1.5.2　研究不一定立即提出解決方案</h3>
+<p>如果問題還沒有被清楚理解，太快提出方案可能只是另一個直覺。員工不使用新系統，不一定只需要更多教育訓練，也可能是系統與工作不相容、主管沒有支持，或使用後增加了額外負擔。</p>
+<p>研究可以先描述現況、比較差異或理解經驗。依結果提出建議時，也不能超過證據範圍。若只發現兩項自陳變項相關，便不能保證改變其中一項一定會帶動另一項。</p>
+<h3 id="guide-ch1-32">1.5.3　改善也可以成為研究</h3>
+<p>如果研究者有系統地規劃行動、記錄過程、蒐集多方資料、反思結果並持續修正，改善活動也可能形成行動研究或評估研究。重點不能只寫「做了什麼」與「成果很好」，還要呈現問題、資料、非預期結果與修正歷程。</p>
+<p>研究與改善因此可以形成循環：實務提供問題，研究增加理解，改善把理解轉成行動，行動結果又帶出新的資料與問題。</p>
+<blockquote><p>實務問題提供研究起點；研究證據提高改善決策品質；改善結果則可能成為下一輪研究的起點。</p></blockquote>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>研究先增加理解，改善再將理解轉成行動。</li>
+<li>研究建議必須與證據範圍相稱。</li>
+<li>有系統地記錄、反思與修正改善行動，也可能形成研究。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-33">1.6　研究目的與可以回答的問題</h2>
+<h3 id="guide-ch1-34">1.6.1　描述：現象目前呈現什麼狀態</h3>
+<p>描述性研究關注現況，例如在職學生使用生成式 AI 的頻率、任務類型與查證方式。描述並不是低階研究；若一項重要現象從未被清楚記錄，準確描述本身就能提供價值。</p>
+<p>不過，「多數學生常用 AI」仍然太模糊。研究者需要說明何謂多數、何謂常用、調查哪些學生，以及資料是在什麼時間取得。</p>
+<h3 id="guide-ch1-35">1.6.2　比較：不同群體、時間或情境是否不同</h3>
+<p>比較性研究關注差異，例如不同職務的員工對 AI 導入的接受程度是否不同，或流程改善前後的補件率是否改變。比較必須建立合理基準；若兩個群體的工作與資源完全不同，直接比較平均數可能產生誤導。</p>
+<p>研究者也要區分統計差異與實務差異。統計上達到顯著，不表示差距一定大到足以影響管理決策。</p>
+<h3 id="guide-ch1-36">1.6.3　關聯：兩個或多個現象是否共同變化</h3>
+<p>關聯性研究探討變項是否共同變化。例如，課程滿意度較高的學員，是否也傾向給出較高的自評學習效果。若呈現正相關，可以說兩者在該樣本中具有同向關係。</p>
+<p>但是，相關不代表因果。可能是滿意度影響自我評估，也可能是覺得自己學得好的學員更滿意課程，還可能有投入程度或講師互動同時影響兩者。</p>
+<h3 id="guide-ch1-37">1.6.4　解釋與理解：現象為何或如何發生</h3>
+<p>解釋性研究想了解現象背後的機制與條件；理解取向則可能關注參與者如何詮釋經驗。例如，訪談員工如何看待 AI 對專業角色、責任與工作安全感的改變。</p>
+<p>這類研究不必把所有複雜經驗壓縮成單一原因。不同參與者可能在同一制度下形成不同理解，研究可以呈現這些差異與形成脈絡。</p>
+<h3 id="guide-ch1-38">1.6.5　評估：方案是否達成預期</h3>
+<p>評估研究關注政策、課程、系統或方案是否達成目標，以及對誰、在什麼條件下有效。完整評估除了結果，也可能檢查投入、執行過程、參與程度與非預期影響。</p>
+<p>活動結束後「大家都很滿意」只能說明滿意反應，不能直接證明學習、行為或工作績效已改善。研究者必須先界定要評估哪一層成效。</p>
+<p><strong>表 1-3　五種研究目的</strong></p>
+<table><thead><tr><th>目的</th><th>主要問題</th><th>判斷提醒</th></tr></thead><tbody><tr><td>描述</td><td>目前呈現什麼狀態？</td><td>界定對象、時間與測量</td></tr><tr><td>比較</td><td>不同群體或時間是否不同？</td><td>建立合理比較基準</td></tr><tr><td>關聯</td><td>不同現象是否共同變化？</td><td>不把相關說成因果</td></tr><tr><td>解釋／理解</td><td>為何或如何發生？</td><td>重視機制、經驗與脈絡</td></tr><tr><td>評估</td><td>方案是否達成預期？</td><td>區分反應、學習、行為與結果</td></tr></tbody></table>
+<p><strong>課堂練習</strong></p>
+<p>將同一個工作議題分別改寫成描述、比較、關聯、理解與評估問題。觀察每種問法需要的資料有何不同，再選擇最符合目的與執行條件的一種。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>不同研究目的回答不同問題，也需要不同資料。</li>
+<li>使用「影響」「造成」「成效」時，通常需要較強的研究設計。</li>
+<li>研究目的必須同時考量重要性與可行性。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-39">1.7　研究不是直線，而是反覆修正的系統</h2>
+<h3 id="guide-ch1-40">1.7.1　教科書順序與實際研究歷程</h3>
+<p>教材會依序介紹題目、文獻、方法、分析與結論，但實際研究不會完全直線進行。文獻可能讓研究者重新定義概念，資料可得性可能迫使研究者縮小範圍，試作結果也可能顯示原先工具不足。</p>
+<p>學生在第 3 週或第 8 週修改題目，不必然表示做錯。要檢查的是修改理由：因文獻、資料與可行性而修正，通常能提高研究品質；只因結果不符合期待就改假設或刪資料，則會破壞可信度。</p>
+<h3 id="guide-ch1-41">1.7.2　研究的八個基本環節</h3>
+<ol>
+<li>觀察工作、組織或社會情境中的現象。</li>
+<li>區分已知事實、個人判斷與未知問題。</li>
+<li>搜尋文獻，理解概念、理論與既有發現。</li>
+<li>縮小研究問題、對象、情境與時間範圍。</li>
+<li>判斷需要何種證據，選擇相應研究設計。</li>
+<li>依倫理原則蒐集、整理與分析資料。</li>
+<li>比較研究結果、原先預期與替代解釋。</li>
+<li>形成結論、限制、建議與後續問題。</li>
+</ol>
+<p>這些環節可以反覆往返。設計問卷時若發現概念還不清楚，就要回到文獻；聯絡受訪者後若發現原訂對象難以接觸，也可能需要調整範圍。研究計畫的目的，就是在正式蒐集資料前，盡量提早發現這些不一致。</p>
+<h3 id="guide-ch1-42">1.7.3　研究一致性</h3>
+<p>題目、動機、目的、問題、文獻、方法、資料、分析與結論，都應指向相同焦點。若題目寫「學習成效」，資料卻只有滿意度；問題詢問「如何影響」，方法卻只能分析一次性相關；樣本只來自單一課程，結論卻推論所有在職學員，都是一致性問題。</p>
+<p><strong>表 1-4　研究一致性快速追蹤</strong></p>
+<table><thead><tr><th>環節</th><th>檢查問題</th></tr></thead><tbody><tr><td>工作現象</td><td>是否有初步事實？</td></tr><tr><td>研究問題</td><td>是否可由資料回答？</td></tr><tr><td>核心概念</td><td>是否定義清楚？</td></tr><tr><td>文獻</td><td>是否直接支撐問題？</td></tr><tr><td>研究對象</td><td>是否真正能提供答案？</td></tr><tr><td>方法</td><td>是否產生所需證據？</td></tr><tr><td>結論</td><td>是否超出樣本與設計？</td></tr></tbody></table>
+<p><strong>案例：從「課程有沒有用」到可研究的問題</strong></p>
+<p>某培訓單位只有結訓問卷，內容包含學員背景、課程滿意度與自評學習效果，沒有前測、客觀後測與工作績效資料。如果題目寫成「課程對工作能力提升之成效研究」，便超出資料範圍。</p>
+<p>較一致的問題是：「學員的課程滿意度與自評學習效果之間呈現何種關聯？」同時必須說明，自評學習效果不能等同客觀能力或長期工作績效。題目看似變小，研究反而更精確。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>研究會在問題、文獻、方法與資料之間反覆修正。</li>
+<li>修改不是失敗，關鍵在於是否有清楚理由。</li>
+<li>題目縮小但保持前後一致，通常比大而無法回答更有價值。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-43">1.8　研究者的角色與思考習慣</h2>
+<h3 id="guide-ch1-44">1.8.1　保持好奇，也保持懷疑</h3>
+<p>研究者需要對現象保持好奇，也要對太快出現的答案保持懷疑。懷疑不是否定所有資訊，而是要求重要主張說明來源與理由。</p>
+<p>面對符合自己經驗的答案，更要多問一次：「還需要什麼證據？」因為越符合既有信念的內容，越容易被直接接受。</p>
+<h3 id="guide-ch1-45">1.8.2　區分研究角色與工作角色</h3>
+<p>在職學生可能同時是主管、教師、同事與研究者。貼近現場能帶來深入理解，也可能影響資料。部屬面對主管研究者時可能較保守，教師也可能特別注意支持自己教學設計的結果。</p>
+<p>研究者不可能完全沒有立場，但要說明自己的位置可能如何影響資料與解釋。承認影響並不等於研究無效，而是讓研究過程更透明。</p>
+<h3 id="guide-ch1-46">1.8.3　把「不知道」當成研究能力</h3>
+<p>職場常期待主管快速給答案，研究卻允許暫時不知道。能清楚說明目前不知道什麼、為何不知道，以及需要什麼資料才能靠近答案，是重要的研究能力。</p>
+<p>「不知道」不是停止思考，而是把未知轉換成可以處理的問題。分清楚已知、推測與未知，就比較不會把個人立場包裝成事實。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>對符合自身經驗的答案，也要主動檢查證據。</li>
+<li>在職研究者要反思職務、權力與既有立場的影響。</li>
+<li>能準確指出未知之處，是研究問題形成的開始。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-47">1.9　AI 時代的研究判斷</h2>
+<h3 id="guide-ch1-48">1.9.1　AI 能加速發散，但不能確認真實</h3>
+<p>生成式 AI 能快速整理語句、提出可能因素、比較問題版本，也能模擬反方意見。它特別適合協助我們把熟悉但混亂的工作經驗拆成多個可能角度。</p>
+<p>但是，AI 產生的回答不等於研究現場的真實資料。它可能提供不存在的文獻、混淆概念、帶入刻板印象，或在證據不足時仍給出肯定結論。回答寫得流暢，不代表內容已被證明。</p>
+<h3 id="guide-ch1-49">1.9.2　提問、驗證、解釋、決策</h3>
+<p>本課程的 AI 使用遵循四個環節：</p>
+<ol>
+<li><strong>提問（Ask）</strong>：請 AI 擴展觀點、比較版本或指出盲點。</li>
+<li><strong>驗證（Verify）</strong>：回到原始文獻、正式資料、組織紀錄或研究現場核對。</li>
+<li><strong>解釋（Interpret）</strong>：判斷回答與自己的情境如何連接，有何限制。</li>
+<li><strong>決策（Decide）</strong>：說明接受、修改或拒絕哪些建議，以及理由。</li>
+</ol>
+<p>AI 可以大量參與「提問」，但驗證、解釋與決策仍由研究者負責。如果學生只貼出 AI 回答，卻無法說明查證方式與取捨理由，就還沒有完成研究工作。</p>
+<h3 id="guide-ch1-50">1.9.3　研究資料與倫理邊界</h3>
+<p>不能把機密資料、可識別個資、未公開訪談或敏感組織文件任意輸入不適當的 AI 服務。即使刪除姓名，職稱、部門、事件與時間的組合仍可能辨識個人。</p>
+<p>也不能用 AI 生成內容冒充真實問卷、訪談或實驗結果。AI 可以模擬題目是否容易誤解，卻不能產生真正的研究參與者。研究證據必須來自合法、真實且可以說明的資料來源。</p>
+<p><strong>AI 共學：替代解釋與證據檢查</strong></p>
+<p>先自行針對「年輕員工離職是因為抗壓性不足」提出三項替代解釋，再使用下列提問：</p>
+<blockquote><p>某公司主管認為年輕員工離職是因為抗壓性不足。請不要直接同意此判斷，分別從工作設計、主管管理、薪資制度、職涯發展、產業環境與資料偏差提出替代解釋。對每項解釋說明需要哪些資料才能查證，並把可觀察事實與可能推測分開。</p></blockquote>
+<p>檢查 AI 回答時，分成四類：有助於研究、需要文獻查證、需要現場資料、概念模糊或帶有偏見。最後只保留一項最值得優先研究的方向，並說明選擇理由。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>AI 可以增加研究角度，卻不能證明現象存在。</li>
+<li>AI 使用必須完成「提問、驗證、解釋、決策」。</li>
+<li>文獻真實性、資料保護與最終結論仍由研究者負責。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-51">1.10　綜合案例：導入 AI 是否提升行政效率</h2>
+<h3 id="guide-ch1-52">1.10.1　原始情境</h3>
+<p>某學校導入生成式 AI，協助行政人員撰寫公文初稿、回覆電子郵件及整理會議資料。三個月後，主管看到部分文件完成速度加快，便表示：「AI 已明顯提升整體行政效率，接下來應要求所有單位全面使用。」</p>
+<p>這句話至少有三個尚未釐清之處：什麼叫做「使用 AI」？什麼叫做「行政效率」？導入期間是否也同時改變人力、流程或工作分配？若概念沒有先定義，後續資料就不知道要蒐集什麼。</p>
+<h3 id="guide-ch1-53">1.10.2　把判斷拆成證據鏈</h3>
+<p>若只詢問「您是否認為 AI 提升效率」，取得的是主觀評價，不能直接代表實際工時或文件品質。較完整的資料可能包括任務處理時間、修改次數、錯誤率、退件率、查證時間、使用者經驗與主管評價。</p>
+<p>研究者還要分辨局部效率與整體效率。AI 可能讓初稿變快，卻增加事實查核、格式修正或資安審查時間；也可能只適用於重複文字任務，而不適用於跨單位協調與責任判斷。</p>
+<h3 id="guide-ch1-54">1.10.3　形成不同層次的研究問題</h3>
+<ul>
+<li>描述：行政人員使用生成式 AI 的頻率、任務類型與查證方式為何？</li>
+<li>比較：不同工作類型在使用 AI 前後的處理時間是否不同？</li>
+<li>關聯：AI 使用熟練度與自評工作效率是否相關？</li>
+<li>理解：行政人員如何看待 AI 對專業責任與工作角色的改變？</li>
+<li>評估：導入 AI 輔助流程後，處理時間、錯誤率與退件率是否改善？</li>
+</ul>
+<p>這些問題都來自同一情境，卻需要不同資料與方法。碩士研究不宜全部納入，應依研究價值、資料、權限與時間選擇焦點。</p>
+<p><strong>課堂任務</strong></p>
+<ol>
+<li>在原始敘述中找出觀察、推測、價值判斷與行動建議。</li>
+<li>分別為「AI 使用」與「行政效率」提出兩種定義。</li>
+<li>列出一項支持 AI 有效與一項可能反駁的證據。</li>
+<li>選擇一種研究目的，寫出可以由資料回答的問題。</li>
+<li>說明研究完成後，仍然不能回答什麼。</li>
+</ol>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>管理主張經常含有未定義概念與尚未檢查的因果推論。</li>
+<li>研究者應同時檢查局部與整體結果，不能只選有利指標。</li>
+<li>同一現象能形成多種問題，最後仍須依可行性收斂。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-55">1.11　把自己的工作經驗轉成研究起點</h2>
+<p>第一堂課不必立即完成正式題目。此時最重要的是分清楚現象、判斷、未知與資料範圍。請選擇一項自己確實接觸過、也有機會取得基本資料的工作現象，完成表 1-5。</p>
+<p><strong>表 1-5　工作經驗轉換表</strong></p>
+<table><thead><tr><th>項目</th><th>填寫內容</th></tr></thead><tbody><tr><td>工作現象</td><td>實際看見或經歷了什麼？</td></tr><tr><td>發生情境</td><td>在哪個組織、流程、課程或任務中？</td></tr><tr><td>影響對象</td><td>誰受到影響？</td></tr><tr><td>現有事實</td><td>目前有哪些紀錄或可觀察事實？</td></tr><tr><td>個人判斷</td><td>自己目前認為原因是什麼？</td></tr><tr><td>替代解釋</td><td>還有哪些可能原因？</td></tr><tr><td>缺少證據</td><td>哪些資訊尚未取得？</td></tr><tr><td>可取得資料</td><td>在權限、時間與倫理上能取得什麼？</td></tr><tr><td>想了解之處</td><td>完成研究後最希望知道什麼？</td></tr><tr><td>暫不處理</td><td>哪些範圍這次先排除？</td></tr></tbody></table>
+<p>填寫時不要急著創造漂亮題目。題目太早固定，後續文獻與資料容易被迫配合。先把現象與未知寫清楚，下一章再從異常、差異、變化、矛盾、成效不明與持續兩難中形成研究問題。</p>
+<p><strong>同儕互問：只提問，不給方案</strong></p>
+<p>兩人一組，每人用三分鐘說明工作現象。聆聽者只問：實際看到什麼？這是少數事件還是持續模式？怎麼知道它是問題？誰認為是問題？目前的原因判斷有何依據？還有什麼不同解釋？如果只能先了解一件事，最值得了解什麼？</p>
+<p>活動結束後，指出哪一個問題最能幫助自己重新理解原來的困擾。研究的第一步，是把問題問清楚，而不是比誰更快提出解法。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>第一堂課的產出是具體研究現象，不是立即完成題目。</li>
+<li>研究範圍既要說明做什麼，也要說明暫時不做什麼。</li>
+<li>澄清問題通常比立即提出方案更能提升研究焦點。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-56">1.12　常見誤區與修正方式</h2>
+<h3 id="guide-ch1-57">誤區一：有問卷就等於研究</h3>
+<p>問卷只是工具。應先說明要回答的問題，再判斷問卷能否取得需要的資料。關注實際行為卻只問態度，或想理解經驗過程卻只提供固定選項，都可能不適合。</p>
+<h3 id="guide-ch1-58">誤區二：資料越多，研究越有價值</h3>
+<p>大量但無關的資料只會增加負擔。研究價值來自資料能否回答重要問題，而不是題目數量、樣本數或檔案大小本身。</p>
+<h3 id="guide-ch1-59">誤區三：統計顯著就代表已經證明</h3>
+<p>統計顯著仍要搭配樣本、測量、效果大小、研究設計與替代解釋。顯著不一定代表實務上重要，也不等於因果成立。</p>
+<h3 id="guide-ch1-60">誤區四：題目越大越有價值</h3>
+<p>「探討 AI 對企業經營的全面影響」聽起來很大，卻難以由一篇碩士論文回答。縮小對象、情境、概念與時間，不是降低價值，而是增加真正回答問題的可能。</p>
+<h3 id="guide-ch1-61">誤區五：工作經驗足以證明原因</h3>
+<p>工作經驗適合發現問題與理解脈絡，但個人接觸的人與事件有限。研究需要把經驗轉成他人能理解與檢查的證據。</p>
+<h3 id="guide-ch1-62">誤區六：研究一定要提出立即可行的解決方案</h3>
+<p>問題尚未釐清時，方案可能只是另一個直覺。研究可以先描述、比較或理解；研究建議也應在證據範圍內提出。</p>
+<h3 id="guide-ch1-63">誤區七：AI 可以直接完成研究</h3>
+<p>AI 可以協助發散、比較、整理與表達，卻不能替研究者取得真實資料、確認文獻、處理倫理或承擔結論責任。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>工具、資料量、統計結果與題目規模都不能單獨代表研究品質。</li>
+<li>好研究讓問題、資料、方法與結論前後一致。</li>
+<li>研究責任不能外包給軟體或生成式 AI。</li>
+</ul>
+<hr>
+<h2 id="guide-ch1-64">本章重點回顧</h2>
+<ol>
+<li>研究從真實現象出發，但不把第一個經驗判斷直接當成結論。</li>
+<li>問題、既有知識、方法、資料、證據與結論必須形成一致系統。</li>
+<li>資料需要經過品質檢查、分析與合理解釋，才能成為證據。</li>
+<li>替代解釋能避免研究只替原先立場尋找支持。</li>
+<li>描述、比較、關聯、解釋／理解與評估，回答的是不同問題。</li>
+<li>研究會反覆修正，修改必須有文獻、資料或可行性理由。</li>
+<li>AI 可以協助提問，驗證、解釋、倫理與決策仍由研究者負責。</li>
+</ol>
+<h2 id="guide-ch1-65">關鍵詞</h2>
+<p>研究、研究問題、系統性、資料、證據、論證、替代解釋、相關、因果、研究一致性、研究倫理、研究者反思。</p>
+<h2 id="guide-ch1-66">章末練習</h2>
+<h3 id="guide-ch1-67">A. 基礎理解</h3>
+<ol>
+<li>研究與工作經驗最大的差異是什麼？</li>
+<li>為什麼資料不等於證據？</li>
+<li>替代解釋對研究品質有何作用？</li>
+<li>關聯與因果為什麼不能混用？</li>
+</ol>
+<h3 id="guide-ch1-68">B. 應用分析</h3>
+<p>公司辦理三小時 AI 訓練，課後 90% 員工表示滿意。請判斷這項資料可以支持什麼、不能支持什麼；若要了解學習、行為與績效，還需要哪些資料？</p>
+<h3 id="guide-ch1-69">C. AI 共學挑戰</h3>
+<p>選擇自己的工作現象，先自行提出三項解釋，再請 AI 提供不同觀點。將回答分成「可直接保留」「需要文獻查證」「需要現場資料」「概念模糊或過度推論」，最後寫下採用或拒絕的理由。</p>
+<h3 id="guide-ch1-70">D. 綜合實作：我的研究起點</h3>
+<p>用 150～250 字描述一項具體工作現象，區分已知事實與個人推測，提出三項替代解釋，列出可取得資料，最後形成一個可以由資料回答的初步問題。</p>
+<h2 id="guide-ch1-71">當堂產出檢核表</h2>
+<table><thead><tr><th>檢核項目</th><th>完成</th></tr></thead><tbody><tr><td>工作現象具體，不只是抽象主題</td><td>□</td></tr><tr><td>已區分事實、推測與價值判斷</td><td>□</td></tr><tr><td>已提出至少三項替代解釋</td><td>□</td></tr><tr><td>知道需要哪些資料</td><td>□</td></tr><tr><td>已考慮權限與倫理</td><td>□</td></tr><tr><td>初步問題可由資料回答</td><td>□</td></tr><tr><td>能說明 AI 建議的取捨理由</td><td>□</td></tr></tbody></table>
+<h2 id="guide-ch1-72">與下一章的銜接</h2>
+<p>本章建立「研究是什麼」以及「如何從經驗走向證據」的基本觀念。下一章將進一步處理什麼樣的工作問題能成為研究問題，並從異常、差異、變化、矛盾、成效不明與持續兩難中形成具體研究焦點。</p>
+<p>請帶著本章完成的工作經驗轉換表進入下一章。下一步不是立刻決定方法，而是先把研究對象、情境、影響、未知與可行性說清楚。</p>
+<h2 id="guide-ch1-73">教師授課備註</h2>
+<p>本導讀供互動網頁與課堂投影使用，內容順序與完整教材一致。課堂可依時間聚焦 1.1、1.2、1.3、1.9、1.10 與 1.11，其餘段落供學生延伸閱讀。導讀中的案例、表格與活動均可直接切換至完整教材相同章節補充說明。</p>
+</div>
+        <!-- FULL_MATERIAL_CH1_START -->
+<div id="full-material-1" class="full-material" data-full-chapter="1">
+<h1>第1章　研究是什麼：從經驗判斷到系統性證據</h1>
+<section class="level1 full-section" data-full-title="章首導讀"><h1 id="full-ch1-1">章首導讀</h1>
+<p>在職專班學生走進研究方法教室時，通常不是沒有問題，而是帶著太多問題而來。製造現場可能長期發生重工，行政單位可能一直被相同的補件問題困擾，企業主管可能擔心年輕員工留任率下降，教師可能發現學生完成課程後仍缺乏實際應用能力。這些問題都來自真實經驗，也都可能成為研究的起點。</p>
+<p>然而，工作經驗帶來的第一個答案，未必就是最可信的答案。主管看到幾位年輕員工離職，可能立即歸因於「抗壓性不足」；教師看到學生作業表現不佳，可能認為是「學習動機不足」；公司導入生成式 AI 後，文件完成速度變快，便宣稱「AI 已提升整體行政效率」。這些判斷可能有部分依據，卻也可能忽略職務設計、主管支持、資料品質、流程改變與其他同時發生的因素。</p>
+<p>研究的目的不是否定經驗，更不是用複雜術語取代實務判斷。研究真正增加的，是一套可以公開說明、接受檢查並持續修正的判斷過程。研究者必須說明：問題是什麼、目前知道什麼、還不知道什麼、需要哪些資料、如何取得資料，以及這些資料最多能支持多大的結論。</p>
+<blockquote><p>工作經驗讓我們看見值得注意的現象；研究方法則幫助我們判斷，這個現象究竟能說明什麼。</p></blockquote>
+</section>
+<section class="level1 full-section" data-full-title="本章核心問題"><h1 id="full-ch1-2">本章核心問題</h1>
+<ol>
+<li>研究與工作經驗、調查報告及改善方案有什麼不同？</li>
+<li>一項主張如何從觀察，經由資料與分析，形成可接受的證據？</li>
+<li>為什麼研究者必須主動尋找替代解釋？</li>
+<li>研究如何協助實務決策，又有哪些事情不能由單一研究回答？</li>
+<li>生成式 AI 可以參與哪些研究工作，又不能代替研究者承擔哪些責任？</li>
+</ol>
+</section>
+<section class="level1 full-section" data-full-title="本章學習目標"><h1 id="full-ch1-3">本章學習目標</h1>
+<p>完成本章後，學習者應能：</p>
+<ol>
+<li>說明研究的基本意義與核心構成。</li>
+<li>區分工作經驗、意見蒐集、一般報告、改善專案與系統性研究。</li>
+<li>分辨觀察、推測、資料、證據、主張與結論。</li>
+<li>對一項直覺判斷提出合理的替代解釋。</li>
+<li>判斷描述、比較、關聯、解釋及評估等不同研究目的。</li>
+<li>將一項工作困擾轉換為可以繼續查證的研究現象。</li>
+<li>依循「提問、驗證、解釋、決策」原則使用生成式 AI。</li>
+</ol>
+</section>
+<section class="level1 full-section" data-full-title="本章學習路徑"><h1 id="full-ch1-4">本章學習路徑</h1>
+<p>工作經驗與現象 → 提出值得回答的問題 → 區分觀察與推測 → 規劃資料與方法 → 形成可檢查的證據 → 提出有限度的結論 → 回到實務進行判斷</p>
+<hr>
+</section>
+<section class="level1 full-section" data-full-title="1.1　從工作經驗走向研究"><h1 id="full-ch1-5">1.1　從工作經驗走向研究</h1>
+<section class="level2 full-subsection" data-full-title="1.1.1　經驗是重要起點，但不是研究終點"><h2 id="full-ch1-5-1">1.1.1　經驗是重要起點，但不是研究終點</h2>
+<p>碩士在職專班學生最大的優勢，是對工作情境具有長期而細緻的理解。外部研究者可能只看到流程圖或統計數字，實務工作者卻知道制度如何被執行、例外如何發生、不同部門如何互動，以及正式規定與實際作法之間有哪些落差。許多具有價值的研究題目，正是從這些不容易被外部人員看見的細節開始。</p>
+<p>但是，經驗同時也可能形成限制。人們通常比較容易記得特殊、近期或情緒強烈的事件，也會傾向選擇支持原先立場的資訊。例如，一位主管曾遇過兩位新進員工突然離職，之後便可能特別注意年輕員工的不穩定行為，卻忽略相同期間也有許多年輕員工穩定留任。這並不是主管故意扭曲事實，而是人在有限資訊下進行快速判斷的自然現象。</p>
+<p>因此，研究不要求研究者放棄經驗，而是要求研究者對經驗多做一步處理：將「我相信如此」轉換為「我根據什麼相信如此」，再進一步追問「還有沒有其他合理解釋」。當這些問題可以被清楚說明，個人經驗才可能成為其他人能理解、檢查與討論的知識。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.1.2　工作困擾與研究問題並不相同"><h2 id="full-ch1-5-2">1.1.2　工作困擾與研究問題並不相同</h2>
+<p>工作困擾通常以行動語言出現，例如「學生都不願意學」「同仁不配合新系統」「顧客一直抱怨」「流程太慢」。這些句子表達了當事人的不滿與改善期待，但尚未清楚說明現象發生在誰身上、出現在什麼情境、持續多久、依據哪些事實，以及目前真正未知的是什麼。</p>
+<p>研究問題則必須能指向需要取得的資料。例如，「同仁不配合新系統」可以先改寫為：「新系統上線三個月後，不同職務人員的實際使用頻率、使用任務與放棄使用情形為何？」這個句子仍不是最終題目，卻已經把情緒評價轉換成可觀察的現象。研究者也因此能進一步思考要查看系統紀錄、訪談使用者，或比較不同部門。</p>
+<p>將困擾轉為研究問題，不代表研究者對現場冷漠。恰恰相反，越希望提出有效改善，越需要先釐清問題。若問題定義錯誤，再積極的方案也可能只處理表面症狀。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.1.3　五種常被混在一起的活動"><h2 id="full-ch1-5-3">1.1.3　五種常被混在一起的活動</h2>
+<p>研究並不是唯一使用資料的活動。組織中的經驗判斷、意見調查、管理報告、改善專案與研究，都可能具有價值，也可能彼此重疊。表 1-1 整理其主要差異。</p>
+<p><strong>表 1-1　經驗判斷、調查、報告、改善與研究的比較</strong></p>
+<div class="table-wrap"><table><thead><tr><th>活動</th><th>主要目的</th><th>常見依據</th><th>是否要求方法透明</th><th>主要產出</th></tr></thead><tbody><tr><td>經驗判斷</td><td>快速理解與決策</td><td>個人經驗、少數事件</td><td>不一定</td><td>判斷或建議</td></tr><tr><td>意見調查</td><td>了解特定對象的回答</td><td>問卷、投票、訪談</td><td>部分要求</td><td>比例、意見摘要</td></tr><tr><td>管理報告</td><td>支援組織管理</td><td>營運資料、紀錄與指標</td><td>視組織需要</td><td>現況與決策資訊</td></tr><tr><td>改善專案</td><td>改變現況與達成目標</td><td>問題分析、方案與績效指標</td><td>重視執行與成果</td><td>改善措施與成效</td></tr><tr><td>研究</td><td>回答明確問題並形成可檢查知識</td><td>文獻、系統性資料與分析</td><td>必須</td><td>有證據範圍的結論</td></tr></tbody></table></div>
+<p>這五類活動不是高低之分。緊急事件可能必須先依經驗處理，例行管理可能只需要清楚的營運報告；若目的是確認某種現象、比較不同解釋，或讓結論可以被他人檢查，才需要更完整的研究設計。判斷一件工作是不是研究，不能只看「有沒有問卷」或「有沒有統計」，而要看問題、資料、方法、分析與結論是否形成一致的邏輯。</p>
+<p><strong>【案例】五種情境算不算研究？</strong></p>
+<p>某公司近年離職率升高，分別採取以下作法：</p>
+<ol>
+<li>主管根據多年經驗，認為主要原因是薪資太低，建議全面調薪。</li>
+<li>人力資源部門整理三年的離職率、部門、年資及離職原因。</li>
+<li>公司發放滿意度問卷，統計員工對薪資、主管與環境的評價。</li>
+<li>分析者根據文獻提出薪資公平感、主管支持與工作壓力等可能因素，再蒐集資料檢查它們與離職意圖的關係。</li>
+<li>公司導入留才措施，持續記錄過程、參與者反應與離職情形，並在每一輪執行後修正方案。</li>
+</ol>
+<p>第 1 種主要是經驗判斷，第 2 種接近管理報告，第 3 種是意見調查。第 4 種已呈現較完整的研究邏輯。第 5 種若明確記錄問題、行動、證據、反思與修正，也可能構成行動研究。重要的不是為活動貼上固定標籤，而是看它能否產生足以回答問題的證據。</p>
+<p><strong>【想一想】</strong></p>
+<ol>
+<li>一份沒有公開發表的公司內部研究，仍可能算是研究嗎？</li>
+<li>使用了問卷與統計軟體，為什麼仍不一定構成研究？</li>
+<li>您最近做過的一項管理判斷，比較接近表 1-1 的哪一類活動？</li>
+</ol>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>工作經驗是發現題目的重要來源，卻不能自動成為可檢查的結論。</li>
+<li>工作困擾含有行動與價值判斷，研究問題則必須指向尚待了解的現象。</li>
+<li>研究的判斷重點不是工具或篇幅，而是問題、方法、資料與結論之間是否一致。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.2　研究的基本意義與構成"><h1 id="full-ch1-6">1.2　研究的基本意義與構成</h1>
+<section class="level2 full-subsection" data-full-title="1.2.1　一個可操作的研究定義"><h2 id="full-ch1-6-1">1.2.1　一個可操作的研究定義</h2>
+<p>「研究」可以從哲學、知識論或不同學科傳統提出多種定義。對剛開始學習研究方法的在職學生而言，第一步不是背誦流派，而是先掌握一個能協助判斷與實作的工作定義：</p>
+<blockquote><p>研究是針對一個清楚且值得回答的問題，參考既有知識，採取可以說明與檢查的方法蒐集或分析資料，形成有證據支持、且不超出證據範圍的結論。</p></blockquote>
+<p>這個定義包含六個彼此連動的部分：問題、既有知識、方法、資料、證據，以及論證與結論。任何一部分薄弱，都可能影響整體研究品質。例如，資料很多但問題模糊，分析結果便容易失去方向；問題重要但方法不合適，取得的資料就無法回答問題；分析正確但結論超出資料範圍，研究主張仍然不可靠。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.2.2　問題：研究究竟要回答什麼"><h2 id="full-ch1-6-2">1.2.2　問題：研究究竟要回答什麼</h2>
+<p>研究始於一個尚未充分理解、值得投入資源回答的問題。問題不等於主題。「員工離職」「人工智慧」「課程滿意度」都只是研究領域，尚未指出研究對象、情境、關係或未知之處。當研究者能進一步問「完成職業訓練後，學員的課程滿意度與自評學習效果之間呈現什麼關聯」，才開始形成可由資料回答的研究問題。</p>
+<p>好的研究問題同時具有知識意義與執行可能。它不能只因研究者覺得有趣，也不能只因資料容易取得。研究者需要判斷：回答之後能增加什麼理解？對哪些人或情境有意義？在時間、權限、樣本與倫理限制下，是否真的能取得所需資料？</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.2.3　既有知識：研究不從零開始"><h2 id="full-ch1-6-3">1.2.3　既有知識：研究不從零開始</h2>
+<p>研究者面對一個現象時，不能只依自己的經驗重新命名。前人可能已經提出相關概念、建立理論、發展測量工具，或在不同情境得到不一致的發現。文獻的功能，是協助研究者知道「已經知道什麼」與「仍然不知道什麼」，也避免把已經被反覆回答的問題誤認為全新發現。</p>
+<p>既有知識不只來自期刊論文，也可能包括專書、政府統計、技術報告、組織文件與可靠資料庫。不同來源能支持的主張不同：政府統計適合描述整體趨勢，內部紀錄能說明特定組織現況，學術研究則有助於理解概念、理論與方法。研究者必須依問題選擇來源，而不是將搜尋到的資料全部放進文獻探討。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.2.4　方法：安排如何取得答案"><h2 id="full-ch1-6-4">1.2.4　方法：安排如何取得答案</h2>
+<p>方法是為了取得所需證據而做的系統性安排。問卷、訪談、觀察、實驗、文件分析及次級資料分析都是可能的方法，沒有任何一種方法天生比較高級。研究者若想知道「有多少」「是否不同」「是否相關」，可能使用量化資料；若想理解「如何經歷」「為何如此理解」「一項制度如何在現場運作」，可能採取訪談、觀察或文件分析。</p>
+<p>方法的核心不是工具名稱，而是適配性。若研究問題關注實際使用行為，只詢問使用意願可能不足；若研究問題關注長期改變，只做一次性問卷通常無法充分回答；若希望說明因果，單純比較兩項自陳分數的相關程度也不夠。方法必須回到研究問題，說明為什麼這些資料可以成為回答問題的依據。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.2.5　資料：研究者實際取得了什麼"><h2 id="full-ch1-6-5">1.2.5　資料：研究者實際取得了什麼</h2>
+<p>資料是研究中實際被記錄的內容，例如問卷填答、訪談逐字稿、觀察筆記、系統日誌、出勤紀錄、成績、交易資料、工作時間或公開統計。資料並不是現實本身，而是研究者透過特定方式留下的部分紀錄。</p>
+<p>同一個概念可能用不同資料表示。例如，「學習效果」可以用測驗成績、實作表現、後續應用情形或學員自我評估表示。這些資料各有意義，卻不能互相取代。若研究取得的是自評學習效果，就應如實使用這個名稱，不能直接將它改稱為客觀能力或實際績效。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.2.6　證據：資料經過判斷後才能支持主張"><h2 id="full-ch1-6-6">1.2.6　證據：資料經過判斷後才能支持主張</h2>
+<p>資料不會自動形成結論。研究者需要整理資料、檢查品質、選擇適當分析，並說明分析結果與研究問題的關係，資料才可能成為證據。同一份資料也可能足以支持較保守的主張，卻不足以支持更強的主張。</p>
+<p>例如，若一份結訓問卷顯示課程滿意度與自評學習效果呈正相關，可以說兩者在該樣本中具有共同變化的關係；但不能只憑這個結果宣稱，提高滿意度一定會造成實際工作能力提升。後一項結論同時加入了因果方向與客觀績效，已經超出原始資料能支持的範圍。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.2.7　論證與結論：說清楚如何從資料走到主張"><h2 id="full-ch1-6-7">1.2.7　論證與結論：說清楚如何從資料走到主張</h2>
+<p>研究論證是把問題、文獻、方法、資料、分析與結論連接起來的推理過程。研究者不能只報告「結果顯著」或「多數受訪者同意」，還要說明結果代表什麼、有哪些替代解釋、適用於哪些對象，以及受到哪些限制。</p>
+<p>好的結論通常比日常判斷更保守。保守不是逃避回答，而是準確區分「資料已支持的部分」與「仍需進一步研究的部分」。當研究者願意限制結論範圍，反而提高了研究的可信度。</p>
+<p><strong>表 1-2　研究六項構成及其檢查問題</strong></p>
+<div class="table-wrap"><table><thead><tr><th>構成</th><th>核心問題</th><th>常見缺失</th></tr></thead><tbody><tr><td>問題</td><td>究竟想回答什麼？</td><td>只有主題，沒有問題</td></tr><tr><td>既有知識</td><td>前人已知道什麼？</td><td>只靠個人經驗或網路文章</td></tr><tr><td>方法</td><td>如何取得所需答案？</td><td>先決定問卷，再勉強配題目</td></tr><tr><td>資料</td><td>實際記錄了什麼？</td><td>資料與概念不一致</td></tr><tr><td>證據</td><td>分析結果能支持什麼？</td><td>將資料直接等同證據</td></tr><tr><td>結論</td><td>主張是否超出證據？</td><td>相關說成因果、局部說成普遍</td></tr></tbody></table></div>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>研究是問題、知識、方法、資料、證據與結論形成的一套連動系統。</li>
+<li>問卷、訪談或統計只是方法與工具，不能單獨決定一項活動是不是研究。</li>
+<li>資料能支持的結論有邊界；研究者必須準確說明這個邊界。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.3　從觀察到結論：證據如何形成"><h1 id="full-ch1-7">1.3　從觀察到結論：證據如何形成</h1>
+<section class="level2 full-subsection" data-full-title="1.3.1　觀察、推測與主張"><h2 id="full-ch1-7-1">1.3.1　觀察、推測與主張</h2>
+<p>研究者經常從一句看似合理的話開始。例如：「最近離職的幾位員工都很年輕，所以年輕員工抗壓性不足，是公司離職率升高的主要原因。」這句話同時混合了觀察、推測、概念與因果主張。若不把它們拆開，後續資料蒐集很容易只剩下為原先立場找證明。</p>
+<p>這句話中可以直接確認的觀察，可能只有「近期離職者中有數位年輕員工」。至於「抗壓性不足」是一項解釋，需要先界定抗壓性代表什麼，再取得相應資料。「主要原因」則是更強的比較性與因果性主張，表示研究者不只要檢查抗壓性，也要比較薪資、職務、主管支持、工時、職涯機會與外部就業市場等其他解釋。</p>
+<p>研究思考的第一項基本能力，就是把事實陳述與解釋性語句分開。事實陳述仍可能受到紀錄方式與樣本範圍影響，但至少可以指出資料來源；解釋性語句則必須接受其他可能性的挑戰。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.3.2　資料不等於證據"><h2 id="full-ch1-7-2">1.3.2　資料不等於證據</h2>
+<p>假設人力資源部門取得近三年的離職紀錄，這是一批資料。只有當研究者檢查資料是否完整、離職原因如何記錄、不同部門人數如何比較，並採用合理方式分析後，它才可能成為支持某項主張的證據。</p>
+<p>例如，單看離職人數可能造成誤解。某部門有 20 人，其中 4 人離職；另一部門有 200 人，其中 10 人離職。後者離職人數較多，但前者離職比例更高。如果資料沒有加入各部門原有人數，就無法正確比較。再者，即使某年年輕員工離職比例較高，也仍需考慮年輕員工是否集中於本來流動率就高的職務。</p>
+<p>因此，證據不是「有資料」的同義詞，而是資料品質、分析方法與推理過程共同形成的結果。研究者應能讓其他人看見這個過程，理解結論如何產生，並有機會提出不同解讀。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.3.3　替代解釋是研究品質的一部分"><h2 id="full-ch1-7-3">1.3.3　替代解釋是研究品質的一部分</h2>
+<p>替代解釋是指除了目前答案之外，仍能合理說明同一現象的其他可能原因。面對年輕員工離職，替代解釋可能包括：年輕員工多被安排在高流動職務、起薪與市場落差較大、主管支持不足、排班不穩定、職涯發展機會有限，或年輕員工在外部市場擁有較多選擇。</p>
+<p>提出替代解釋不是故意把研究變複雜，也不是要求一篇碩士論文處理所有因素。它的功能是幫助研究者看見原先推論中隱藏的跳躍，進而選擇最值得、最可行的方向。研究範圍仍可縮小，但應知道哪些重要因素沒有被納入，並在結論中承認限制。</p>
+<p>替代解釋也能降低確認偏誤。若研究者只搜尋支持原先想法的文獻、只訪談同意自己的人、只保留有利資料，即使分析程序看似完整，也很難形成可信的研究。真正的研究態度，是允許資料修正甚至推翻自己原先的判斷。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.3.4　證據強度與結論強度必須相稱"><h2 id="full-ch1-7-4">1.3.4　證據強度與結論強度必須相稱</h2>
+<p>不同研究設計能支持不同強度的結論。一次性問卷可以描述某個時間點的回答，也可以分析變項之間的關聯；但若研究者要宣稱某項措施「造成」結果改變，通常需要更能處理時間順序、比較基準與其他因素的設計。</p>
+<p>訪談可以深入理解參與者的經驗、意義與歷程，但少數受訪者的說法不能直接轉換為整體人口的百分比。組織內部紀錄可以呈現實際行為，卻可能缺少行為背後的原因。每一種資料都有視角，也都有盲點。研究品質不在於選擇一個號稱最科學的方法，而在於知道所選方法能回答什麼、不能回答什麼。</p>
+<p><strong>表 1-3　不同證據與可支持主張的範圍</strong></p>
+<div class="table-wrap"><table><thead><tr><th>取得的資料</th><th>較適合支持</th><th>不宜直接宣稱</th></tr></thead><tbody><tr><td>一次性滿意度問卷</td><td>當時的自陳態度、群體差異、變項關聯</td><td>長期改變、客觀能力、確定因果</td></tr><tr><td>深度訪談</td><td>經驗、理解、意義與歷程</td><td>整體族群比例</td></tr><tr><td>系統操作紀錄</td><td>實際使用頻率、時間與功能</td><td>使用動機或內在感受</td></tr><tr><td>前後測資料</td><td>兩個時間點的變化</td><td>變化必然由方案造成</td></tr><tr><td>有合理對照的介入研究</td><td>介入與結果之間較強的因果推論</td><td>所有場域都會出現相同效果</td></tr></tbody></table></div>
+<p><strong>【實作】主張拆解練習</strong></p>
+<p>請選擇工作中常聽到的一句判斷，依序填寫：</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>填寫提示</th></tr></thead><tbody><tr><td>原始主張</td><td>完整抄寫原本說法</td></tr><tr><td>可直接觀察部分</td><td>哪些內容有紀錄或可被看見？</td></tr><tr><td>推測部分</td><td>哪些內容其實是原因判斷？</td></tr><tr><td>所需資料</td><td>要確認主張需要哪些資料？</td></tr><tr><td>替代解釋</td><td>至少提出三項</td></tr><tr><td>可支持的結論</td><td>目前最多能說到哪裡？</td></tr><tr><td>不能支持的結論</td><td>哪些說法仍然太強？</td></tr></tbody></table></div>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>一句日常判斷經常同時混合觀察、推測與因果主張，研究者必須先拆開。</li>
+<li>資料經過品質檢查、適當分析與合理推論後，才可能成為證據。</li>
+<li>結論強度不能超過研究設計與資料所能支持的範圍。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.4　研究的特徵與基本品質"><h1 id="full-ch1-8">1.4　研究的特徵與基本品質</h1>
+<section class="level2 full-subsection" data-full-title="1.4.1　系統性"><h2 id="full-ch1-8-1">1.4.1　系統性</h2>
+<p>研究具有系統性，表示研究者不是隨意蒐集資料，而是依研究問題安排每一個步驟。研究對象、資料來源、蒐集程序與分析方式，都應能說明其選擇理由。系統性並不代表所有研究都要使用同一套固定流程，而是各步驟之間必須有邏輯關係。</p>
+<p>例如，研究者若想了解員工採用新系統的實際情形，系統操作紀錄可能比只詢問使用意願更接近問題；若想理解員工為何在培訓後仍放棄使用，則可能需要訪談或觀察。方法選擇必須由問題引導。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.4.2　透明性與可檢查性"><h2 id="full-ch1-8-2">1.4.2　透明性與可檢查性</h2>
+<p>研究者應清楚交代資料從哪裡來、如何取得、如何整理，以及如何形成結論。透明不代表所有人都必須同意研究者的解釋，而是讓他人有足夠資訊檢查推理過程。</p>
+<p>在量化研究中，透明性可能表現在樣本選取、題項來源、資料處理與分析程序；在質性研究中，則可能表現在受訪者選擇、訪談方式、編碼歷程與研究者反思。若只公布漂亮的結果，卻不說明資料與方法，就無法判斷結論是否可信。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.4.3　可修正性"><h2 id="full-ch1-8-3">1.4.3　可修正性</h2>
+<p>研究結論不是永遠不能改變的真理，而是在特定理論、資料、方法與情境下形成的暫時理解。新的資料、更合適的方法或不同情境，都可能使原先結論需要修正。</p>
+<p>可修正性也反映在研究執行過程。研究者可能在閱讀文獻後縮小題目，在試填問卷後修正題項，在初步訪談後增加追問。只要修改有理由、有紀錄，並且沒有為迎合想要的結果而任意更動，這些調整正是研究逐漸成熟的過程。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.4.4　累積性"><h2 id="full-ch1-8-4">1.4.4　累積性</h2>
+<p>研究不從零開始，也不應在完成後與其他知識完全斷開。研究者需要說明自己的問題如何延續、補充、比較或修正既有研究。即使研究只針對一個組織的小範圍現象，只要清楚交代情境與限制，也可能為後續研究提供概念、方法或案例上的參考。</p>
+<p>累積性提醒我們，研究價值不一定來自巨大理論創新。對碩士在職專班而言，能把一個重要的實務現象定義清楚，用適合的方法取得資料，並說明結果與既有知識的關係，已經是一項具有價值的研究貢獻。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.4.5　倫理與責任"><h2 id="full-ch1-8-5">1.4.5　倫理與責任</h2>
+<p>研究對象不是單純的資料來源。當研究涉及學生、員工、顧客、病患或其他參與者時，研究者必須考慮知情同意、隱私、資料保護、權力關係與可能傷害。即使資料容易取得，也不代表可以任意使用。</p>
+<p>在職研究者尤其要注意角色重疊。例如，主管研究自己的部屬，教師研究自己授課的學生，都可能使參與者感到難以拒絕。研究者必須設計適當程序，避免讓職務權力影響參與意願與回答內容。倫理不是研究完成後才補上的行政程序，而是研究設計的一部分。</p>
+<p><strong>【想一想】</strong></p>
+<p>某主管希望研究部門員工的工作壓力，要求所有人填寫具名問卷，並表示結果只供研究使用。即使主管沒有惡意，這項安排可能產生哪些研究品質與倫理問題？</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>系統性要求研究步驟彼此連接；透明性要求研究過程能被理解與檢查。</li>
+<li>研究結論具有可修正性與累積性，不是一次完成後永遠不變的答案。</li>
+<li>研究倫理與資料品質相互關聯；受到壓力的參與者也很難提供真實可信的資料。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.5　研究與實務改善的關係"><h1 id="full-ch1-9">1.5　研究與實務改善的關係</h1>
+<section class="level2 full-subsection" data-full-title="1.5.1　研究先增加理解，改善再形成行動"><h2 id="full-ch1-9-1">1.5.1　研究先增加理解，改善再形成行動</h2>
+<p>實務工作者通常希望研究能解決問題，這個期待合理，但研究與改善仍有不同任務。研究首先要回答「現象是什麼」「如何發生」「哪些因素可能相關」或「方案是否出現預期結果」；改善則要在理解問題後，選擇行動、配置資源、承擔風險並評估執行結果。</p>
+<p>例如，某學校發現學生經常在註冊流程中重複補件。研究可以分析補件發生在哪些步驟、哪些學生最常遇到、說明文字是否被理解，以及不同管道提供的資訊是否一致。改善方案可能包括重寫說明、調整網頁、增加自動檢核或改變跨單位流程。研究提供判斷基礎，但最後採用哪個方案，仍需考量經費、人力、法規與組織權責。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.5.2　研究不一定立即提出解決方案"><h2 id="full-ch1-9-2">1.5.2　研究不一定立即提出解決方案</h2>
+<p>有些研究的主要價值是描述現況，有些是比較群體差異，有些是理解參與者經驗。若問題本身仍未被清楚理解，直接提出解決方案反而可能過早。例如，在不知道員工為何不使用新系統之前，立即增加教育訓練，可能只是重複投入資源。</p>
+<p>研究者可以依結果提出建議，但建議必須與證據相稱。若研究只發現兩個變項相關，就不宜直接提出「只要改變其中一項，另一項一定提升」的處方。研究建議應交代其依據、適用條件及可能風險。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.5.3　改善也可以成為研究"><h2 id="full-ch1-9-3">1.5.3　改善也可以成為研究</h2>
+<p>當研究者有系統地規劃行動、記錄執行過程、蒐集多方資料、反思結果並持續修正時，改善行動也可能形成行動研究或評估研究。關鍵在於，不能只報告「做了什麼」與「成果很好」，而要清楚呈現問題、判斷依據、資料、非預期結果及修改歷程。</p>
+<p>因此，研究與改善不是完全分離的兩條路。實務提供研究問題，研究增加對問題的理解，改善把理解轉為行動，行動結果又產生新的資料與問題。兩者可以形成持續循環。</p>
+<blockquote><p>實務問題提供研究的起點；研究證據提高改善決策的品質；改善結果則可能成為下一輪研究的起點。</p></blockquote>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>研究的首要任務是增加對問題的理解，改善則進一步把理解轉為行動。</li>
+<li>研究建議必須與證據範圍相稱，不能把有限結果寫成確定處方。</li>
+<li>有系統的改善與反思可以形成研究，但必須呈現方法、資料與修正歷程。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.6　研究目的與可以回答的問題"><h1 id="full-ch1-10">1.6　研究目的與可以回答的問題</h1>
+<section class="level2 full-subsection" data-full-title="1.6.1　描述：現象目前呈現什麼狀態"><h2 id="full-ch1-10-1">1.6.1　描述：現象目前呈現什麼狀態</h2>
+<p>描述性研究關注人、事件或現象的現況，例如在職學生使用生成式 AI 的頻率、任務類型與查證方式。描述不是低階研究；若一個重要現象從未被清楚記錄，準確描述本身就能提供價值。</p>
+<p>描述研究仍需清楚界定對象、時間、情境與測量方式。「多數學生常用 AI」這句話若沒有說明何謂多數、何謂常用、調查哪些學生及何時調查，就很難判斷。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.6.2　比較：不同群體、時間或情境是否不同"><h2 id="full-ch1-10-2">1.6.2　比較：不同群體、時間或情境是否不同</h2>
+<p>比較性研究關注差異，例如不同職務員工對 AI 導入的接受程度是否不同，或同一流程改善前後的補件率是否改變。比較需要合理的共同基準；若兩個群體的工作內容、資源與制度完全不同，單純比較平均數可能會產生誤導。</p>
+<p>研究者也要區分統計差異與實務差異。數值上達到統計顯著，不代表差異一定足以影響管理決策；反之，小樣本沒有達到統計顯著，也不能直接證明兩群完全相同。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.6.3　關聯：兩個或多個現象是否共同變化"><h2 id="full-ch1-10-3">1.6.3　關聯：兩個或多個現象是否共同變化</h2>
+<p>關聯性研究探討變項之間是否有共同變化。例如，課程滿意度較高的學員，是否也傾向給出較高的自評學習效果。若結果呈正相關，可以說兩者在該樣本中具有同向關係。</p>
+<p>但關聯本身不指出因果方向。可能是滿意度影響自我評估，也可能是覺得自己學得好的學員更滿意課程，還可能有講師互動、先備能力或投入程度同時影響兩者。因此，關聯研究最重要的紀律，是不把「一起變化」直接說成「一方造成另一方」。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.6.4　解釋與理解：現象為何或如何發生"><h2 id="full-ch1-10-4">1.6.4　解釋與理解：現象為何或如何發生</h2>
+<p>解釋性研究試圖說明現象背後的機制與條件；理解取向的研究則可能關注參與者如何詮釋經驗。例如，研究者可以訪談員工，理解他們如何看待 AI 對專業角色、責任與工作安全感的改變。</p>
+<p>這類研究不一定要把複雜經驗壓縮成單一原因。不同參與者可能在相同制度下形成不同理解，研究價值就在於呈現差異、脈絡與形成過程。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.6.5　評估：方案是否達成預期"><h2 id="full-ch1-10-5">1.6.5　評估：方案是否達成預期</h2>
+<p>評估研究關注一項政策、課程、系統或方案是否達成目標，以及對誰、在什麼條件下有效。完整評估不只看結果，也可能分析投入、執行過程、參與程度、非預期影響與維持情形。</p>
+<p>「辦完活動後大家都很滿意」只能說明參與者的滿意反應，不能直接證明學習、行為或績效已改善。評估問題必須先界定成效層次，再選擇相應資料。</p>
+<p><strong>表 1-4　五種研究目的的提問方式</strong></p>
+<div class="table-wrap"><table><thead><tr><th>研究目的</th><th>典型提問</th><th>主要提醒</th></tr></thead><tbody><tr><td>描述</td><td>目前呈現什麼狀態？</td><td>界定對象、時間與測量</td></tr><tr><td>比較</td><td>不同群體或時間是否不同？</td><td>建立合理比較基準</td></tr><tr><td>關聯</td><td>不同現象是否共同變化？</td><td>不將相關直接解釋為因果</td></tr><tr><td>解釋／理解</td><td>為何或如何發生？</td><td>重視機制、經驗與脈絡</td></tr><tr><td>評估</td><td>方案是否達成預期？</td><td>區分反應、學習、行為與結果</td></tr></tbody></table></div>
+<p><strong>【實作】判斷研究目的</strong></p>
+<p>請將自己的工作議題分別改寫成描述、比較、關聯、理解及評估問題。五個版本不必都採用；重點是觀察不同問法需要哪些不同資料。最後選出最符合研究目的與執行條件的一種。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>描述、比較、關聯、解釋／理解與評估，代表不同的知識目的。</li>
+<li>題目使用「影響」「造成」「成效」等詞時，通常需要更強的研究設計與證據。</li>
+<li>選擇研究目的時，必須同時考量重要性、資料可得性與研究者能承擔的範圍。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.7　研究不是直線，而是反覆修正的系統"><h1 id="full-ch1-11">1.7　研究不是直線，而是反覆修正的系統</h1>
+<section class="level2 full-subsection" data-full-title="1.7.1　教科書順序與實際研究歷程"><h2 id="full-ch1-11-1">1.7.1　教科書順序與實際研究歷程</h2>
+<p>研究方法教材通常依序介紹題目、文獻、方法、資料分析與結論，這種安排有助於學習，卻容易讓初學者誤以為研究只要照表完成。實際研究更像一個反覆校準的系統：工作現象形成初步問題，文獻讓研究者重新定義概念，資料可得性又迫使研究者調整範圍，試作結果則可能顯示原方法不足。</p>
+<p>因此，學生在學期中修改題目並不必然代表失敗。真正需要檢查的是修改理由。如果題目縮小是因為研究對象與時間有限，如果變項調整是因為文獻顯示原概念不精確，這些修改都提高了研究一致性。相反地，若只因初步結果不符合期待而任意換假設或刪除資料，就會破壞研究可信度。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.7.2　研究的八個基本環節"><h2 id="full-ch1-11-2">1.7.2　研究的八個基本環節</h2>
+<p>一項研究通常會經過下列環節：</p>
+<ol>
+<li>觀察工作、組織或社會情境中的現象。</li>
+<li>區分已知事實、個人判斷與未知問題。</li>
+<li>搜尋文獻，理解概念、理論與既有發現。</li>
+<li>縮小研究問題、對象、情境與時間範圍。</li>
+<li>判斷需要何種證據，選擇相應研究設計。</li>
+<li>依倫理原則蒐集、整理與分析資料。</li>
+<li>比較研究結果、原先預期與替代解釋。</li>
+<li>形成結論、限制、建議與後續問題。</li>
+</ol>
+<p>這些環節不是只能前進不能後退。例如，研究者設計問卷時可能發現概念尚未定義清楚，因此回到文獻；開始聯絡受訪者後可能發現原訂對象難以接觸，因此必須調整問題或抽樣方式。研究計畫的功能，就是在正式蒐集資料前盡量提早發現這些不一致。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.7.3　研究一致性"><h2 id="full-ch1-11-3">1.7.3　研究一致性</h2>
+<p>研究一致性是本課程會反覆強調的核心。題目、動機、目的、問題、文獻、方法、資料、分析與結論，都應指向同一個研究焦點。若題目寫「學習成效」，資料卻只有滿意度；研究問題詢問「如何影響」，方法卻只能分析一次性相關；結論討論所有在職學員，樣本卻只來自單一類別課程，這些都是一致性問題。</p>
+<p>表 1-5 可以作為整個學期的研究追蹤表。每次修改任何一欄，都應檢查是否需要連動調整其他欄位。</p>
+<p><strong>表 1-5　研究一致性追蹤表</strong></p>
+<div class="table-wrap"><table><thead><tr><th>環節</th><th>本研究的內容</th><th>一致性檢查</th></tr></thead><tbody><tr><td>工作現象</td><td>看見什麼情形？</td><td>是否有初步事實依據？</td></tr><tr><td>研究問題</td><td>最想知道什麼？</td><td>是否可由資料回答？</td></tr><tr><td>核心概念</td><td>問題中有哪些概念？</td><td>是否定義清楚？</td></tr><tr><td>文獻</td><td>前人如何理解？</td><td>是否直接支撐問題？</td></tr><tr><td>研究對象</td><td>向誰或向何處取得資料？</td><td>是否真能提供答案？</td></tr><tr><td>方法與工具</td><td>如何取得與分析？</td><td>是否產生所需證據？</td></tr><tr><td>結論範圍</td><td>最多能推論到哪裡？</td><td>是否超出樣本與設計？</td></tr></tbody></table></div>
+<p><strong>【案例】從「課程有沒有用」到可研究的問題</strong></p>
+<p>某職業培訓單位累積一批結訓問卷，希望了解課程是否有效。原始資料包括學員背景、課程滿意度及自評學習效果，但沒有課前測驗、課後客觀測驗，也沒有實際就業或工作表現資料。</p>
+<p>若直接把題目寫成「職業訓練課程對工作能力提升之成效研究」，便超出資料範圍。現有資料較適合描述學員滿意度與自評學習效果，並分析兩者是否相關。研究者可以將問題調整為「學員的課程滿意度與自評學習效果之間呈現何種關聯」，同時在研究限制中清楚指出，自評學習效果不能等同客觀能力或長期工作績效。</p>
+<p>這個調整看似把題目變小，實際上是讓研究問題、資料與結論更加一致。碩士研究的品質通常不取決於題目聽起來多大，而取決於研究者是否把一個合理範圍內的問題回答清楚。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>實際研究需要在問題、文獻、方法與資料之間反覆修正。</li>
+<li>修改本身不是失敗，關鍵是修改是否有證據、文獻或可行性理由。</li>
+<li>題目、概念、資料與結論必須一致；題目縮小往往能提升研究品質。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.8　研究者的角色與思考習慣"><h1 id="full-ch1-12">1.8　研究者的角色與思考習慣</h1>
+<section class="level2 full-subsection" data-full-title="1.8.1　保持好奇，也保持懷疑"><h2 id="full-ch1-12-1">1.8.1　保持好奇，也保持懷疑</h2>
+<p>研究者需要對現象保持好奇，願意追問習以為常的作法為何如此；同時也要對過早出現的答案保持懷疑。懷疑不是否定所有資訊，而是要求重要主張必須說明來源與理由。</p>
+<p>面對符合自己經驗的結論，更需要主動檢查。因為越符合原先信念的答案，越容易被快速接受。研究訓練的重要目的之一，就是讓研究者在「這正是我一直認為的」之後，再加上一句：「還需要什麼證據？」</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.8.2　區分研究角色與工作角色"><h2 id="full-ch1-12-2">1.8.2　區分研究角色與工作角色</h2>
+<p>在職學生經常同時是研究者、主管、教師、同事或制度執行者。這種貼近現場的角色能帶來豐富理解，也可能影響資料取得與解釋。例如，部屬對主管研究者的回答可能比較保守；教師可能特別注意支持自己教學設計的資料。</p>
+<p>研究者不可能完全沒有立場，但必須說明自己的位置如何影響研究。質性研究常以反思紀錄呈現研究者與場域的關係；量化研究也需要考慮題目措辭、資料缺漏與分析選擇是否受到期待影響。承認可能影響不等於研究無效，而是增加透明度。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.8.3　把「不知道」當成研究能力"><h2 id="full-ch1-12-3">1.8.3　把「不知道」當成研究能力</h2>
+<p>職場常期待主管迅速給答案，研究卻允許暫時不知道。能夠清楚說明目前不知道什麼、為何不知道，以及需要哪些資料才能更接近答案，是一種重要能力。</p>
+<p>「不知道」不是停止思考，而是把未知變成可處理的問題。當研究者能區分已知、推測與未知，就比較不會把立場包裝成事實，也更能設計合理的研究步驟。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>研究者應同時保持好奇與懷疑，尤其要檢查符合自身立場的答案。</li>
+<li>在職研究者必須反思工作角色、權力關係與既有期待如何影響研究。</li>
+<li>能準確指出「目前不知道什麼」，是形成研究問題的重要能力。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.9　AI 時代的研究判斷"><h1 id="full-ch1-13">1.9　AI 時代的研究判斷</h1>
+<section class="level2 full-subsection" data-full-title="1.9.1　AI 能加速發散，但不能確認真實"><h2 id="full-ch1-13-1">1.9.1　AI 能加速發散，但不能確認真實</h2>
+<p>生成式 AI 能快速整理語句、提出可能因素、比較研究問題版本，也能模擬反方意見。對在職學生而言，它特別適合協助把熟悉但混亂的工作經驗拆成多個可能角度。研究者不必把第一個提示寫得完美，可以透過多輪對話逐步澄清問題。</p>
+<p>然而，AI 產生的是依訓練資料與當下輸入形成的回答，不等於研究現場的真實資料。它可能提供不存在的文獻、混淆概念、使用刻板印象，或在證據不足時仍給出語氣肯定的結論。文字流暢度不能當作品質證明。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.9.2　提問、驗證、解釋、決策"><h2 id="full-ch1-13-2">1.9.2　提問、驗證、解釋、決策</h2>
+<p>本課程將 AI 使用整理為四個環節：</p>
+<ol>
+<li><strong>提問（Ask）</strong>：用 AI 擴大可能觀點、比較版本或找出盲點。</li>
+<li><strong>驗證（Verify）</strong>：回到原始文獻、正式資料、實際紀錄或研究現場核對。</li>
+<li><strong>解釋（Interpret）</strong>：判斷回答與自己的研究情境如何連接，有哪些限制。</li>
+<li><strong>決策（Decide）</strong>：由研究者說明接受、修改或拒絕哪些建議，以及理由。</li>
+</ol>
+<p>若缺少驗證，AI 只是快速產生可能答案；若缺少解釋，內容可能與研究情境無關；若缺少決策，研究者便把責任交給工具。四個環節中，AI 可以大量參與提問，但驗證、解釋與決策仍由研究者負責。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.9.3　研究資料與倫理邊界"><h2 id="full-ch1-13-3">1.9.3　研究資料與倫理邊界</h2>
+<p>研究者不能把機密資料、可識別個資、未公開訪談內容或敏感組織文件任意輸入不適當的 AI 服務。即使移除姓名，職稱、事件、部門與時間的組合仍可能使個人被辨識。使用 AI 前必須先確認資料是否允許外部處理，以及是否有足夠的去識別化與權限控管。</p>
+<p>更不能以 AI 生成內容冒充真實資料。AI 可以模擬訪談問題或假想受訪者可能如何理解題目，但模擬結果不能當作真實訪談、問卷或實驗結果。研究證據必須來自研究設計中合法、真實且可說明的資料來源。</p>
+<p><strong>【AI 共學】替代解釋與證據檢查</strong></p>
+<p><strong>任務目的</strong>：讓 AI 協助擴展可能解釋，但由學習者判斷哪些方向值得研究。</p>
+<p><strong>先自行思考</strong>：針對「年輕員工離職是因為抗壓性不足」，先寫出至少三種替代解釋。</p>
+<p><strong>建議提問</strong>：</p>
+<blockquote><p>某公司主管認為年輕員工離職是因為抗壓性不足。請不要直接同意此判斷，分別從工作設計、主管管理、薪資制度、職涯發展、產業環境與資料偏差提出替代解釋。對每項解釋說明需要哪些資料才能查證，並指出不能只憑哪些表面資料下結論。請將「可觀察事實」與「可能推測」分開。</p></blockquote>
+<p><strong>驗證任務</strong>：將 AI 回答標記為四類：有助於研究、需要文獻查證、需要現場資料、概念模糊或帶有偏見。</p>
+<p><strong>最終決策</strong>：選擇一項最值得優先查證的解釋，說明重要性、所需資料、資料可得性，以及沒有採用其他方向的理由。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>AI 可以擴展研究思考，卻不能證明現象存在，也不能替代真實資料。</li>
+<li>AI 使用應完成「提問、驗證、解釋、決策」四個環節。</li>
+<li>文獻真實性、資料保護、研究倫理與最終結論仍由研究者負責。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.10　綜合案例：導入 AI 是否提升行政效率"><h1 id="full-ch1-14">1.10　綜合案例：導入 AI 是否提升行政效率</h1>
+<section class="level2 full-subsection" data-full-title="1.10.1　原始情境"><h2 id="full-ch1-14-1">1.10.1　原始情境</h2>
+<p>某學校導入生成式 AI，協助行政人員撰寫公文初稿、回覆電子郵件及整理會議資料。三個月後，主管觀察到部分文件完成速度加快，因此在會議中表示：「AI 已經明顯提升整體行政效率，接下來應要求所有單位全面使用。」</p>
+<p>這個判斷反映了真實管理需求，但其中至少包含三個尚未釐清的部分。第一，「使用 AI」究竟指使用頻率、使用任務，還是是否曾經使用？第二，「行政效率」是初稿速度、案件完成時間、單位產出件數，還是主觀感受？第三，導入期間是否也同時改變人力、流程、工作分配或文件要求？</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.10.2　把判斷拆成證據鏈"><h2 id="full-ch1-14-2">1.10.2　把判斷拆成證據鏈</h2>
+<p>若研究者只詢問「您是否認為 AI 提升效率」，取得的是使用者主觀評價。這項資料有價值，但不能直接代表實際工時或文件品質。較完整的分析可同時考慮：不同任務的處理時間、修改次數、錯誤率、退件率、查證時間、使用者經驗及主管評價。</p>
+<p>研究者也需要區分局部效率與整體效率。AI 可能讓撰寫初稿變快，卻增加事實查核、格式修正或資訊安全審查時間；也可能只對高度重複的文字任務有效，對需要跨單位協調與責任判斷的工作幫助有限。若只測量最容易改善的局部步驟，就可能高估整體成效。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="1.10.3　形成不同層次的研究問題"><h2 id="full-ch1-14-3">1.10.3　形成不同層次的研究問題</h2>
+<p>依資料與研究目的，可以提出不同問題：</p>
+<ul>
+<li>描述：行政人員使用生成式 AI 的頻率、任務類型與查證方式為何？</li>
+<li>比較：不同工作類型在使用 AI 前後的平均處理時間是否不同？</li>
+<li>關聯：AI 使用熟練度與自評工作效率是否相關？</li>
+<li>理解：行政人員如何看待 AI 對專業責任與工作角色的改變？</li>
+<li>評估：導入 AI 輔助流程後，文件處理時間、錯誤率與退件率是否改善？</li>
+</ul>
+<p>這些問題都源自同一情境，卻需要不同資料與方法。研究者不應一次全部納入，而應依研究價值、時間、權限與可取得資料選擇焦點。</p>
+<p><strong>【實作】案例診療室</strong></p>
+<ol>
+<li>在原始敘述中畫出「觀察」「推測」「價值判斷」與「行動建議」。</li>
+<li>為「AI 使用」與「行政效率」各提出至少兩種可能定義。</li>
+<li>列出一項支持 AI 有效的證據，以及一項可能反駁的證據。</li>
+<li>選擇一種研究目的，寫出一個資料可回答的問題。</li>
+<li>說明這項研究即使完成，仍不能回答什麼。</li>
+</ol>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>一項看似簡單的管理主張，往往包含尚未定義的概念與未被檢查的因果推論。</li>
+<li>研究者要同時看局部與整體結果，避免只選擇有利指標。</li>
+<li>同一工作現象可以形成多種研究問題，但研究範圍必須依資料與資源收斂。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="1.11　把自己的工作經驗轉成研究起點"><h1 id="full-ch1-15">1.11　把自己的工作經驗轉成研究起點</h1>
+<p>研究題目不需要在第一堂課就定案。此時最重要的產出，是一份能區分現象、判斷與未知之處的研究經驗盤點。請選擇一項自己確實接觸過、也有機會取得基本資料的工作現象，完成表 1-6。</p>
+<p><strong>表 1-6　工作經驗轉換表</strong></p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>填寫內容</th></tr></thead><tbody><tr><td>工作現象</td><td>實際看見或經歷了什麼？</td></tr><tr><td>發生情境</td><td>在哪個組織、流程、課程或任務中？</td></tr><tr><td>影響對象</td><td>誰受到影響？</td></tr><tr><td>現有事實</td><td>目前有哪些紀錄或可觀察事實？</td></tr><tr><td>個人判斷</td><td>自己目前認為原因是什麼？</td></tr><tr><td>替代解釋</td><td>還有哪些可能原因？</td></tr><tr><td>缺少證據</td><td>哪些關鍵資訊尚未取得？</td></tr><tr><td>可取得資料</td><td>在權限、時間與倫理上能取得什麼？</td></tr><tr><td>想了解之處</td><td>研究完成後最希望知道什麼？</td></tr><tr><td>暫不處理</td><td>哪些範圍這次研究先排除？</td></tr></tbody></table></div>
+<p>填寫時先避免急著創造漂亮題目。題目太早固定，容易使後續文獻與資料被迫配合。先把現象與未知之處寫清楚，下一章再從異常、差異、變化、矛盾、成效不明與持續兩難等方向發現研究問題。</p>
+<p><strong>【同儕實作】只提問，不給方案</strong></p>
+<p>兩人一組，每人用三分鐘說明工作現象。聆聽者只能提出澄清問題：</p>
+<ol>
+<li>您實際看到的現象是什麼？</li>
+<li>這是少數事件，還是持續出現的模式？</li>
+<li>您如何知道它是一個問題？</li>
+<li>誰認為這是一個問題？</li>
+<li>目前對原因的判斷依據是什麼？</li>
+<li>還可能有什麼不同解釋？</li>
+<li>如果只能先了解一件事，最值得了解什麼？</li>
+</ol>
+<p>活動結束後，說明哪一個問題最能幫助自己重新理解原來的困擾。這項活動刻意禁止立即給建議，因為研究的第一步是把問題問清楚，而不是競相比誰更快提出解法。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>第一堂課的目標不是立即完成題目，而是形成清楚的研究現象與未知問題。</li>
+<li>研究範圍除了說明要做什麼，也應說明此次暫時不處理什麼。</li>
+<li>澄清問題通常比立即提出方案更能提升研究焦點。</li>
+</ul>
+<hr>
+</section>
+<section class="level1 full-section" data-full-title="1.12　常見誤區與修正方式"><h1 id="full-ch1-16">1.12　常見誤區與修正方式</h1>
+<section class="level2 full-subsection" data-full-title="誤區一：有問卷就等於研究"><h2 id="full-ch1-16-1">誤區一：有問卷就等於研究</h2>
+<p>問卷只是資料蒐集工具。研究者應先說明要回答什麼問題，再判斷問卷能否取得所需資料。如果研究問題關注實際行為，只蒐集態度問卷可能不夠；如果研究問題關注個人經驗的形成過程，固定選項也可能過度簡化。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="誤區二：資料越多，研究越有價值"><h2 id="full-ch1-16-2">誤區二：資料越多，研究越有價值</h2>
+<p>大量資料若與研究問題無關，只會增加整理負擔。研究價值來自資料能否回答重要問題，而不是檔案大小、題目數量或受訪人數本身。適量、合適且品質可說明的資料，比大量但來源混亂的資料更有用。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="誤區三：統計顯著就代表已經證明"><h2 id="full-ch1-16-3">誤區三：統計顯著就代表已經證明</h2>
+<p>統計顯著仍需搭配樣本、測量方式、效果大小、研究設計及替代解釋判讀。顯著不一定代表實務上重要，也不等於因果成立。研究者應說明結果的大小與情境，而不是只報告一個判斷符號。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="誤區四：題目越大越有價值"><h2 id="full-ch1-16-4">誤區四：題目越大越有價值</h2>
+<p>「探討 AI 對企業經營的全面影響」聽起來重要，卻很難由一篇碩士論文回答。把對象、情境、概念與時間範圍縮小，不是降低價值，而是增加真正回答問題的可能。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="誤區五：工作經驗足以證明原因"><h2 id="full-ch1-16-5">誤區五：工作經驗足以證明原因</h2>
+<p>工作經驗適合發現問題與理解脈絡，但個人能接觸的人、事件與資訊有限。研究需要把經驗轉成可以被他人理解與檢查的證據，也要主動處理可能的替代解釋。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="誤區六：研究一定要提出立即可行的解決方案"><h2 id="full-ch1-16-6">誤區六：研究一定要提出立即可行的解決方案</h2>
+<p>若問題尚未釐清，解決方案可能只是另一個直覺。研究可以先描述現況、理解經驗或辨識關係。建議應在證據範圍內提出，而不是為了章節完整而硬加處方。</p>
+</section>
+<section class="level2 full-subsection" data-full-title="誤區七：AI 可以直接完成研究"><h2 id="full-ch1-16-7">誤區七：AI 可以直接完成研究</h2>
+<p>AI 可以協助發散、比較、整理與表達，但不能替研究者取得真實資料、確認文獻存在、處理研究倫理或承擔結論責任。學生若無法解釋自己提交的研究內容，就還沒有真正完成研究工作。</p>
+<p><strong>▌ 本節小結</strong></p>
+<ul>
+<li>工具、資料量、統計結果與題目規模都不能單獨代表研究品質。</li>
+<li>好研究不是把主張寫得最大，而是讓問題、資料與結論相互一致。</li>
+<li>研究責任不能外包給方法、軟體或生成式 AI。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="本章重點回顧"><h1 id="full-ch1-17">本章重點回顧</h1>
+<ol>
+<li>研究從真實現象出發，但不把第一個經驗判斷直接當成結論。</li>
+<li>研究由問題、既有知識、方法、資料、證據、論證與結論共同構成。</li>
+<li>資料不是證據的同義詞；資料需要經過品質檢查、分析與合理解釋。</li>
+<li>替代解釋能避免研究只為原先立場尋找支持，也能幫助聚焦研究範圍。</li>
+<li>描述、比較、關聯、解釋／理解與評估，分別回答不同類型的問題。</li>
+<li>研究是反覆修正的歷程，題目、文獻、方法、資料與結論必須維持一致。</li>
+<li>研究能提高實務決策品質，但不保證單一研究就能解決所有問題。</li>
+<li>AI 可以協助提問與比較；真實查證、情境解釋、倫理責任與最終決策仍屬研究者。</li>
+</ol>
+</section>
+<section class="level1 full-section" data-full-title="關鍵詞"><h1 id="full-ch1-18">關鍵詞</h1>
+<ul>
+<li>研究（Research）</li>
+<li>研究問題（Research Question）</li>
+<li>系統性（Systematic Approach）</li>
+<li>資料（Data）</li>
+<li>證據（Evidence）</li>
+<li>論證（Argumentation）</li>
+<li>替代解釋（Alternative Explanation）</li>
+<li>相關（Correlation）</li>
+<li>因果（Causality）</li>
+<li>研究一致性（Research Coherence）</li>
+<li>研究倫理（Research Ethics）</li>
+<li>研究者反思（Researcher Reflexivity）</li>
+</ul>
+</section>
+<section class="level1 full-section" data-full-title="章末練習"><h1 id="full-ch1-19">章末練習</h1>
+<section class="level2 full-subsection" data-full-title="A. 基礎理解"><h2 id="full-ch1-19-1">A. 基礎理解</h2>
+<ol>
+<li>請用自己的話說明研究的意義，不可只寫「蒐集資料與分析資料」。</li>
+<li>工作經驗為什麼既是研究優勢，也可能成為研究限制？</li>
+<li>資料與證據有何不同？請舉一例說明。</li>
+<li>為什麼有問卷、有統計結果，仍不一定構成良好研究？</li>
+<li>說明描述、比較、關聯、解釋與評估研究的差異。</li>
+<li>為什麼研究結論通常需要保留適用範圍與限制？</li>
+</ol>
+</section>
+<section class="level2 full-subsection" data-full-title="B. 應用分析"><h2 id="full-ch1-19-2">B. 應用分析</h2>
+<p><strong>情境一：教育訓練</strong></p>
+<p>公司辦理三小時 AI 教育訓練，課後 90% 的員工填答「滿意」。主管因此認定訓練已提升全體員工工作績效。</p>
+<ol>
+<li>哪一部分是資料，哪一部分是結論？</li>
+<li>結論超出了哪些證據範圍？</li>
+<li>若要了解學習、行為與績效，還需要哪些資料？</li>
+</ol>
+<p><strong>情境二：製造品質</strong></p>
+<p>某生產線本月不良率上升，現場主管認為是新進人員操作不熟造成，準備增加訓練。</p>
+<ol>
+<li>請提出至少四項替代解釋。</li>
+<li>每項替代解釋需要哪些資料查證？</li>
+<li>如果只能先做一項分析，您會選擇什麼？為什麼？</li>
+</ol>
+<p><strong>情境三：校園行政</strong></p>
+<p>學生反映線上申請流程複雜，承辦單位認為是學生沒有閱讀說明。</p>
+<ol>
+<li>如何把「流程複雜」與「沒有閱讀」改成可觀察描述？</li>
+<li>可以使用哪些不同資料來源？</li>
+<li>學生、承辦人員與系統紀錄可能提供哪些不同觀點？</li>
+</ol>
+</section>
+<section class="level2 full-subsection" data-full-title="C. AI 共學挑戰"><h2 id="full-ch1-19-3">C. AI 共學挑戰</h2>
+<p>選擇上述任一情境，先自行提出替代解釋，再請生成式 AI 提供不同觀點。完成一頁比較紀錄，內容包含：</p>
+<ol>
+<li>自己原先想到的解釋。</li>
+<li>AI 新增的觀點。</li>
+<li>哪些內容需要文獻查證。</li>
+<li>哪些內容需要現場資料。</li>
+<li>哪些建議過度推論或概念不清。</li>
+<li>最終保留的一項研究方向與理由。</li>
+</ol>
+</section>
+<section class="level2 full-subsection" data-full-title="D. 綜合實作：我的研究起點"><h2 id="full-ch1-19-4">D. 綜合實作：我的研究起點</h2>
+<p>以自己的工作現場為基礎，完成下列產出：</p>
+<ol>
+<li>用 150～250 字描述一項具體工作現象。</li>
+<li>分列目前已知事實與個人推測。</li>
+<li>提出至少三項替代解釋。</li>
+<li>列出可取得與不可取得的資料。</li>
+<li>寫出一個描述性問題及一個關聯或理解性問題。</li>
+<li>選擇其中一個作為初步方向，說明選擇理由。</li>
+<li>用 100 字說明即使研究完成，仍不能回答什麼。</li>
+</ol>
+</section>
+</section>
+<section class="level1 full-section" data-full-title="當堂產出檢核表"><h1 id="full-ch1-20">當堂產出檢核表</h1>
+<div class="table-wrap"><table><thead><tr><th>檢核項目</th><th>已完成</th><th>尚待修正</th></tr></thead><tbody><tr><td>工作現象具體，不只有抽象主題</td><td>□</td><td>□</td></tr><tr><td>已區分事實、推測與價值判斷</td><td>□</td><td>□</td></tr><tr><td>至少提出三項替代解釋</td><td>□</td><td>□</td></tr><tr><td>知道需要哪些資料</td><td>□</td><td>□</td></tr><tr><td>已考慮資料取得權限與倫理</td><td>□</td><td>□</td></tr><tr><td>初步問題可由資料回答</td><td>□</td><td>□</td></tr><tr><td>結論範圍沒有超出資料</td><td>□</td><td>□</td></tr><tr><td>能說明 AI 建議的採用或拒絕理由</td><td>□</td><td>□</td></tr></tbody></table></div>
+</section>
+<section class="level1 full-section" data-full-title="與下一章的銜接"><h1 id="full-ch1-21">與下一章的銜接</h1>
+<p>本章回答的是「研究是什麼」以及「研究者如何從經驗判斷走向系統性證據」。下一章將進一步處理「什麼樣的工作問題能成為研究問題」。學習者將帶著本章完成的工作經驗轉換表，從異常、差異、變化、矛盾、成效不明與持續兩難等線索，逐步形成具體、重要且可執行的研究焦點。</p>
+</section>
+<section class="level1 full-section" data-full-title="教師授課備註"><h1 id="full-ch1-22">教師授課備註</h1>
+<ul>
+<li>本章完整教材可供學生課前或課後閱讀；課堂不必逐段講授。</li>
+<li>三小時課程可依序選用：章首案例、1.2 研究構成、1.3 證據形成、1.9 AI 共學與 1.11 個人實作。</li>
+<li>若學生研究經驗較少，應增加情境判斷與事實／推測拆解；若學生已開始論文，可加強研究一致性與結論邊界。</li>
+<li>本章不深入研究哲學流派，也不提前展開抽樣、信效度與統計技術；相關內容留待後續章節處理。</li>
+</ul>
+</section>
+</div>
+<!-- FULL_MATERIAL_CH1_END -->
+<div id="chapter-2" class="chapter" data-chapter="2">
+        <h1 id="第2章-發現研究問題從工作困擾到研究現象">第2章　發現研究問題：從工作困擾到研究現象</h1>
+        <blockquote>
+        <p>本檔為教師自用的三小時授課講義，可依班級學生題目調整案例與活動時間。</p>
+        </blockquote>
+        <h2 id="一本章定位-1">一、本章定位</h2>
+        <p>第1章協助學生理解研究是從問題、方法、資料走向證據與論證的過程；第2章開始處理學生自己的題目。</p>
+        <p>碩士在職專班學生通常不缺少工作問題。他們每天都在面對招生下降、員工流動、顧客抱怨、流程延遲、學習動機不足、數位轉型困難或AI導入成效不明等現象。真正的困難是：這些工作困擾尚未必能直接成為研究問題。</p>
+        <p>例如：</p>
+        <ul>
+        <li>員工沒有向心力。</li>
+        <li>現在的學生越來越難教。</li>
+        <li>顧客只在意價格。</li>
+        <li>行政流程太沒有效率。</li>
+        <li>公司應該趕快導入AI。</li>
+        </ul>
+        <p>這些句子混合了觀察、情緒、價值判斷、原因推測與改善主張。如果不先拆開，學生很容易把自己的立場直接寫成研究題目，再用問卷或訪談尋找支持。</p>
+        <p>本章的目的，是帶領學生把「我覺得哪裡有問題」轉換成「在什麼人、什麼情境與什麼時間，出現了什麼值得進一步理解的現象；目前已知什麼，仍不知道什麼」。</p>
+        <h2 id="二學習目標-1">二、學習目標</h2>
+        <p>完成本章後，學生應能：</p>
+        <ol type="1">
+        <li>區分工作困擾、管理問題、改善目標、研究現象與研究問題。</li>
+        <li>從人物、情境、時間、行為、變化與結果描述研究現象。</li>
+        <li>分辨事實、個人感受、原因推測及解決方案。</li>
+        <li>從異常、差異、變化、矛盾與成效不明之處發現研究機會。</li>
+        <li>使用價值、未知性、可行性、資料可得性與倫理性篩選題目。</li>
+        <li>形成一項可以帶入第3章發展的初步研究焦點。</li>
+        </ol>
+        <h2 id="三課前準備-1">三、課前準備</h2>
+        <h3 id="學生準備">學生準備</h3>
+        <p>帶著第1章完成的「個人研究經驗盤點」及「工作經驗轉換表」到課堂，選出一項最想繼續發展的工作現象。</p>
+        <h3 id="教師準備">教師準備</h3>
+        <ul>
+        <li>三至五個常見但過度寬泛的研究題目。</li>
+        <li>一個可逐步聚焦的主案例。</li>
+        <li>「工作困擾拆解表」及「題目篩選雷達表」。</li>
+        <li>若能取得，可準備一份簡單的組織紀錄或統計圖，讓學生練習從資料辨識現象。</li>
+        </ul>
+        <h2 id="四三小時授課流程-1">四、三小時授課流程</h2>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>時間</th>
+        <th>教學內容</th>
+        <th>建議方式</th>
+        <th>學生產出</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>0:00–0:20</td>
+        <td>回顧第1章與工作困擾快寫</td>
+        <td>個人書寫、兩人分享</td>
+        <td>一句工作困擾</td>
+        </tr>
+        <tr class="even">
+        <td>0:20–0:55</td>
+        <td>困擾、問題、現象與研究問題</td>
+        <td>教師講解、句子拆解</td>
+        <td>概念區分表</td>
+        </tr>
+        <tr class="odd">
+        <td>0:55–1:25</td>
+        <td>從現象找研究機會</td>
+        <td>案例分類、小組討論</td>
+        <td>現象描述初稿</td>
+        </tr>
+        <tr class="even">
+        <td>1:25–1:35</td>
+        <td>休息</td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr class="odd">
+        <td>1:35–2:05</td>
+        <td>題目篩選與可行性</td>
+        <td>題目診療室</td>
+        <td>題目篩選表</td>
+        </tr>
+        <tr class="even">
+        <td>2:05–2:30</td>
+        <td>AI多視角發散與收斂</td>
+        <td>個人操作、小組比較</td>
+        <td>候選方向三選一</td>
+        </tr>
+        <tr class="odd">
+        <td>2:30–2:55</td>
+        <td>個人研究焦點實作</td>
+        <td>工作現象觀察單</td>
+        <td>初步研究焦點</td>
+        </tr>
+        <tr class="even">
+        <td>2:55–3:00</td>
+        <td>出門票與第3章預告</td>
+        <td>一句話收束</td>
+        <td>研究焦點句</td>
+        </tr>
+        </tbody>
+        </table>
+        <hr />
+        <h1 id="第一部分-先把工作困擾拆開">第一部分　先把工作困擾拆開</h1>
+        <h2 id="五開場活動請不要急著給答案">五、開場活動：請不要急著給答案</h2>
+        <p>請學生用一句話寫出目前工作中最想改善的事情。教師可抽取幾則匿名內容，例如：</p>
+        <ul>
+        <li>新生報到流程太複雜。</li>
+        <li>員工教育訓練沒有成效。</li>
+        <li>學生上課都在滑手機。</li>
+        <li>顧客滿意度一直下降。</li>
+        <li>同仁不願意使用新的資訊系統。</li>
+        </ul>
+        <p>接著請全班暫時不要提出解決方案，只能追問：</p>
+        <ul>
+        <li>具體發生了什麼？</li>
+        <li>是誰觀察到的？</li>
+        <li>從什麼時候開始？</li>
+        <li>所有人都如此，還是特定群體？</li>
+        <li>有什麼紀錄可以確認？</li>
+        <li>哪一部分其實還不知道？</li>
+        </ul>
+        <h3 id="教師引導-1">教師引導</h3>
+        <p>在職學生習慣快速解決問題，因此常會直接提出「增加人力」「重新訓練」「導入系統」「提高獎勵」。本活動刻意暫停解決方案，是為了讓學生先看清楚問題。</p>
+        <p>研究的第一步不是證明某個方案有效，而是確認：我們究竟正在處理什麼現象？</p>
+        <h2 id="六五個容易混淆的層次">六、五個容易混淆的層次</h2>
+        <h3 id="1-工作困擾">1. 工作困擾</h3>
+        <p>工作困擾是當事人感受到不順利、不滿意或需要改善的情況。例如：「每次新生報到都很混亂。」</p>
+        <p>工作困擾是重要起點，但通常包含情緒與整體印象，尚未說明混亂出現在哪個步驟、影響誰、如何判定。</p>
+        <h3 id="2-管理問題">2. 管理問題</h3>
+        <p>管理問題是組織需要處理的實務狀況。例如：「新生報到期間，重複補件與電話詢問增加行政負荷。」</p>
+        <p>相較於工作困擾，管理問題已經比較具體，但重點仍是組織如何處置。</p>
+        <h3 id="3-改善目標">3. 改善目標</h3>
+        <p>改善目標說明希望改變的方向。例如：「建置單一入口網站，降低新生補件與電話詢問次數。」</p>
+        <p>改善目標不等於研究問題。它已經預設某項做法，而且關心的是推動與結果。</p>
+        <h3 id="4-研究現象">4. 研究現象</h3>
+        <p>研究現象是可被觀察、描述或蒐集資料理解的情況。例如：「不同入學身分的新生在報到流程中，出現不同類型的資訊理解困難與重複補件行為。」</p>
+        <p>研究現象開始說明對象、情境、行為與差異，但尚未完全形成正式研究問題。</p>
+        <h3 id="5-研究問題">5. 研究問題</h3>
+        <p>研究問題指出研究者準備透過資料回答的未知。例如：「不同入學身分新生在使用線上報到系統時，主要遭遇哪些資訊理解與操作困難？」</p>
+        <p>正式研究問題會在第3章深入撰寫。本章先要求學生能找到值得回答的未知。</p>
+        <h2 id="七同一件事的五層轉換">七、同一件事的五層轉換</h2>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>層次</th>
+        <th>範例</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>工作困擾</td>
+        <td>同仁都不願意使用AI。</td>
+        </tr>
+        <tr class="even">
+        <td>管理問題</td>
+        <td>組織完成AI培訓後，實際使用率仍低。</td>
+        </tr>
+        <tr class="odd">
+        <td>改善目標</td>
+        <td>增加AI培訓與獎勵，提升使用率。</td>
+        </tr>
+        <tr class="even">
+        <td>研究現象</td>
+        <td>不同職務員工在培訓後的AI使用頻率、任務類型與持續使用情形不同。</td>
+        </tr>
+        <tr class="odd">
+        <td>初步研究問題</td>
+        <td>員工在完成AI培訓後，哪些工作情境與組織因素影響其持續使用？</td>
+        </tr>
+        </tbody>
+        </table>
+        <h3 id="教師提醒">教師提醒</h3>
+        <p>研究不一定要反對改善方案，但改善方案不應在研究開始前就被當成唯一答案。若研究結果顯示真正障礙是資料權限、工作流程或主管態度，再增加操作培訓也未必有效。</p>
+        <hr />
+        <h1 id="第二部分-如何描述一個研究現象">第二部分　如何描述一個研究現象</h1>
+        <h2 id="八研究現象的七個元素">八、研究現象的七個元素</h2>
+        <p>學生可用七個問題把空泛議題變具體。</p>
+        <h3 id="1-誰">1. 誰</h3>
+        <p>現象發生在誰身上？是全體員工、新進人員、主管、顧客、教師或學生？不同群體是否有差異？</p>
+        <h3 id="2-在什麼情境">2. 在什麼情境</h3>
+        <p>現象出現在特定組織、部門、工作任務、課程、服務接觸點，還是跨組織環境？</p>
+        <h3 id="3-何時">3. 何時</h3>
+        <p>現象是長期存在、最近才出現，還是在政策、系統或人員改變後發生？</p>
+        <h3 id="4-發生什麼">4. 發生什麼</h3>
+        <p>可觀察的行為、事件、差異或結果是什麼？不要只使用「不好」「不足」「很低」等評價詞。</p>
+        <h3 id="5-如何變化">5. 如何變化</h3>
+        <p>現象是否隨時間、群體、任務或情境改變？研究往往從差異與變化中找到問題。</p>
+        <h3 id="6-造成什麼影響">6. 造成什麼影響</h3>
+        <p>影響的是時間、品質、成本、學習、情緒、關係、決策或服務結果？影響由誰判斷？</p>
+        <h3 id="7-目前不知道什麼">7. 目前不知道什麼</h3>
+        <p>這是研究最重要的部分。若所有答案都已確定，就沒有研究必要；若完全不知道任何資訊，又可能尚不足以形成研究。</p>
+        <h2 id="九從評價詞改成可觀察描述">九、從評價詞改成可觀察描述</h2>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>空泛評價</th>
+        <th>可觀察描述方向</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>學習動機很低</td>
+        <td>缺席、延遲繳交、課堂參與、任務選擇、持續投入情形</td>
+        </tr>
+        <tr class="even">
+        <td>行政效率不好</td>
+        <td>處理時間、等待時間、重工、補件、錯誤率、跨單位往返</td>
+        </tr>
+        <tr class="odd">
+        <td>員工沒有向心力</td>
+        <td>留任意願、組織認同、主動協助、參與行為、情感連結</td>
+        </tr>
+        <tr class="even">
+        <td>顧客不滿意</td>
+        <td>抱怨內容、評價、退貨、流失、重複購買、服務接觸經驗</td>
+        </tr>
+        <tr class="odd">
+        <td>AI導入沒有成效</td>
+        <td>使用頻率、任務適配、時間、品質、錯誤、查證負擔、持續使用</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>這些描述方向仍不等於正式測量。它們只是提醒學生：研究現象必須有可能被觀察或形成資料。</p>
+        <h2 id="十初步證據階梯">十、初步證據階梯</h2>
+        <p>發現題目時，不要求學生立刻取得完整證據，但至少要知道目前判斷位於哪個層次。</p>
+        <h3 id="第一層個人感受">第一層：個人感受</h3>
+        <p>「感覺最近抱怨變多。」這是題目線索，不能直接當作普遍事實。</p>
+        <h3 id="第二層零星事件">第二層：零星事件</h3>
+        <p>「最近三位顧客都抱怨同一件事。」開始出現重複性，但仍可能是特殊個案。</p>
+        <h3 id="第三層多方觀察">第三層：多方觀察</h3>
+        <p>不同同仁或利害關係人也觀察到相似現象，顯示問題不只存在於單一個人感受。</p>
+        <h3 id="第四層既有紀錄">第四層：既有紀錄</h3>
+        <p>抱怨紀錄、系統日誌、缺席資料、離職率、處理時間或服務紀錄呈現某種變化。</p>
+        <h3 id="第五層系統性研究">第五層：系統性研究</h3>
+        <p>使用明確設計蒐集與分析資料，進一步描述、比較或解釋現象。</p>
+        <p>教師可強調：前四層不是「不科學」或沒有價值，而是支持結論的強度不同。它們可以幫助研究者發現問題，但不能取代正式研究。</p>
+        <hr />
+        <h1 id="第三部分-研究問題從哪裡來">第三部分　研究問題從哪裡來</h1>
+        <h2 id="十一六種常見的研究起點">十一、六種常見的研究起點</h2>
+        <h3 id="1-異常">1. 異常</h3>
+        <p>實際結果與正常狀態或預期不同。例如：完成教育訓練後，員工使用新系統的比例仍很低。</p>
+        <h3 id="2-差異">2. 差異</h3>
+        <p>不同群體、單位或情境出現不同結果。例如：相同課程在日間部與在職專班的學習參與差異明顯。</p>
+        <h3 id="3-變化">3. 變化</h3>
+        <p>某項現象隨時間、制度或技術改變。例如：生成式AI普及後，教師備課流程與專業判斷如何改變。</p>
+        <h3 id="4-矛盾">4. 矛盾</h3>
+        <p>不同資料、觀點或研究結果彼此不一致。例如：員工在問卷中高度支持數位轉型，實際使用行為卻沒有增加。</p>
+        <h3 id="5-成效不明">5. 成效不明</h3>
+        <p>組織投入了方案，但不知道是否達成目標、對誰有效、在什麼條件下有效。例如：導入彈性工時後，員工滿意度提高，但跨部門協作是否受到影響仍不清楚。</p>
+        <h3 id="6-持續出現的兩難">6. 持續出現的兩難</h3>
+        <p>不同目標彼此衝突，無法用單一好壞判斷。例如：AI提升行政速度，卻可能增加查證責任與資安風險。</p>
+        <h2 id="十二不要把沒有人研究我的單位當成唯一理由">十二、不要把「沒有人研究我的單位」當成唯一理由</h2>
+        <p>研究地點不同不一定代表有新的研究價值。如果只是把既有問卷換到另一家公司或學校，而沒有新的情境、問題、理論或方法意義，研究貢獻可能有限。</p>
+        <p>比較有意義的說法是：</p>
+        <ul>
+        <li>此情境具有與既有研究不同的重要條件。</li>
+        <li>過去研究多關注意願，本研究關注實際行為或持續使用。</li>
+        <li>過去研究多採一次性問卷，本研究觀察導入過程。</li>
+        <li>既有研究結論不一致，需要進一步確認差異出現的條件。</li>
+        </ul>
+        <p>這些內容在第8章「研究缺口」會正式處理；本章先讓學生知道，地點不同只是背景，不必然構成研究價值。</p>
+        <hr />
+        <h1 id="第四部分-題目篩選與聚焦">第四部分　題目篩選與聚焦</h1>
+        <h2 id="十三研究題目篩選六問">十三、研究題目篩選六問</h2>
+        <h3 id="1-現象真的存在嗎">1. 現象真的存在嗎？</h3>
+        <p>目前至少有什麼初步觀察或紀錄？若完全只有個人想像，應先進行更多問題探索。</p>
+        <h3 id="2-有什麼尚未知道">2. 有什麼尚未知道？</h3>
+        <p>研究不是重複已經確定的答案。學生應能說出目前最關鍵的不確定性。</p>
+        <h3 id="3-值得回答嗎">3. 值得回答嗎？</h3>
+        <p>回答之後能增加對現象的理解、改善決策依據、補足重要證據，或幫助特定群體嗎？</p>
+        <h3 id="4-資料取得得到嗎">4. 資料取得得到嗎？</h3>
+        <p>研究對象是否能接觸？組織是否允許？資料是否存在？時間與樣本是否足夠？</p>
+        <h3 id="5-在一篇碩士論文內做得完嗎">5. 在一篇碩士論文內做得完嗎？</h3>
+        <p>研究範圍是否同時包含太多對象、變項、組織、地區與方法？題目有價值不代表現在做得完。</p>
+        <h3 id="6-符合倫理嗎">6. 符合倫理嗎？</h3>
+        <p>是否涉及部屬、學生、病人、未成年人、機密或個資？參與者能否自由拒絕？研究者是否同時具有考核或管理權力？</p>
+        <h2 id="十四可行性不是降低研究品質">十四、可行性不是降低研究品質</h2>
+        <p>學生有時認為縮小題目是「做得不夠大」。教師可以說明：</p>
+        <blockquote>
+        <p>可完成的研究，才有機會產生可信證據；範圍宏大但資料不足的研究，只會得到表面結論。</p>
+        </blockquote>
+        <p>聚焦可以從下列方向進行：</p>
+        <ul>
+        <li>限定主要研究對象。</li>
+        <li>限定一個重要場域或流程階段。</li>
+        <li>限定一項核心現象或結果。</li>
+        <li>限定特定時間或事件前後。</li>
+        <li>從多項可能原因中先選一個研究角度。</li>
+        <li>把「整體成效」拆成可觀察的具體面向。</li>
+        </ul>
+        <h2 id="十五題目診療室">十五、題目診療室</h2>
+        <p>教師可提供下列題目，請學生指出問題並嘗試聚焦。</p>
+        <h3 id="題目一ai對教育的影響">題目一：AI對教育的影響</h3>
+        <p>問題：對象、情境、AI類型、影響面向與時間都不清楚。</p>
+        <p>聚焦方向：生成式AI輔助備課如何改變科技大學教師的教材準備與內容查證流程。</p>
+        <h3 id="題目二提升員工向心力之研究">題目二：提升員工向心力之研究</h3>
+        <p>問題：題目直接寫改善目標，核心概念模糊，尚未說明現象。</p>
+        <p>聚焦方向：新進員工在到職前三個月形成組織認同的關鍵工作經驗。</p>
+        <h3 id="題目三顧客滿意度與再購意願品牌忠誠服務品質知覺價值及企業形象之研究">題目三：顧客滿意度與再購意願、品牌忠誠、服務品質、知覺價值及企業形象之研究</h3>
+        <p>問題：變項過多，像把常見構念全部放進模型，尚未看出真實問題。</p>
+        <p>聚焦方向：先從顧客流失紀錄或服務旅程中確認最需要理解的接觸點。</p>
+        <h3 id="題目四問卷調查某公司員工使用ai的情形">題目四：問卷調查某公司員工使用AI的情形</h3>
+        <p>問題：先決定方法，尚未說明為何要調查、哪個未知值得回答。</p>
+        <p>聚焦方向：某公司完成AI培訓後，員工持續使用與停止使用的工作情境有何差異。</p>
+        <hr />
+        <h1 id="第五部分-主案例ai導入真的提升工作效率嗎">第五部分　主案例：AI導入真的提升工作效率嗎</h1>
+        <h2 id="十六案例情境">十六、案例情境</h2>
+        <p>某單位鼓勵行政人員使用生成式AI撰寫公文、會議資料與電子郵件。主管認為AI能提升效率，因此準備進一步全面推動。然而，有些同仁經常使用，有些只嘗試幾次便停止；部分文件完成速度變快，部分同仁卻花更多時間查證與修改。</p>
+        <h2 id="十七把一句主張拆成多個研究方向">十七、把一句主張拆成多個研究方向</h2>
+        <h3 id="方向一使用行為">方向一：使用行為</h3>
+        <p>不同職務員工使用AI的頻率、任務與持續使用情形有何差異？</p>
+        <p>可能資料：系統使用紀錄、自陳使用日誌、任務類型、訪談。</p>
+        <h3 id="方向二工作流程">方向二：工作流程</h3>
+        <p>AI介入前後，文件產製、查證、修改與核定流程如何改變？</p>
+        <p>可能資料：流程圖、任務時間、文件版本、觀察與訪談。</p>
+        <h3 id="方向三工作品質">方向三：工作品質</h3>
+        <p>AI使用後，文件的正確性、完整性、一致性或錯誤類型是否改變？</p>
+        <p>可能資料：文件評分、錯誤紀錄、主管審查意見。</p>
+        <h3 id="方向四員工經驗">方向四：員工經驗</h3>
+        <p>員工如何理解AI對專業能力、責任與工作壓力的影響？</p>
+        <p>可能資料：深度訪談、焦點團體、反思日誌。</p>
+        <h3 id="方向五組織條件">方向五：組織條件</h3>
+        <p>主管支持、規範、資料權限與同儕文化如何影響持續使用？</p>
+        <p>可能資料：問卷、訪談、制度文件、部門比較。</p>
+        <h2 id="十八小組任務">十八、小組任務</h2>
+        <p>每組選一個方向，回答：</p>
+        <ol type="1">
+        <li>最想理解的未知是什麼？</li>
+        <li>需要什麼資料？</li>
+        <li>資料是否取得得到？</li>
+        <li>可能遇到什麼倫理或組織風險？</li>
+        <li>研究完成後可以支持什麼決策？</li>
+        <li>哪些結論仍不能直接宣稱？</li>
+        </ol>
+        <h3 id="教師收束">教師收束</h3>
+        <p>同一個工作困擾可以發展成多種研究，沒有唯一正確題目。選擇的關鍵不是哪個方向聽起來最宏大，而是哪個未知最重要、證據需求最清楚、又能在現有條件下完成。</p>
+        <hr />
+        <h1 id="第六部分-ai多視角發散與收斂">第六部分　AI多視角發散與收斂</h1>
+        <h2 id="十九活動目的">十九、活動目的</h2>
+        <p>AI擅長快速產生許多可能方向，但研究者的工作不是保留全部，而是根據問題價值與可行性做出選擇。本活動同時練習發散與收斂。</p>
+        <h2 id="二十活動步驟">二十、活動步驟</h2>
+        <h3 id="步驟一先寫自己的版本">步驟一：先寫自己的版本</h3>
+        <p>學生先用三句話寫下：工作現象、目前推測、最想知道之處。</p>
+        <h3 id="步驟二請ai從五個層次重看問題">步驟二：請AI從五個層次重看問題</h3>
+        <p>可使用以下提問：</p>
+        <blockquote>
+        <p>我正在探索一個碩士研究題目。工作現象是：【填入現象】。請不要直接替我寫正式題目，也不要預設我的原因判斷正確。請分別從個人、團隊、工作流程、組織制度與外部環境五個層次，提出可能值得研究的未知。每個方向請說明需要的資料、可能研究對象、可行性風險，以及可能涉及的倫理問題。</p>
+        </blockquote>
+        <h3 id="步驟三檢查ai是否偷渡假設">步驟三：檢查AI是否偷渡假設</h3>
+        <p>學生標出：</p>
+        <ul>
+        <li>AI把哪些推測寫成事實？</li>
+        <li>AI是否創造了原本不存在的組織背景？</li>
+        <li>哪些方向需要先查證現象是否存在？</li>
+        <li>哪些方向雖有趣，但目前取得不到資料？</li>
+        </ul>
+        <h3 id="步驟四保留三個候選方向">步驟四：保留三個候選方向</h3>
+        <p>使用下表評估：</p>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>評估面向</th>
+        <th style="text-align: right;">候選A</th>
+        <th style="text-align: right;">候選B</th>
+        <th style="text-align: right;">候選C</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>現象有初步證據</td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        </tr>
+        <tr class="even">
+        <td>未知清楚</td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        </tr>
+        <tr class="odd">
+        <td>研究價值</td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        </tr>
+        <tr class="even">
+        <td>資料可得</td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        </tr>
+        <tr class="odd">
+        <td>一學期／論文期間可完成</td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        </tr>
+        <tr class="even">
+        <td>倫理風險可處理</td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        <td style="text-align: right;"></td>
+        </tr>
+        </tbody>
+        </table>
+        <h3 id="步驟五研究者做最後選擇">步驟五：研究者做最後選擇</h3>
+        <p>學生選擇一項主要方向，並寫出捨棄另外兩項的理由。這段理由可保留在研究歷程紀錄中。</p>
+        <hr />
+        <h1 id="第七部分-個人研究焦點實作">第七部分　個人研究焦點實作</h1>
+        <h2 id="二十一工作現象觀察單">二十一、工作現象觀察單</h2>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>項目</th>
+        <th>學生填寫</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>原始工作困擾</td>
+        <td>我最初如何描述這個問題？</td>
+        </tr>
+        <tr class="even">
+        <td>可觀察現象</td>
+        <td>實際發生了什麼？</td>
+        </tr>
+        <tr class="odd">
+        <td>主要對象</td>
+        <td>現象發生在誰身上？</td>
+        </tr>
+        <tr class="even">
+        <td>情境與時間</td>
+        <td>在哪裡、何時、什麼條件下？</td>
+        </tr>
+        <tr class="odd">
+        <td>初步證據</td>
+        <td>有哪些紀錄、事件或多方觀察？</td>
+        </tr>
+        <tr class="even">
+        <td>個人推測</td>
+        <td>我目前認為可能原因是什麼？</td>
+        </tr>
+        <tr class="odd">
+        <td>替代解釋</td>
+        <td>還有哪些不同可能？</td>
+        </tr>
+        <tr class="even">
+        <td>核心未知</td>
+        <td>現在真正不知道的是什麼？</td>
+        </tr>
+        <tr class="odd">
+        <td>所需資料</td>
+        <td>回答未知需要什麼資料？</td>
+        </tr>
+        <tr class="even">
+        <td>資料可得性</td>
+        <td>是否有權限、對象與時間取得？</td>
+        </tr>
+        <tr class="odd">
+        <td>倫理風險</td>
+        <td>是否涉及權力、個資或機密？</td>
+        </tr>
+        <tr class="even">
+        <td>初步研究焦點</td>
+        <td>這次最值得先了解哪一部分？</td>
+        </tr>
+        </tbody>
+        </table>
+        <h2 id="二十二研究焦點句型">二十二、研究焦點句型</h2>
+        <p>可讓學生暫時使用下列句型，不必急著寫成正式題目：</p>
+        <blockquote>
+        <p>在＿＿＿＿情境中，＿＿＿＿對象出現了＿＿＿＿現象。目前已知＿＿＿＿，但尚不清楚＿＿＿＿。因此，本研究準備先了解＿＿＿＿。</p>
+        </blockquote>
+        <h3 id="範例">範例</h3>
+        <blockquote>
+        <p>在某科技大學新生線上報到情境中，不同入學身分學生出現重複補件與多次電話詢問的現象。目前已知問題集中在部分流程節點，但尚不清楚學生在資訊理解與系統操作上遭遇哪些具體困難。因此，本研究準備先了解不同入學身分學生的報到歷程與主要障礙。</p>
+        </blockquote>
+        <p>這只是研究焦點初稿。第3章還會把它整理成題目、研究動機、研究目的與研究問題。</p>
+        <h2 id="二十三同儕檢查">二十三、同儕檢查</h2>
+        <p>兩人交換焦點句，只檢查四件事：</p>
+        <ol type="1">
+        <li>能否看出研究對象與情境？</li>
+        <li>現象是否可被觀察或形成資料？</li>
+        <li>未知是否真的清楚？</li>
+        <li>是否已經偷渡某個未經證實的原因或解決方案？</li>
+        </ol>
+        <hr />
+        <h1 id="第八部分-常見誤區與教師回應-1">第八部分　常見誤區與教師回應</h1>
+        <h2 id="二十四常見誤區">二十四、常見誤區</h2>
+        <h3 id="題目只寫想推動的工具或政策">題目只寫想推動的工具或政策</h3>
+        <p>例如「建置AI平台之研究」。教師可追問：平台準備處理什麼現象？現況中哪一個未知需要研究？</p>
+        <h3 id="把個人不滿當成普遍問題">把個人不滿當成普遍問題</h3>
+        <p>教師可追問：除了自己，還有哪些人觀察到？是否有紀錄或反例？</p>
+        <h3 id="把原因直接寫進現象">把原因直接寫進現象</h3>
+        <p>例如「因主管領導不佳導致員工離職」。教師可要求先改成中性描述，再把主管領導列為可能解釋之一。</p>
+        <h3 id="題目同時包含太多對象與結果">題目同時包含太多對象與結果</h3>
+        <p>教師可請學生選出「如果只能回答一件事，哪件最重要」，再把其他內容改列後續研究。</p>
+        <h3 id="先決定要發問卷再尋找題目">先決定要發問卷，再尋找題目</h3>
+        <p>教師可要求學生先寫所需證據；若證據是經驗、過程或情境，問卷可能不是最適方法。</p>
+        <h3 id="只有方便取得資料沒有研究價值">只有方便取得資料，沒有研究價值</h3>
+        <p>容易取得不代表值得研究。教師仍需追問未知與價值，但也不必反過來鼓勵學生選擇完全無法取得資料的宏大題目。</p>
+        <h3 id="認為題目不能修改">認為題目不能修改</h3>
+        <p>研究題目會隨文獻與可行性評估逐步修正。本階段要保留研究焦點與決策理由，不必追求一次定稿。</p>
+        <hr />
+        <h1 id="第九部分-課程收束與課後任務">第九部分　課程收束與課後任務</h1>
+        <h2 id="二十五五分鐘出門票">二十五、五分鐘出門票</h2>
+        <p>請學生完成：</p>
+        <ol type="1">
+        <li>原本想研究的是＿＿＿＿＿＿＿＿。</li>
+        <li>今天發現真正需要先理解的現象是＿＿＿＿＿＿＿＿。</li>
+        <li>目前最關鍵的未知是＿＿＿＿＿＿＿＿。</li>
+        <li>最大的可行性風險是＿＿＿＿＿＿＿＿。</li>
+        </ol>
+        <h2 id="二十六課後探索任務">二十六、課後探索任務</h2>
+        <p>學生找一位熟悉該情境的同事、同學或利害關係人，進行十五至二十分鐘的問題探索對話。此活動不是正式訪談，不作為論文研究資料，也不需要錄音或蒐集個資。</p>
+        <p>建議問題：</p>
+        <ul>
+        <li>您是否也觀察到這項現象？</li>
+        <li>您看到的具體情況是什麼？</li>
+        <li>哪些人或情境特別明顯？</li>
+        <li>您認為可能有哪些原因？</li>
+        <li>有沒有與我的判斷不一致的例子？</li>
+        <li>如果只能先了解一件事，您認為最重要的是什麼？</li>
+        </ul>
+        <h3 id="作業內容">作業內容</h3>
+        <p>提交一至兩頁「問題探索紀錄」：</p>
+        <ol type="1">
+        <li>原始工作困擾。</li>
+        <li>自己原本的原因判斷。</li>
+        <li>對方觀察到的相同與不同之處。</li>
+        <li>新發現的替代解釋。</li>
+        <li>修訂後的研究焦點句。</li>
+        <li>目前可取得與不可取得的資料。</li>
+        </ol>
+        <h3 id="簡化評分方式-1">簡化評分方式</h3>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>面向</th>
+        <th>檢核重點</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>現象具體</td>
+        <td>對象、情境與可觀察情況是否清楚？</td>
+        </tr>
+        <tr class="even">
+        <td>未知明確</td>
+        <td>是否指出真正需要理解之處？</td>
+        </tr>
+        <tr class="odd">
+        <td>多元觀點</td>
+        <td>是否納入不同或反例觀察？</td>
+        </tr>
+        <tr class="even">
+        <td>可行性</td>
+        <td>是否誠實評估資料、時間與權限？</td>
+        </tr>
+        <tr class="odd">
+        <td>修訂歷程</td>
+        <td>是否說明焦點如何及為何改變？</td>
+        </tr>
+        </tbody>
+        </table>
+        <h2 id="二十七與下一章銜接">二十七、與下一章銜接</h2>
+        <p>第2章完成的是「研究焦點」，尚不是正式的研究題目。第3章將把這個焦點整理成一條一致的問題鏈：</p>
+        <p>研究現象 → 研究動機 → 研究目的 → 研究問題 → 預計資料</p>
+        <p>學生下一次上課應攜帶工作現象觀察單、問題探索紀錄及修訂後焦點句。</p>
+        <hr />
+        <h1 id="教師課後紀錄區-1">教師課後紀錄區</h1>
+        <h2 id="本次學生常見題目">本次學生常見題目</h2>
+        <ul>
+        <li></li>
+        </ul>
+        <h2 id="最有效的聚焦示範">最有效的聚焦示範</h2>
+        <ul>
+        <li></li>
+        </ul>
+        <h2 id="最常出現的可行性問題">最常出現的可行性問題</h2>
+        <ul>
+        <li></li>
+        </ul>
+        <h2 id="下次需要調整的案例或時間">下次需要調整的案例或時間</h2>
+        <ul>
+        <li></li>
+        </ul>
+        </div>
+      </article>
+      <div class="bottom-nav">
+        <button class="nav-action" id="prev-section" type="button">← 上一節</button>
+        <span class="shortcut-note">鍵盤 ← → 換節｜導讀與完整教材可雙向跳轉｜+ − 縮放</span>
+        <button class="nav-action" id="next-section" type="button">下一節 →</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const storage = {
+        get(key) {
+          try { return localStorage.getItem(key); }
+          catch { return null; }
+        },
+        set(key, value) {
+          try { localStorage.setItem(key, value); }
+          catch { /* 隱私模式或檔案協定受限時，仍可正常閱讀。 */ }
+        }
+      };
+
+      const savedChapter = Number(storage.get('rm-chapter'));
+      const savedFontScale = Number(storage.get('rm-font-scale'));
+      const savedView = storage.get('rm-view');
+      const state = {
+        chapter: [1, 2].includes(savedChapter) ? savedChapter : 1,
+        fontScale: Number.isFinite(savedFontScale) && savedFontScale >= .85 && savedFontScale <= 2.4 ? savedFontScale : 1,
+        view: ['guide', 'full'].includes(savedView) ? savedView : 'guide',
+        sections: { 1: [], 2: [] },
+        fullSections: { 1: [], 2: [] },
+        activeIndex: 0
+      };
+
+      const body = document.body;
+      const chapters = [...document.querySelectorAll('.chapter')];
+      const fullMaterials = [...document.querySelectorAll('.full-material')];
+      const chapterToggles = [...document.querySelectorAll('.chapter-tree-toggle')];
+      const resourceToggles = [...document.querySelectorAll('.resource-toggle')];
+      const indicator = document.getElementById('section-indicator');
+      const progressBar = document.getElementById('progress-bar');
+      const fontIndicator = document.getElementById('font-indicator');
+      const desktopMedia = window.matchMedia('(min-width: 981px)');
+
+      document.documentElement.style.setProperty('--font-scale', state.fontScale);
+      fontIndicator.textContent = Math.round(state.fontScale * 100) + '%';
+      if (desktopMedia.matches && storage.get('rm-sidebar-collapsed') === 'true') body.classList.add('sidebar-collapsed');
+      const menuButton = document.getElementById('menu-button');
+      const sidebarExpanded = desktopMedia.matches && !body.classList.contains('sidebar-collapsed');
+      menuButton.setAttribute('aria-expanded', String(sidebarExpanded));
+      menuButton.setAttribute('aria-label', sidebarExpanded ? '收合目錄' : '展開目錄');
+      menuButton.title = sidebarExpanded ? '收合目錄' : '展開目錄';
+
+      function structureChapter(chapter) {
+        const original = [...chapter.childNodes];
+        let level1 = null;
+        let level2 = null;
+        let chapterTitleSeen = false;
+
+        original.forEach(node => {
+          if (!chapterTitleSeen && node.nodeType === 1 && node.tagName === 'H1') {
+            chapterTitleSeen = true;
+            return;
+          }
+
+          if (node.nodeType === 1 && node.tagName === 'H1') {
+            level1 = document.createElement('section');
+            level1.className = 'level1';
+            chapter.insertBefore(level1, node);
+            level1.appendChild(node);
+            level2 = null;
+          } else if (node.nodeType === 1 && node.tagName === 'H2') {
+            level2 = document.createElement('section');
+            level2.className = 'level2';
+            if (level1) level1.appendChild(level2);
+            else chapter.insertBefore(level2, node);
+            level2.appendChild(node);
+          } else if (level2) {
+            level2.appendChild(node);
+          } else if (level1) {
+            level1.appendChild(node);
+          }
+        });
+      }
+
+      chapters.forEach((chapter, chapterIndex) => {
+        structureChapter(chapter);
+        const number = chapterIndex + 1;
+        chapter.dataset.chapter = number;
+        chapter.classList.toggle('is-active', number === state.chapter);
+
+        const headings = [...chapter.querySelectorAll('section.level1 > h1, section.level2 > h2, section.level2 > h3')];
+        headings.forEach((heading, index) => {
+          if (!heading.id) heading.id = 'ch' + number + '-section-' + (index + 1);
+          state.sections[number].push(heading);
+        });
+
+        chapter.querySelectorAll('section.level2').forEach(section => {
+          const title = section.querySelector(':scope > h2')?.textContent || '';
+          if (/案例|情境/.test(title)) section.classList.add('case-card');
+          if (/AI|人工智慧/.test(title)) section.classList.add('ai-card');
+          if (/活動|任務|產出|實作|評量|觀察單|出門票/.test(title)) section.classList.add('activity-card');
+          if (/誤區|限制|風險/.test(title)) section.classList.add('warning-card');
+          if (/教師|提醒|引導|課後紀錄/.test(title)) section.classList.add('teacher-card');
+        });
+
+        chapter.querySelectorAll('table').forEach(table => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrap';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        });
+
+        const recordZone = [...chapter.querySelectorAll('section.level1')].find(section => /教師課後紀錄區/.test(section.querySelector(':scope > h1')?.textContent || ''));
+        if (recordZone) {
+          recordZone.querySelectorAll('section.level2').forEach(section => {
+            section.classList.add('teacher-card');
+            section.dataset.collapsible = 'true';
+            section.querySelector(':scope > h2')?.addEventListener('click', () => section.classList.toggle('is-open'));
+          });
+        }
+
+        buildToc(number, 'guide');
+      });
+
+      fullMaterials.forEach(material => {
+        const number = Number(material.dataset.fullChapter);
+        state.fullSections[number] = [...material.querySelectorAll('.full-section > h1, .full-subsection > h2')];
+        buildToc(number, 'full');
+      });
+
+      addPairedLinks();
+
+      function getSections(number = state.chapter, view = state.view) {
+        return view === 'full' ? state.fullSections[number] : state.sections[number];
+      }
+
+      function buildToc(number, view) {
+        document.querySelectorAll('[data-toc-chapter="' + number + '"][data-toc-view="' + view + '"]').forEach(toc => {
+          toc.innerHTML = '';
+          getSections(number, view).forEach((heading, index) => {
+            const link = document.createElement('a');
+            link.href = '#' + heading.id;
+            link.textContent = heading.textContent.replace(/^第[一二三四五六七八九十]+部分[　 ]*/, '');
+            link.dataset.index = index;
+            link.dataset.view = view;
+            link.classList.toggle('is-subsection', heading.tagName === 'H3' || heading.closest('.full-subsection'));
+            link.addEventListener('click', event => {
+              event.preventDefault();
+              state.activeIndex = index;
+              setView(view, false);
+              navigateToCurrent();
+              closeSidebar();
+              updateStatus();
+            });
+            toc.appendChild(link);
+          });
+        });
+      }
+
+      function addPairedLinks() {
+        const normalizeTitle = value => value.replace(/[\s　：:，,？?]/g, '').trim();
+        const fullIndexByTitle = new Map(
+          state.fullSections[1].map((heading, index) => [normalizeTitle(heading.textContent), index])
+        );
+
+        state.sections[1].forEach((heading, guideIndex) => {
+          const fullIndex = fullIndexByTitle.get(normalizeTitle(heading.textContent));
+          if (fullIndex === undefined) return;
+          createPairedLink(heading, '前往完整教材', 'full', fullIndex);
+          createPairedLink(state.fullSections[1][fullIndex], '返回課程導讀', 'guide', guideIndex);
+        });
+      }
+
+      function createPairedLink(heading, label, view, index) {
+        const link = document.createElement('a');
+        link.href = '#';
+        link.className = 'paired-link';
+        link.textContent = label + ' →';
+        link.addEventListener('click', event => {
+          event.preventDefault();
+          switchChapter(1, false);
+          state.activeIndex = index;
+          setView(view, false);
+          navigateToCurrent();
+        });
+        heading.insertAdjacentElement('afterend', link);
+      }
+
+      function switchChapter(number, scrollTop = true) {
+        state.chapter = Number(number);
+        if (state.view === 'full' && !state.fullSections[state.chapter].length) state.view = 'guide';
+        state.activeIndex = 0;
+        storage.set('rm-chapter', state.chapter);
+        storage.set('rm-view', state.view);
+        updateContentVisibility();
+        chapterToggles.forEach(button => {
+          const active = Number(button.dataset.targetChapter) === state.chapter;
+          button.classList.toggle('is-active', active);
+          const panel = document.getElementById(button.getAttribute('aria-controls'));
+          button.setAttribute('aria-expanded', String(active));
+          panel?.classList.toggle('is-open', active);
+        });
+        if (scrollTop) window.scrollTo({ top: 0, behavior: 'instant' });
+        syncResourceTree();
+        updateContentToggle();
+        updateStatus();
+      }
+
+      function setView(view, closeOnMobile = true) {
+        if (view === 'full' && !state.fullSections[state.chapter].length) return;
+        state.view = view;
+        state.activeIndex = Math.min(state.activeIndex, Math.max(0, getSections().length - 1));
+        storage.set('rm-view', view);
+        updateContentVisibility();
+        updateContentToggle();
+        syncResourceTree();
+        if (closeOnMobile && !desktopMedia.matches) closeSidebar();
+        updateStatus();
+      }
+
+      function updateContentVisibility() {
+        chapters.forEach((chapter, index) => {
+          chapter.classList.toggle('is-active', state.view === 'guide' && index + 1 === state.chapter);
+        });
+        fullMaterials.forEach(material => {
+          material.classList.toggle('is-active', state.view === 'full' && Number(material.dataset.fullChapter) === state.chapter);
+        });
+      }
+
+      function updateContentToggle() {
+        const button = document.getElementById('content-toggle');
+        const hasFullMaterial = state.fullSections[state.chapter].length > 0;
+        button.disabled = !hasFullMaterial;
+        button.textContent = !hasFullMaterial ? '完整教材待加入' : state.view === 'full' ? '課程導讀' : '完整教材';
+        button.setAttribute('aria-label', button.textContent);
+        button.title = button.textContent;
+      }
+
+      function syncResourceTree() {
+        resourceToggles.forEach(button => {
+          const active = Number(button.dataset.targetChapter) === state.chapter && button.dataset.view === state.view;
+          button.classList.toggle('is-active', active);
+          if (active) {
+            button.setAttribute('aria-expanded', 'true');
+            document.getElementById(button.getAttribute('aria-controls'))?.classList.add('is-open');
+          }
+        });
+      }
+
+      function navigateToCurrent() {
+        getSections()[state.activeIndex]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function updateStatus() {
+        const sections = getSections();
+        const current = sections[state.activeIndex];
+        const chapterTitle = state.chapter === 1 ? '研究是什麼' : '發現研究問題';
+        const modeLabel = state.view === 'full' ? '完整教材' : '課程導讀';
+        indicator.textContent = current ? '第' + state.chapter + '章｜' + modeLabel + '｜' + current.textContent : '第' + state.chapter + '章｜' + chapterTitle;
+        let activeLink = null;
+        document.querySelectorAll('.toc a').forEach(link => {
+          const inCurrentTree = Number(link.closest('.tree-chapter')?.dataset.treeChapter) === state.chapter && link.dataset.view === state.view;
+          const currentLink = inCurrentTree && Number(link.dataset.index) === state.activeIndex;
+          link.classList.toggle('is-current', currentLink);
+          if (currentLink) activeLink = link;
+        });
+        keepActiveTocVisible(activeLink);
+        document.getElementById('prev-section').disabled = state.chapter === 1 && state.activeIndex === 0;
+        document.getElementById('next-section').disabled = state.chapter === 2 && state.activeIndex === sections.length - 1;
+      }
+
+      function keepActiveTocVisible(link) {
+        const panel = link?.closest('.resource-panel');
+        if (!panel || panel.clientHeight === 0) return;
+        const linkRect = link.getBoundingClientRect();
+        const panelRect = panel.getBoundingClientRect();
+        const margin = 18;
+        if (linkRect.top < panelRect.top + margin) {
+          panel.scrollTo({ top: panel.scrollTop + linkRect.top - panelRect.top - margin, behavior: 'auto' });
+        } else if (linkRect.bottom > panelRect.bottom - margin) {
+          panel.scrollTo({ top: panel.scrollTop + linkRect.bottom - panelRect.bottom + margin, behavior: 'auto' });
+        }
+      }
+
+      function moveSection(direction) {
+        const sections = getSections();
+        let next = state.activeIndex + direction;
+        if (next < 0 && state.chapter > 1) {
+          switchChapter(state.chapter - 1, false);
+          state.activeIndex = getSections().length - 1;
+        } else if (next >= sections.length && state.chapter < 2) {
+          switchChapter(state.chapter + 1, false);
+          state.activeIndex = 0;
+        } else if (next >= 0 && next < sections.length) {
+          state.activeIndex = next;
+        }
+        navigateToCurrent();
+        updateStatus();
+      }
+
+      function closeSidebar() {
+        body.classList.remove('sidebar-open');
+        document.getElementById('menu-button').setAttribute('aria-expanded', 'false');
+      }
+
+      chapterToggles.forEach(button => button.addEventListener('click', () => {
+        const number = Number(button.dataset.targetChapter);
+        const panel = document.getElementById(button.getAttribute('aria-controls'));
+        if (number !== state.chapter) {
+          switchChapter(number);
+          return;
+        }
+        const open = button.getAttribute('aria-expanded') !== 'true';
+        button.setAttribute('aria-expanded', String(open));
+        panel?.classList.toggle('is-open', open);
+      }));
+
+      resourceToggles.forEach(button => button.addEventListener('click', () => {
+        const number = Number(button.dataset.targetChapter);
+        const view = button.dataset.view;
+        const wasOpen = button.getAttribute('aria-expanded') === 'true';
+        const wasActive = number === state.chapter && view === state.view;
+        if (number !== state.chapter) switchChapter(number, false);
+        setView(view, false);
+        navigateToCurrent();
+        const open = !(wasActive && wasOpen);
+        button.setAttribute('aria-expanded', String(open));
+        document.getElementById(button.getAttribute('aria-controls'))?.classList.toggle('is-open', open);
+      }));
+
+      document.getElementById('menu-button').addEventListener('click', event => {
+        if (desktopMedia.matches) {
+          body.classList.toggle('sidebar-collapsed');
+          const expanded = !body.classList.contains('sidebar-collapsed');
+          event.currentTarget.setAttribute('aria-expanded', String(expanded));
+          event.currentTarget.setAttribute('aria-label', expanded ? '收合目錄' : '展開目錄');
+          event.currentTarget.title = expanded ? '收合目錄' : '展開目錄';
+          storage.set('rm-sidebar-collapsed', String(!expanded));
+        } else {
+          body.classList.toggle('sidebar-open');
+          event.currentTarget.setAttribute('aria-expanded', String(body.classList.contains('sidebar-open')));
+        }
+      });
+      document.getElementById('backdrop').addEventListener('click', closeSidebar);
+      document.getElementById('prev-section').addEventListener('click', () => moveSection(-1));
+      document.getElementById('next-section').addEventListener('click', () => moveSection(1));
+
+      document.getElementById('font-up').addEventListener('click', () => setFont(Math.min(2.4, state.fontScale + .15)));
+      document.getElementById('font-down').addEventListener('click', () => setFont(Math.max(.85, state.fontScale - .15)));
+
+      function setFont(value) {
+        state.fontScale = Math.round(value * 100) / 100;
+        document.documentElement.style.setProperty('--font-scale', state.fontScale);
+        storage.set('rm-font-scale', state.fontScale);
+        fontIndicator.textContent = Math.round(state.fontScale * 100) + '%';
+        document.getElementById('font-down').disabled = state.fontScale <= .85;
+        document.getElementById('font-up').disabled = state.fontScale >= 2.4;
+      }
+
+      document.getElementById('content-toggle').addEventListener('click', () => {
+        setView(state.view === 'full' ? 'guide' : 'full');
+        navigateToCurrent();
+      });
+
+      document.getElementById('fullscreen').addEventListener('click', async () => {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+        else await document.exitFullscreen?.();
+      });
+
+      document.addEventListener('fullscreenchange', () => {
+        document.getElementById('fullscreen').classList.toggle('is-active', Boolean(document.fullscreenElement));
+      });
+
+      window.addEventListener('scroll', () => {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0) + '%';
+
+        const sections = getSections();
+        let currentIndex = 0;
+        sections.forEach((heading, index) => {
+          if (heading.getBoundingClientRect().top <= 110) currentIndex = index;
+        });
+        if (currentIndex !== state.activeIndex) {
+          state.activeIndex = currentIndex;
+          updateStatus();
+        }
+      }, { passive: true });
+
+      document.addEventListener('keydown', event => {
+        if (event.target.matches('input, textarea, select')) return;
+        if (event.key === 'ArrowRight') moveSection(1);
+        if (event.key === 'ArrowLeft') moveSection(-1);
+        if (event.key.toLowerCase() === 'f') document.getElementById('fullscreen').click();
+        if (event.key === '+' || event.key === '=') setFont(Math.min(2.4, state.fontScale + .15));
+        if (event.key === '-') setFont(Math.max(.85, state.fontScale - .15));
+        if (event.key === 'Escape') closeSidebar();
+      });
+
+      switchChapter(state.chapter, false);
+      setView(state.view, false);
+      setFont(state.fontScale);
+    })();
+  </script>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

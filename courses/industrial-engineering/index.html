@@ -1,0 +1,2764 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 互動式工業工程與管理概論課程網頁">
+  <title>AI 互動式工業工程與管理概論</title>
+  <link rel="stylesheet" href="../../assets/course.css">
+  <link rel="stylesheet" href="../../assets/theme.css">
+</head>
+<body data-storage-prefix="industrial-engineering">
+  <aside class="sidebar" id="sidebar">
+    <a class="course-home" href="../../index.html">← 所有課程</a>
+    <div class="brand"><small>BRYAN 課程網頁</small><h1>AI 互動式工業工程與管理概論</h1><p>課程導讀 × 完整教材 × 教學圖片</p></div>
+    <nav class="course-tree" aria-label="課程目錄">
+      
+      <section class="tree-chapter">
+        <button class="tree-toggle chapter-toggle" type="button" data-chapter="1" aria-expanded="false" aria-controls="chapter-1-resources">第 1 章｜你每天都活在系統裡</button>
+        <div class="tree-children" id="chapter-1-resources">
+          <div class="resource-group">
+            <button class="tree-toggle resource-toggle" type="button" data-chapter="1" data-view="guide" aria-expanded="false" aria-controls="ch1-guide-toc">課程導讀</button>
+            <div class="resource-panel" id="ch1-guide-toc"><nav class="toc" data-toc-chapter="1" data-toc-view="guide"></nav></div>
+          </div>
+          <div class="resource-group">
+            <button class="tree-toggle resource-toggle" type="button" data-chapter="1" data-view="full" aria-expanded="false" aria-controls="ch1-full-toc">完整教材</button>
+            <div class="resource-panel" id="ch1-full-toc"><nav class="toc" data-toc-chapter="1" data-toc-view="full"></nav></div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="tree-chapter">
+        <button class="tree-toggle chapter-toggle" type="button" data-chapter="2" aria-expanded="false" aria-controls="chapter-2-resources">第 2 章｜流程分析、工作研究與生產力</button>
+        <div class="tree-children" id="chapter-2-resources">
+          <div class="resource-group">
+            <button class="tree-toggle resource-toggle" type="button" data-chapter="2" data-view="guide" aria-expanded="false" aria-controls="ch2-guide-toc">課程導讀</button>
+            <div class="resource-panel" id="ch2-guide-toc"><nav class="toc" data-toc-chapter="2" data-toc-view="guide"></nav></div>
+          </div>
+          <div class="resource-group">
+            <button class="tree-toggle resource-toggle" type="button" data-chapter="2" data-view="full" aria-expanded="false" aria-controls="ch2-full-toc">完整教材</button>
+            <div class="resource-panel" id="ch2-full-toc"><nav class="toc" data-toc-chapter="2" data-toc-view="full"></nav></div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </aside>
+  <div class="backdrop" id="backdrop"></div>
+  <header class="topbar">
+    <div class="topbar-left"><button class="tool-button" id="menu-button" type="button" aria-label="收合或展開選單" aria-expanded="false">☰</button><span class="section-indicator" id="section-indicator"></span></div>
+    <div class="topbar-actions">
+      <button class="tool-button" id="font-down" type="button" aria-label="縮小字體">A−</button><span class="font-value" id="font-value">100%</span><button class="tool-button" id="font-up" type="button" aria-label="放大字體">A＋</button>
+      <button class="tool-button" id="content-toggle" type="button">完整教材</button><button class="tool-button" id="fullscreen" type="button" aria-label="全螢幕">⛶</button>
+    </div>
+  </header>
+  <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+  <main class="main"><div class="content-shell"><article class="content-page" data-chapter="1" data-view="guide">
+<h1 class="hero">第1章　你每天都活在系統裡：第一次認識工業工程</h1>
+<p class="part-label">第 1 章｜課程導讀</p>
+<blockquote>本檔為教師上課使用的「課程導讀版」內容，定位不是出版正文，也不是傳統 PPT。</blockquote>
+<blockquote>建議作為 3 小時互動式教學網頁的主要內容來源，教師可依班級程度刪減，不必逐字講完。</blockquote>
+<hr>
+<section class="lesson-section">
+<h3 id="ie-ch01-guide-1" data-nav-heading data-depth="2">本章定位</h3>
+<p>第一章的任務不是讓學生一次記住大量工業工程術語，而是先建立一套「看問題的方法」。</p>
+<p>學生平常已經很熟悉排隊、等待、塞車、做不完、工作堆積、流程混亂等現象，也常會立刻提出改善方案：</p>
+<ul>
+<li>人不夠，就加人。</li>
+<li>排隊太久，就多開一個櫃台。</li>
+<li>設備常停，就要求設備不要停。</li>
+<li>庫存太高，就把庫存降下來。</li>
+<li>工作做太慢，就要求作業者再快一點。</li>
+<li>AI 可以回答問題，就直接問 AI 該怎麼改善。</li>
+</ul>
+<p>這些方法不一定錯，真正的問題是：<strong>我們常在還沒看懂整個系統以前，就太早開始找答案。</strong></p>
+<p>本章要建立的核心觀念是：</p>
+<blockquote>工業工程不是只讓某一個工作點變快，而是在現實限制下，看懂整個系統，找到真正值得改善的地方。</blockquote>
+<hr>
+<h3 id="ie-ch01-guide-2" data-nav-heading data-depth="2">本章學習目標</h3>
+<p>完成本章後，學生應能：</p>
+<ol>
+<li>說明工業工程如何從單點效率問題轉向整體系統改善。</li>
+<li>區分現象與可分析的問題，並初步界定系統邊界。</li>
+<li>使用人、機、料、法、環與資訊六個面向觀察流程。</li>
+<li>理解限制、瓶頸、局部最佳與整體最佳的基本概念。</li>
+<li>以 AI 產生假說，並能走入現場（Gemba）蒐集證據進行驗證。</li>
+<li>能在真實限制條件下比較不同方案，理解目標取捨並做出可辯護的決策。</li>
+</ol>
+<hr>
+<h3 id="ie-ch01-guide-3" data-nav-heading data-depth="2">課前準備</h3>
+<p>教師可準備：</p>
+<ul>
+<li>第一章正式教材 Word / PDF。</li>
+<li>本章教學圖片：</li>
+<li>工業工程在組織中的角色</li>
+<li>餐廳改善前／改善後：瓶頸轉移</li>
+<li>六面向觀察</li>
+<li>系統思維：看到整體，優化全局</li>
+<li>工業工程的發展演進</li>
+<li>IE–AI 協作循環</li>
+<li>一個學生熟悉的排隊或等待案例。</li>
+<li>可即時投票的互動題。</li>
+<li>學生手機可使用的生成式 AI 工具。</li>
+</ul>
+<p>課前先請學生回答：</p>
+<blockquote>「如果一家餐廳中午排隊太久，你第一個想到的改善方法是什麼？」</blockquote>
+<p>先保留答案，不急著公布「正解」。到 1.2、1.5 再回頭檢視學生最初的直覺。</p>
+<hr>
+<h3 id="ie-ch01-guide-4" data-nav-heading data-depth="2">三小時授課流程</h3>
+<div class="table-wrap"><table><tbody><tr><th>時間</th><th>對應章節</th><th>教學內容</th><th>建議方式</th><th>學生產出</th></tr><tr><td>0:00–0:15</td><td>1.1</td><td>看到排隊，你會怎麼改善？</td><td>即時投票、短討論</td><td>一個直覺改善方案</td></tr><tr><td>0:15–0:40</td><td>1.1</td><td>工業工程到底在解決什麼問題</td><td>圖像導讀、案例講解</td><td>一句 IE 定義</td></tr><tr><td>0:40–1:05</td><td>1.2</td><td>做得更快 vs. 整個系統更好</td><td>餐廳前後圖比較</td><td>找出瓶頸與副作用</td></tr><tr><td>1:05–1:30</td><td>1.3</td><td>六面向觀察</td><td>圖像導讀、小組掃描</td><td>六面向觀察清單</td></tr><tr><td>1:30–1:40</td><td></td><td>休息</td><td></td><td></td></tr><tr><td>1:40–2:00</td><td>1.4</td><td>系統與系統邊界</td><td>圖像講解、情境判斷</td><td>一個系統邊界</td></tr><tr><td>2:00–2:20</td><td>1.5</td><td>局部最佳 vs. 整體最佳</td><td>KPI 案例、角色辯論</td><td>一組整體 KPI</td></tr><tr><td>2:20–2:35</td><td>1.6</td><td>AI 時代為什麼還需要 IE</td><td>AI 輸出分類</td><td>事實／假說／建議</td></tr><tr><td>2:35–2:55</td><td>1.7</td><td>第一次和 AI 一起做 IE</td><td>五階段任務</td><td>一份改善決策</td></tr><tr><td>2:55–3:00</td><td>1.8</td><td>本章整理</td><td>出門票</td><td>一句新的 IE 認識</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-5" data-nav-heading data-depth="1">1.1　工業工程到底在解決什麼問題？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-6" data-nav-heading data-depth="2">教學核心</h3>
+<p>這一節要讓學生理解：</p>
+<blockquote>工業工程的起點不是「趕快想辦法」，而是先把現象轉成可以分析的問題。</blockquote>
+<p>學生通常很容易把「看到的地方」當成「問題發生的地方」。 例如餐廳點餐口排隊，就直覺認為點餐人力不足；行政窗口有人等待，就認為人太少。</p>
+<p>教師要帶學生看見：</p>
+<ul>
+<li>隊伍在哪裡，不代表根本原因一定在哪裡。</li>
+<li>現象是「看見了什麼」。</li>
+<li>問題定義則是「什麼結果，在什麼條件下，不符合期待」。</li>
+</ul>
+<h3 id="ie-ch01-guide-7" data-nav-heading data-depth="2">開場互動：這是現象還是問題？</h3>
+<p>依序呈現下列說法，請學生判斷：</p>
+<h4 id="ie-ch01-guide-8" data-nav-heading data-depth="3">情境 A</h4>
+<blockquote>餐廳排隊很久。</blockquote>
+<h4 id="ie-ch01-guide-9" data-nav-heading data-depth="3">情境 B</h4>
+<blockquote>中午 12:00–12:20，學生從加入隊伍到拿到餐點平均需要 18 分鐘。</blockquote>
+<h4 id="ie-ch01-guide-10" data-nav-heading data-depth="3">情境 C</h4>
+<blockquote>行政效率很差。</blockquote>
+<h4 id="ie-ch01-guide-11" data-nav-heading data-depth="3">情境 D</h4>
+<blockquote>新生報到尖峰時段，學生在資料核對站平均等待 20 分鐘。</blockquote>
+<p>教師追問：</p>
+<ul>
+<li>哪一句可以開始量測？</li>
+<li>哪一句還只是感受？</li>
+<li>哪一句已經包含時間、對象與流程？</li>
+<li>如果今天要改善，你會先蒐集什麼資料？</li>
+</ul>
+<h3 id="ie-ch01-guide-12" data-nav-heading data-depth="2">圖像導讀：工業工程在組織中的角色</h3>
+<figure class="guide-figure"><img src="assets/ch01-image-01.png" alt="圖 1-1　工業工程在組織中的角色" loading="lazy"><figcaption>圖 1-1　工業工程在組織中的角色</figcaption></figure>
+<p>建議顯示：</p>
+<blockquote><strong>工業工程在組織中的角色</strong></blockquote>
+<p>不要逐項念圖，而是用一句話帶：</p>
+<blockquote>工業工程站在「人、資源、方法、目標、服務對象」之間，協助組織把有限資源轉成更好的整體結果。</blockquote>
+<p>再請學生從圖中挑一個自己最熟悉的詞：</p>
+<ul>
+<li>效率</li>
+<li>品質</li>
+<li>成本</li>
+<li>安全</li>
+<li>顧客</li>
+<li>流程</li>
+<li>資訊</li>
+</ul>
+<p>追問：</p>
+<blockquote>如果只改善其中一個，其他會不會變差？</blockquote>
+<p>這個問題先不要回答，留到 1.5。</p>
+<h3 id="ie-ch01-guide-13" data-nav-heading data-depth="2">教師導讀</h3>
+<p>可用一句話定義本課程的 IE：</p>
+<blockquote><strong>工業工程是在現實限制下，設計、整合與改善系統，使整體運作得更好。</strong></blockquote>
+<p>拆解四個關鍵詞：</p>
+<h4 id="ie-ch01-guide-14" data-nav-heading data-depth="3">現實限制</h4>
+<p>資源不可能無限增加。</p>
+<h4 id="ie-ch01-guide-15" data-nav-heading data-depth="3">系統</h4>
+<p>不同環節彼此連動。</p>
+<h4 id="ie-ch01-guide-16" data-nav-heading data-depth="3">整體</h4>
+<p>不能只看一個工作站或一個 KPI。</p>
+<h4 id="ie-ch01-guide-17" data-nav-heading data-depth="3">更好</h4>
+<p>不是只追求更快，而是在時間、成本、品質、安全、服務與工作負荷之間做合理取捨。</p>
+<h3 id="ie-ch01-guide-18" data-nav-heading data-depth="2">互動題</h3>
+<blockquote>如果外送平台只設定「配送時間愈短愈好」，可能發生哪些副作用？</blockquote>
+<p>學生可能回答：</p>
+<ul>
+<li>外送員搶快</li>
+<li>交通風險</li>
+<li>餐點確認不完整</li>
+<li>錯送</li>
+<li>客訴</li>
+<li>工作壓力</li>
+</ul>
+<p>教師收束：</p>
+<blockquote>「更快」可能是改善的一部分，但「更快」不等於「整體更好」。</blockquote>
+<h3 class="prompt-heading prompt-ai" id="ie-ch01-guide-19" data-nav-heading data-depth="2">AI 共學</h3>
+<p>請學生先自己寫：</p>
+<blockquote>「學校行政效率很差」至少還缺哪些資訊，才可以變成可分析的問題？</blockquote>
+<p>再請 AI 改寫。</p>
+<p>最後比較：</p>
+<ul>
+<li>AI 加了哪些具體條件？</li>
+<li>哪些是 AI 自己假設的？</li>
+<li>哪些資料仍需現場取得？</li>
+</ul>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-20" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>現象告訴我們「好像哪裡不對」，問題定義則告訴我們「到底要改善什麼」。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-21" data-nav-heading data-depth="1">1.2　從「做得更快」到「整個系統更好」</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-22" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節要完成第一個重要認知轉換：</p>
+<blockquote><strong>局部變快，不代表整個系統變快。</strong></blockquote>
+<p>最適合使用餐廳改善前／改善後圖。</p>
+<h3 id="ie-ch01-guide-23" data-nav-heading data-depth="2">圖像導讀：改善前</h3>
+<figure class="guide-figure"><img src="assets/ch01-image-02.png" alt="圖 1-2　改善前後：點餐瓶頸與瓶頸往下游移動" loading="lazy"><figcaption>圖 1-2　改善前後：點餐瓶頸與瓶頸往下游移動</figcaption></figure>
+<p>先只顯示「改善前」區域，暫時不要讓學生看到改善後。</p>
+<p>請學生觀察：</p>
+<ul>
+<li>哪裡等待最多？</li>
+<li>哪裡可能是目前瓶頸？</li>
+<li>你第一個會改善哪裡？</li>
+<li>你預測改善後會發生什麼？</li>
+</ul>
+<p>教師不急著給答案。</p>
+<h3 id="ie-ch01-guide-24" data-nav-heading data-depth="2">瓶頸 Bottleneck</h3>
+<p>用水管比喻：</p>
+<blockquote>整條管線能通過多少水，不是看最寬的地方，而是看最窄的地方。</blockquote>
+<p>轉回流程：</p>
+<blockquote>整體流量不會因為某個非瓶頸工作站變快，就自動提高。</blockquote>
+<p>瓶頸可能是：</p>
+<ul>
+<li>人力</li>
+<li>機器</li>
+<li>空間</li>
+<li>規則</li>
+<li>資訊確認</li>
+<li>特定技能</li>
+<li>核准權限</li>
+<li>尖峰需求</li>
+</ul>
+<h3 id="ie-ch01-guide-25" data-nav-heading data-depth="2">在製品 WIP</h3>
+<p>製造現場常用：</p>
+<blockquote><strong>Work in Process, WIP</strong></blockquote>
+<p>表示尚未完成、正在流程中等待或加工的物品。</p>
+<p>把概念延伸到服務：</p>
+<ul>
+<li>等待中的訂單</li>
+<li>尚未處理的申請</li>
+<li>未完成的文件</li>
+<li>排隊中的顧客</li>
+</ul>
+<p>都可視為「流程中的工作」。</p>
+<h3 id="ie-ch01-guide-26" data-nav-heading data-depth="2">圖像導讀：改善後</h3>
+<p>再顯示改善後。</p>
+<p>請學生比較：</p>
+<ul>
+<li>點餐人力增加後，哪裡變好了？</li>
+<li>哪裡變得更忙？</li>
+<li>取餐等待為什麼增加？</li>
+<li>問題是真的消失，還是被移動？</li>
+</ul>
+<p>教師收束：</p>
+<blockquote><strong>改善錯地方，壅塞可能只是搬家。</strong></blockquote>
+<h3 id="ie-ch01-guide-27" data-nav-heading data-depth="2">進一步思考：效率 vs. 效果</h3>
+<p>請學生判斷：</p>
+<h4 id="ie-ch01-guide-28" data-nav-heading data-depth="3">A</h4>
+<p>某工作站每小時從 60 件提升到 80 件。</p>
+<h4 id="ie-ch01-guide-29" data-nav-heading data-depth="3">B</h4>
+<p>整條產線每天交付量完全沒有增加。</p>
+<p>問：</p>
+<blockquote>A 是不是代表改善成功？</blockquote>
+<p>帶出：</p>
+<ul>
+<li>局部效率變好</li>
+<li>整體效果可能沒有改善</li>
+</ul>
+<h3 id="ie-ch01-guide-30" data-nav-heading data-depth="2">互動題</h3>
+<blockquote>如果工廠每台設備利用率都接近 100%，這一定是管理很好的工廠嗎？</blockquote>
+<p>要求學生列出還想看的資料：</p>
+<ul>
+<li>WIP</li>
+<li>交期</li>
+<li>缺料</li>
+<li>加班</li>
+<li>品質</li>
+<li>庫存</li>
+<li>顧客需求</li>
+</ul>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-31" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>真正重要的是系統能否穩定產出需要的結果，而不是每個工作站看起來都很忙。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-32" data-nav-heading data-depth="1">1.3　工業工程師是怎麼看問題的？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-33" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節建立學生第一次進現場的觀察框架：</p>
+<blockquote><strong>人、機、料、法、環、資訊</strong></blockquote>
+<p>它不是背誦題，而是一套避免「只看到單一原因」的觀察鏡頭。</p>
+<h3 id="ie-ch01-guide-34" data-nav-heading data-depth="2">圖像導讀：六面向觀察</h3>
+<figure class="guide-figure"><img src="assets/ch01-image-03.png" alt="圖 1-3　六面向觀察：從不同角度看問題" loading="lazy"><figcaption>圖 1-3　六面向觀察：從不同角度看問題</figcaption></figure>
+<p>顯示：</p>
+<blockquote><strong>六面向觀察：從不同角度看問題</strong></blockquote>
+<p>請學生看著圖回答：</p>
+<blockquote>如果便利商店尖峰排隊，你會從哪六個角度觀察？</blockquote>
+<h3 id="ie-ch01-guide-35" data-nav-heading data-depth="2">六面向簡要導讀</h3>
+<h4 id="ie-ch01-guide-36" data-nav-heading data-depth="3">人 People</h4>
+<ul>
+<li>技能</li>
+<li>工作負荷</li>
+<li>熟練度</li>
+<li>溝通</li>
+<li>顧客需求差異</li>
+</ul>
+<h4 id="ie-ch01-guide-37" data-nav-heading data-depth="3">機 Machine</h4>
+<ul>
+<li>設備</li>
+<li>工具</li>
+<li>電腦</li>
+<li>系統</li>
+<li>自動化裝置</li>
+</ul>
+<h4 id="ie-ch01-guide-38" data-nav-heading data-depth="3">料 Material</h4>
+<ul>
+<li>原料</li>
+<li>零件</li>
+<li>食材</li>
+<li>文件</li>
+<li>流程中的實體物件</li>
+</ul>
+<h4 id="ie-ch01-guide-39" data-nav-heading data-depth="3">法 Method</h4>
+<ul>
+<li>步驟</li>
+<li>流程</li>
+<li>規則</li>
+<li>權限</li>
+<li>工作方法</li>
+</ul>
+<h4 id="ie-ch01-guide-40" data-nav-heading data-depth="3">環 Environment</h4>
+<ul>
+<li>空間</li>
+<li>動線</li>
+<li>光線</li>
+<li>噪音</li>
+<li>時段</li>
+<li>現場條件</li>
+</ul>
+<h4 id="ie-ch01-guide-41" data-nav-heading data-depth="3">資訊 Information</h4>
+<ul>
+<li>訂單</li>
+<li>通知</li>
+<li>優先順序</li>
+<li>系統狀態</li>
+<li>資料欄位</li>
+<li>回饋訊號</li>
+</ul>
+<h3 id="ie-ch01-guide-42" data-nav-heading data-depth="2">名詞接軌：4M1E、5M1E</h3>
+<p>教師只做預告，不要求死背：</p>
+<ul>
+<li>4M1E：Man、Machine、Material、Method、Environment</li>
+<li>5M1E：品質管理情境常再加入 Measurement</li>
+</ul>
+<p>本書把「資訊」獨立拉出，是為了更貼近：</p>
+<ul>
+<li>服務流程</li>
+<li>數位流程</li>
+<li>AI 時代</li>
+<li>跨系統資訊流</li>
+</ul>
+<h3 id="ie-ch01-guide-43" data-nav-heading data-depth="2">現場觀察活動</h3>
+<p>請學生選一個校園流程：</p>
+<ul>
+<li>電梯</li>
+<li>餐廳</li>
+<li>圖書館</li>
+<li>停車</li>
+<li>行政櫃台</li>
+<li>教室設備借用</li>
+</ul>
+<p>用六面向列出至少一項觀察。</p>
+<p>再加三種現象：</p>
+<ul>
+<li>等待</li>
+<li>移動</li>
+<li>重複確認</li>
+</ul>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-44" data-nav-heading data-depth="2">教師提醒：不要只找支持自己想法的證據</h3>
+<p>如果學生先認定：</p>
+<blockquote>店員太慢。</blockquote>
+<p>就很容易只注意店員停頓。</p>
+<p>教師可問：</p>
+<blockquote>店員停下來，是人在偷懶，還是在等系統、等顧客、等餐點、等資訊？</blockquote>
+<p>帶出：</p>
+<blockquote><strong>先觀察，後解釋。</strong></blockquote>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-45" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote>六面向的目的不是分類責任，而是提醒自己：<strong>還有哪一類因素，我沒有看？</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-46" data-nav-heading data-depth="1">1.4　什麼叫做「系統」？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-47" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節建立三個概念：</p>
+<ol>
+<li>輸入—轉換—輸出—回饋</li>
+<li>系統邊界</li>
+<li>子系統之間的相互依賴</li>
+</ol>
+<h3 id="ie-ch01-guide-48" data-nav-heading data-depth="2">圖像導讀：系統思維</h3>
+<figure class="guide-figure"><img src="assets/ch01-image-04.png" alt="圖 1-4　系統思維：看到整體，優化全局" loading="lazy"><figcaption>圖 1-4　系統思維：看到整體，優化全局</figcaption></figure>
+<p>顯示：</p>
+<blockquote><strong>系統思維：看到整體，優化全局</strong></blockquote>
+<p>先只看上半部：</p>
+<ul>
+<li>輸入 Input</li>
+<li>轉換 Transformation</li>
+<li>輸出 Output</li>
+<li>回饋 Feedback</li>
+</ul>
+<p>請學生各舉一個「學校上課」的例子。</p>
+<h4 id="ie-ch01-guide-49" data-nav-heading data-depth="3">可能答案</h4>
+<h5 id="ie-ch01-guide-50" data-nav-heading data-depth="3">輸入</h5>
+<p>學生、教師、教材、教室、資訊</p>
+<h5 id="ie-ch01-guide-51" data-nav-heading data-depth="3">轉換</h5>
+<p>授課、討論、練習、回饋</p>
+<h5 id="ie-ch01-guide-52" data-nav-heading data-depth="3">輸出</h5>
+<p>學習成果、作品、能力、成績</p>
+<h5 id="ie-ch01-guide-53" data-nav-heading data-depth="3">回饋</h5>
+<p>作業、評量、學生反應、學習數據</p>
+<h3 id="ie-ch01-guide-54" data-nav-heading data-depth="2">系統邊界 System Boundary</h3>
+<p>教師提出：</p>
+<blockquote>「學生上課遲到」的系統邊界要畫在哪裡？</blockquote>
+<h4 id="ie-ch01-guide-55" data-nav-heading data-depth="3">邊界 A</h4>
+<p>只看教室門口。</p>
+<h4 id="ie-ch01-guide-56" data-nav-heading data-depth="3">邊界 B</h4>
+<p>加入：</p>
+<ul>
+<li>前一堂課</li>
+<li>電梯</li>
+<li>公車</li>
+<li>停車</li>
+<li>校園距離</li>
+<li>課表</li>
+</ul>
+<p>追問：</p>
+<ul>
+<li>邊界太小會怎樣？</li>
+<li>邊界太大會怎樣？</li>
+</ul>
+<p>收束：</p>
+<blockquote>系統邊界不是自然存在，而是依問題與分析目的決定。</blockquote>
+<h3 id="ie-ch01-guide-57" data-nav-heading data-depth="2">組織邊界 ≠ 流程邊界</h3>
+<p>以新生報到為例：</p>
+<ul>
+<li>教務</li>
+<li>學務</li>
+<li>總務</li>
+<li>圖資</li>
+<li>系所</li>
+</ul>
+<p>對行政單位來說是不同部門； 對學生來說卻是一段連續體驗。</p>
+<p>教師追問：</p>
+<blockquote>每個部門都把自己的工作做好，學生體驗就一定好嗎？</blockquote>
+<p>留下到 1.5。</p>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-58" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>系統不是元素的集合，而是元素之間的關係。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-59" data-nav-heading data-depth="1">1.5　為什麼局部最佳不等於整體最佳？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-60" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節讓學生理解：</p>
+<blockquote>每個部門都做到自己的最好，整體不一定最好。</blockquote>
+<h3 id="ie-ch01-guide-61" data-nav-heading data-depth="2">圖像導讀</h3>
+<p>使用「系統思維：看到整體，優化全局」下半部：</p>
+<ul>
+<li>局部最佳 Local Optimization</li>
+<li>整體最佳 Global Optimization</li>
+</ul>
+<p>不要先解釋，先問：</p>
+<blockquote>左邊每一塊都努力改善，為什麼結果仍可能不好？</blockquote>
+<h3 id="ie-ch01-guide-62" data-nav-heading data-depth="2">跨部門案例</h3>
+<h4 id="ie-ch01-guide-63" data-nav-heading data-depth="3">採購</h4>
+<p>目標：最低單價 做法：一次大量採購</p>
+<p>可能代價：</p>
+<ul>
+<li>庫存</li>
+<li>資金占用</li>
+<li>過期</li>
+<li>呆料</li>
+</ul>
+<h4 id="ie-ch01-guide-64" data-nav-heading data-depth="3">生產</h4>
+<p>目標：設備利用率最高 做法：機器不要停</p>
+<p>可能代價：</p>
+<ul>
+<li>WIP</li>
+<li>不需要的庫存</li>
+<li>排程失去彈性</li>
+</ul>
+<h4 id="ie-ch01-guide-65" data-nav-heading data-depth="3">業務</h4>
+<p>目標：接更多單 做法：接受急單、客製化</p>
+<p>可能代價：</p>
+<ul>
+<li>換線</li>
+<li>插單</li>
+<li>延誤</li>
+</ul>
+<h4 id="ie-ch01-guide-66" data-nav-heading data-depth="3">倉儲</h4>
+<p>目標：庫存最低 做法：限制進倉</p>
+<p>可能代價：</p>
+<ul>
+<li>缺料</li>
+<li>停工</li>
+<li>無法回應波動</li>
+</ul>
+<h3 id="ie-ch01-guide-67" data-nav-heading data-depth="2">KPI 活動</h3>
+<p>請學生扮演總經理：</p>
+<blockquote>採購部門如果只看「最低採購單價」，你會增加哪兩個 KPI？</blockquote>
+<p>可能包括：</p>
+<ul>
+<li>庫存週轉</li>
+<li>呆料率</li>
+<li>缺料率</li>
+<li>總持有成本</li>
+<li>交期</li>
+<li>現金占用</li>
+</ul>
+<p>教師收束：</p>
+<blockquote><strong>制度會引導行為。指標設計本身就是系統設計。</strong></blockquote>
+<h3 class="prompt-heading prompt-ai" id="ie-ch01-guide-68" data-nav-heading data-depth="2">AI 角色辯論</h3>
+<p>請 AI 分別扮演：</p>
+<ul>
+<li>採購主管</li>
+<li>生產主管</li>
+<li>業務主管</li>
+<li>倉儲主管</li>
+<li>總經理</li>
+</ul>
+<p>討論：</p>
+<blockquote>公司應不應該一次買進一年份原料？</blockquote>
+<p>學生最後不能抄 AI 結論，而要回答：</p>
+<ul>
+<li>誰的立場合理？</li>
+<li>誰忽略了什麼？</li>
+<li>你會怎麼平衡？</li>
+</ul>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-69" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>局部最佳化，不等於整體最佳化。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-70" data-nav-heading data-depth="1">1.6　AI 時代，為什麼還需要工業工程？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-71" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節不是討論「AI 能不能取代人」，而是讓學生理解：</p>
+<blockquote>AI 很會給答案，但 IE 更重視「問題是否問對、證據是否可靠、方案是否真的可行」。</blockquote>
+<h3 id="ie-ch01-guide-72" data-nav-heading data-depth="2">圖像導讀：工業工程的發展演進</h3>
+<figure class="guide-figure"><img src="assets/ch01-image-05.png" alt="圖 1-5　工業工程的發展演進" loading="lazy"><figcaption>圖 1-5　工業工程的發展演進</figcaption></figure>
+<p>使用：</p>
+<blockquote><strong>工業工程的發展演進</strong></blockquote>
+<p>教師不需要逐年代細講，只抓一條主線：</p>
+<ol>
+<li>大量生產與標準化</li>
+<li>作業研究與數據分析</li>
+<li>系統整合</li>
+<li>數位、AI 與智慧決策</li>
+</ol>
+<p>帶出：</p>
+<blockquote>AI 不是把 IE 取代掉，而是把 IE 可使用的工具再往前推一步。</blockquote>
+<h3 class="prompt-heading prompt-ai" id="ie-ch01-guide-73" data-nav-heading data-depth="2">AI 回答的三種性質</h3>
+<p>給學生一段 AI 回答：</p>
+<blockquote>「餐廳排隊可能因付款流程太慢，建議導入自助點餐機。」</blockquote>
+<p>請分類：</p>
+<h4 id="ie-ch01-guide-74" data-nav-heading data-depth="3">事實</h4>
+<p>AI 真正知道什麼？</p>
+<h4 id="ie-ch01-guide-75" data-nav-heading data-depth="3">假說</h4>
+<p>哪些只是合理推測？</p>
+<h4 id="ie-ch01-guide-76" data-nav-heading data-depth="3">建議</h4>
+<p>哪些是方案？</p>
+<p>教師強調：</p>
+<blockquote>AI 說得很像真的，不代表已經有證據。</blockquote>
+<h3 id="ie-ch01-guide-77" data-nav-heading data-depth="2">VERIFY 不是再問一次 AI</h3>
+<p>錯誤示範：</p>
+<ol>
+<li>AI 說可能是付款慢。</li>
+<li>再問 AI：「付款慢是不是合理？」</li>
+<li>AI 說合理。</li>
+<li>就當作已驗證。</li>
+</ol>
+<p>教師問：</p>
+<blockquote>這有新的證據嗎？</blockquote>
+<p>真正的驗證可能需要：</p>
+<ul>
+<li>現場觀察</li>
+<li>服務時間</li>
+<li>訂單資料</li>
+<li>正式文件</li>
+<li>系統紀錄</li>
+<li>實驗或試行</li>
+</ul>
+<h3 id="ie-ch01-guide-78" data-nav-heading data-depth="2">互動題</h3>
+<blockquote>AI 提出「餐廳排隊的十大原因」，這十項應該叫什麼？</blockquote>
+<p>正確觀念：</p>
+<blockquote><strong>候選假說，而不是已確認原因。</strong></blockquote>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-79" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>AI 可以協助回答問題，但工業工程首先要求我們問對問題。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-80" data-nav-heading data-depth="1">1.7　第一次和 AI 一起做工業工程</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-81" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節把前面的觀念整合成一個完整任務。</p>
+<h3 id="ie-ch01-guide-82" data-nav-heading data-depth="2">圖像導讀：IE–AI 協作循環</h3>
+<figure class="guide-figure"><img src="assets/ch01-image-06.png" alt="圖 1-6　IE–AI 協作循環的五個階段" loading="lazy"><figcaption>圖 1-6　IE–AI 協作循環的五個階段</figcaption></figure>
+<p>顯示：</p>
+<blockquote><strong>IE–AI 協作循環</strong></blockquote>
+<p>五階段：</p>
+<ol>
+<li>定義問題</li>
+<li>AI 提出假說</li>
+<li>Gemba 現場求證</li>
+<li>限制條件下生成方案</li>
+<li>全局權衡與反思</li>
+</ol>
+<p>教師特別強調第 3 階段：</p>
+<blockquote><strong>AI 的答案不是證據，必須回到現場。</strong></blockquote>
+<hr>
+<h3 id="ie-ch01-guide-83" data-nav-heading data-depth="2">任務：改善校園午餐排隊</h3>
+<h4 id="ie-ch01-guide-84" data-nav-heading data-depth="3">第 1 階段｜定義問題</h4>
+<p>暫時不用 AI。</p>
+<p>把：</p>
+<blockquote>「餐廳很慢。」</blockquote>
+<p>改成：</p>
+<blockquote>「週二 12:00–12:20，學生從加入隊伍到取得餐點的等待時間明顯偏高。」</blockquote>
+<p>再追問：</p>
+<ul>
+<li>要改善總等待時間？</li>
+<li>隊伍長度？</li>
+<li>錯誤率？</li>
+<li>顧客滿意？</li>
+</ul>
+<h4 id="ie-ch01-guide-85" data-nav-heading data-depth="3">第 2 階段｜AI 提出假說</h4>
+<p>請 AI 依六面向提出原因。</p>
+<p>要求 AI 分類：</p>
+<ul>
+<li>現象</li>
+<li>可能原因</li>
+<li>改善想法</li>
+</ul>
+<p>學生只挑 3–5 個值得查證的假說。</p>
+<h4 id="ie-ch01-guide-86" data-nav-heading data-depth="3">第 3 階段｜Gemba 現場求證</h4>
+<p>要蒐集什麼？</p>
+<ul>
+<li>到達人數</li>
+<li>點餐時間</li>
+<li>製作時間</li>
+<li>取餐等待</li>
+<li>熱門品項</li>
+<li>例外事件</li>
+</ul>
+<p>學生要標記：</p>
+<ul>
+<li>AI 猜對</li>
+<li>AI 猜錯</li>
+<li>AI 漏掉</li>
+<li>尚無法判斷</li>
+</ul>
+<h4 id="ie-ch01-guide-87" data-nav-heading data-depth="3">第 4 階段｜限制條件下生成方案</h4>
+<p>加入限制：</p>
+<ul>
+<li>預算不超過 5,000 元</li>
+<li>不能增加空間</li>
+<li>不增加正式人力</li>
+<li>一週內可試行</li>
+</ul>
+<p>再讓 AI 生成方案。</p>
+<p>這時的 AI 回答通常會比第一輪更接近現實。</p>
+<h4 id="ie-ch01-guide-88" data-nav-heading data-depth="3">第 5 階段｜全局權衡與反思</h4>
+<p>比較：</p>
+<ul>
+<li>時間</li>
+<li>成本</li>
+<li>品質</li>
+<li>工作負荷</li>
+<li>可行性</li>
+<li>是否把瓶頸移走</li>
+</ul>
+<p>最後由學生決定：</p>
+<blockquote>哪個方案最值得先試？</blockquote>
+<p>並說明：</p>
+<blockquote>為什麼？</blockquote>
+<h3 id="ie-ch01-guide-89" data-nav-heading data-depth="2">你來決定</h3>
+<p>提供：</p>
+<h4 id="ie-ch01-guide-90" data-nav-heading data-depth="3">方案 A</h4>
+<p>等待降低 20%，每月增加 12,000 元人力。</p>
+<h4 id="ie-ch01-guide-91" data-nav-heading data-depth="3">方案 B</h4>
+<p>等待降低 10%，只需調整排班。</p>
+<h4 id="ie-ch01-guide-92" data-nav-heading data-depth="3">方案 C</h4>
+<p>尖峰排隊改善最多，但取餐錯誤率可能提高。</p>
+<p>學生先設定三個評估準則，再選方案。</p>
+<h3 class="prompt-heading prompt-summary" id="ie-ch01-guide-93" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>AI 提出假說，現場提供證據，人負責判斷。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 class="prompt-heading prompt-summary" id="ie-ch01-guide-94" data-nav-heading data-depth="1">1.8　本章整理：開始用 IE 的眼睛看世界</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch01-guide-95" data-nav-heading data-depth="2">教學核心</h3>
+<p>最後不是再講一次所有名詞，而是讓學生把本章變成六個可以帶走的問題。</p>
+<h3 id="ie-ch01-guide-96" data-nav-heading data-depth="2">本章六個核心提問</h3>
+<ol>
+<li>我看到的是現象，還是已經定義清楚的問題？</li>
+<li>這個問題的系統邊界應該畫在哪裡？</li>
+<li>人、機、料、法、環與資訊之間如何互相影響？</li>
+<li>真正限制整體表現的環節可能在哪裡？</li>
+<li>改善一個地方，會不會讓其他地方變差？</li>
+<li>AI 的回答有哪些是推測？我需要什麼資料或現場證據來查證？</li>
+</ol>
+<h3 id="ie-ch01-guide-97" data-nav-heading data-depth="2">關鍵詞快速回顧</h3>
+<ul>
+<li>工業工程 Industrial Engineering, IE</li>
+<li>系統 System</li>
+<li>流程 Process</li>
+<li>系統邊界 System Boundary</li>
+<li>瓶頸 Bottleneck</li>
+<li>在製品 Work in Process, WIP</li>
+<li>局部最佳 Local Optimum</li>
+<li>整體最佳 Global / System Optimum</li>
+<li>取捨 Trade-off</li>
+<li>Gemba 現場</li>
+<li>KPI</li>
+<li>問題定義 Problem Definition</li>
+</ul>
+<p>不要逐字背英文。 教師可以挑 4–5 個問學生：</p>
+<blockquote>你可以不用定義，而是用一個例子解釋嗎？</blockquote>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch01-guide-98" data-nav-heading data-depth="2">AI 挑戰題</h3>
+<p>請學生選一個日常流程問題：</p>
+<ol>
+<li>先自己提出 3 個可能原因。</li>
+<li>再請 AI 依六面向提出原因。</li>
+<li>將 AI 內容分類為：</li>
+</ol>
+<ul>
+<li>事實</li>
+<li>假說</li>
+<li>建議</li>
+</ul>
+<ol>
+<li>列出重要假說需要哪些外部證據才能驗證。</li>
+<li>寫下：</li>
+</ol>
+<ul>
+<li>哪些 AI 建議保留</li>
+<li>哪些修改</li>
+<li>哪些拒絕</li>
+<li>理由是什麼</li>
+</ul>
+<hr>
+<h3 id="ie-ch01-guide-99" data-nav-heading data-depth="2">Mini Project｜從抱怨變成可改善的問題</h3>
+<p>2–4 人一組，選擇一個校園流程：</p>
+<ul>
+<li>電梯</li>
+<li>餐飲</li>
+<li>借還書</li>
+<li>停車</li>
+<li>教室設備</li>
+<li>行政服務</li>
+</ul>
+<p>完整走過：</p>
+<blockquote><strong>定義問題 → AI 提出假說 → Gemba 現場查證 → 限制條件下生成方案 → 全局權衡與反思</strong></blockquote>
+<p>成果至少包含：</p>
+<ul>
+<li>問題定義</li>
+<li>系統邊界</li>
+<li>現場觀察</li>
+<li>AI 假說</li>
+<li>查證結果</li>
+<li>2–3 個方案</li>
+<li>評估準則</li>
+<li>最終決策與理由</li>
+</ul>
+<hr>
+<h3 id="ie-ch01-guide-100" data-nav-heading data-depth="2">學習歷程反思</h3>
+<p>請學生回答：</p>
+<blockquote>以前遇到問題時，我最常直接做什麼？</blockquote>
+<p>再回答：</p>
+<blockquote>學完這一章之後，我會多問哪兩個問題？</blockquote>
+<p>最後寫下一句：</p>
+<blockquote><strong>我想帶到下一章的 IE 習慣是＿＿＿＿＿＿＿＿。</strong></blockquote>
+<hr>
+<h3 id="ie-ch01-guide-101" data-nav-heading data-depth="2">五分鐘出門票</h3>
+<ol>
+<li>今天以前，我認為工業工程是＿＿＿＿＿＿＿＿。</li>
+<li>今天以後，我認為工業工程更重要的是＿＿＿＿＿＿＿＿。</li>
+<li>如果明天看到一個排隊問題，我第一個會先確認＿＿＿＿＿＿＿＿。</li>
+<li>AI 提出的原因，在查證以前應該先被視為＿＿＿＿＿＿＿＿。</li>
+</ol>
+<hr>
+<h3 id="ie-ch01-guide-102" data-nav-heading data-depth="2">教師收束語</h3>
+<p>可以用這段做本章最後一頁：</p>
+<blockquote>工業工程不要求我們看到問題後立刻有答案。</blockquote>
+<blockquote>它先要求我們把問題看清楚：看流程、看限制、看彼此之間的關係，也看改善之後可能產生的新問題。</blockquote>
+<blockquote>AI 可以幫我們想得更快、想得更多，但真正的工程判斷，仍然來自清楚的問題、可靠的證據，以及對整體結果負責的決策。</blockquote>
+<hr>
+<h3 id="ie-ch01-guide-103" data-nav-heading data-depth="2">與下一章銜接</h3>
+<p>第一章先建立「IE 的眼睛」：</p>
+<ul>
+<li>看問題</li>
+<li>看流程</li>
+<li>看系統</li>
+<li>看瓶頸</li>
+<li>看取捨</li>
+</ul>
+<p>下一章將開始把這種觀察進一步轉成更具體的流程分析與改善方法。</p>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-guide-104" data-nav-heading data-depth="1">教師課後紀錄區</h2>
+<h3 id="ie-ch01-guide-105" data-nav-heading data-depth="2">本次學生最有反應的案例</h3>
+<p>-</p>
+<h3 id="ie-ch01-guide-106" data-nav-heading data-depth="2">最常出現的直覺改善方案</h3>
+<p>-</p>
+<h3 id="ie-ch01-guide-107" data-nav-heading data-depth="2">學生最容易混淆的概念</h3>
+<p>-</p>
+<h3 class="prompt-heading prompt-ai" id="ie-ch01-guide-108" data-nav-heading data-depth="2">AI 活動中最常出現的問題</h3>
+<p>-</p>
+<h3 id="ie-ch01-guide-109" data-nav-heading data-depth="2">下次授課需要調整的時間</h3>
+<p>-</p>
+<h3 id="ie-ch01-guide-110" data-nav-heading data-depth="2">可以補強或刪除的內容</h3>
+<p>-</p>
+</section>
+</article>
+<article class="content-page" data-chapter="1" data-view="full">
+<h1 class="hero">第1章　你每天都活在系統裡：第一次認識工業工程</h1>
+<p class="part-label">第 1 章｜完整教材</p>
+<p class="part-label">第一篇　看懂工業工程與系統</p>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-1" data-nav-heading data-depth="1">本章學習目標</h2>
+<p>1. 說明工業工程如何從單點效率問題轉向整體系統改善。</p>
+<p>2. 區分現象與可分析的問題，並初步界定系統邊界。</p>
+<p>3. 使用人、機、料、法、環與資訊六個面向觀察流程。</p>
+<p>4. 理解限制、瓶頸、局部最佳與整體最佳的基本概念。</p>
+<p>5. 以 AI 產生假說，並能走入現場（Gemba）蒐集證據進行驗證。</p>
+<p>6. 能在真實限制條件下比較不同方案，理解目標取捨並做出可辯護的決策。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-2" data-nav-heading data-depth="1">1.1　工業工程到底在解決什麼問題？</h2>
+<p>中午十二點，下課鐘聲剛響，學生陸續走進校園餐廳。點餐櫃台前很快排起長隊，有人開始看手機，有人不耐煩地往前張望，也有人乾脆轉身離開。看到這樣的情況，最直覺的改善方式可能是：「再多開一個櫃台不就好了？」這個想法並不荒謬，甚至在許多現場都會成為第一個被提出的方案；問題在於，它把「隊伍出現在點餐櫃台前」直接等同於「點餐櫃台就是根本問題」，中間其實跳過了一段重要的分析。</p>
+<p>假設餐廳真的把一個櫃台增加成兩個，點餐速度的確可能加快，排在櫃台前的人也可能迅速變少。然而，當更多訂單在短時間內同時進入廚房，新的壅塞可能立即出現在製作區；等餐的人逐漸集中到取餐口，工作人員一邊找餐、一邊回答顧客詢問，甚至因餐點完成順序與訂單順序不一致而增加核對時間。最後，原本清楚可見的「點餐排隊」消失了，顧客的總等待時間卻沒有下降，甚至變得更難預測。</p>
+<p>這個例子說明了工業工程最重要的起點：不要只看一個工作點，而要觀察整套系統如何共同形成結果。若真正限制餐廳出餐能力的是廚房設備、備料方式或餐點組裝，那麼持續提高點餐速度，只會讓工作更快地湧向後端。換句話說，隊伍出現在哪裡，不代表問題一定發生在哪裡；我們看到的往往只是系統累積壓力後最終呈現的現象。</p>
+<p>日常生活中，人們面對問題時常以最明顯的現象作為原因。看到塞車，就想到拓寬道路；看到工作做不完，就想到增加人力；看到產量不足，就要求作業者做快一點；看到顧客抱怨，就要求第一線人員加強服務。這些方法有時有效，但如果改善前沒有確認需求從哪裡來、流程如何連接、資源受到什麼限制，就可能只處理「看得到的地方」，而不是影響整體結果的真正因素。</p>
+<p>因此，工業工程關心的問題通常不是「這個人能不能再快一點」，而是「這套工作方式能不能被設計得更好」。以餐廳為例，出餐時間過長可能來自備料不足、設備位置不佳、熱門品項沒有預製、點餐資訊不完整、付款流程干擾服務節奏、尖峰需求過度集中，或是前端接單速度已經超過廚房能力。當分析焦點從「誰不夠快」轉向「系統為什麼會形成這個結果」，我們才真正開始用工業工程的方式思考。</p>
+<p>工業工程（Industrial Engineering, IE）雖然在歷史上與工廠、生產與工作研究密切相關，但今天的應用早已不限於製造現場。醫院掛號與候診、便利商店結帳、網購配送、銀行服務、機場旅客動線、大學選課、新生報到、校園停車、客服中心，甚至軟體服務中的使用流程，都涉及人員、設備、材料、資訊、方法、時間與空間之間的協調。只要有限資源必須透過一連串互相依賴的活動完成某個目標，就存在工業工程可以分析與改善的空間。</p>
+<p>若要用一句話抓住本書對工業工程的基本定位，可以先記住：工業工程是在現實限制下，設計、整合與改善系統，使整體運作得更好。這句話中的每一個詞都很重要。「現實限制」提醒我們資源不可能無限增加；「系統」提醒我們不同環節互相影響；「整體」提醒我們不能只看單一指標；「更好」則要求我們先說清楚，到底什麼叫做好。</p>
+<figure><img src="assets/ch01-image-01.png" alt="第 1 章教材圖片 1" loading="lazy"><figcaption>第 1 章教材圖片 1</figcaption></figure>
+<p>圖 1-1　工業工程在組織中的角色</p>
+<p>所謂「更好」，也不能只理解成「更快」。例如外送平台若只以縮短配送時間作為唯一目標，外送員可能被迫搶快，縮短確認餐點與地址的時間，甚至增加交通風險。平均配送時間可能下降，但若錯送、客訴與事故風險同步上升，就很難稱為真正改善。真實的工業工程問題通常同時涉及時間、成本、品質、安全、服務、資源使用與工作負荷，因此改善的本質常是不同目標之間的權衡，而不是某一個數字愈小或愈大就愈好。</p>
+<p>在開始找方案以前，還有一件事情更重要：先把問題說清楚。生活中常聽見「餐廳排隊很久」、「行政效率很差」、「選課系統不好用」、「這個流程很亂」等說法。這些描述可能是真的，卻仍比較接近感受、現象或初步判斷。對工業工程而言，能被分析的問題通常還需要加入時間、範圍、對象、衡量方式與比較基準。</p>
+<p>例如，「午餐排隊很久」可以改寫為：「中午十二點到十二點二十分之間，學生從加入隊伍到取得餐點的等待時間明顯高於其他時段。」若再進一步觀察，就能知道平均等待多久、哪一個步驟最常累積人數、不同餐點的處理時間是否不同，以及星期一和星期五是否有差異。當問題逐漸具體，我們才知道該量什麼、去哪裡量、改善後如何比較，以及哪些因素只是猜測。</p>
+<p>這也是「現象」與「問題定義」的差別。現象告訴我們「好像哪裡不對」，問題定義則嘗試說清楚「什麼結果在什麼條件下不符合期待」。問題定義愈清楚，後續蒐集資料、找原因與評估方案就愈有方向；反過來說，如果一開始把問題定錯，後面即使使用再精密的公式、AI 或分析工具，也可能只是得到一個非常精確但沒有用的答案。</p>
+<p>同樣的思考可以放到其他場景。便利商店結帳排隊，不一定只是收銀機太少，也可能是微波食品、繳費、取貨與多種付款方式同時占用店員時間；醫院候診過久，也不一定是醫師看診速度慢，還可能與報到、檢查、資訊傳遞、預約時段設計有關；網購隔日到貨也不是因為快遞員「騎得比較快」，而是下單、付款、揀貨、包裝、分撥與配送等多個環節能夠協調。</p>
+<p>初學工業工程最容易犯的錯誤，就是太早提出解法。看到人排隊就想加人、看到庫存高就想砍庫存、看到設備停機就要求提高稼動率。專業分析的第一步恰好相反：暫時把解法放下，先確認現象、目標、範圍與證據。當你開始問「我們真正想改善的是什麼？」「這個問題如何被觀察或衡量？」「我看到的是原因還是結果？」時，就已經跨出了工業工程最重要的一步。</p>
+<aside class="prompt-block prompt-ie"><strong class="prompt-title">▸ IE 思維重點</strong><div class="prompt-body">現象告訴我們「好像哪裡不對」，問題定義則告訴我們「到底要改善什麼」。</div></aside>
+<aside class="prompt-block prompt-ai"><strong class="prompt-title">▸ AI 共學</strong><div class="prompt-body">請使用你熟悉的生成式 AI 工具，列出 10 個大學生一天生活中可能遇到的流程問題，例如上課、交通、餐飲、宿舍、圖書館、選課或行政服務。選其中 3 項，判斷它目前是「現象」還是已經可以分析的「問題」。<br>接著追問：哪些字詞仍太模糊？若要把它改寫成可以分析的問題，還需要知道哪些時間、地點、數量或流程資訊？哪些資料必須到真實現場才能取得？最後把 AI 的答案分成「可直接確認的事實」「合理但待查證的假說」「純粹建議」三類。</div></aside>
+<aside class="prompt-block prompt-think"><strong class="prompt-title">▸ 先想一想</strong><div class="prompt-body">如果你只知道「某行政單位每天都有人抱怨等太久」，在提出增加人力之前，你至少還想知道哪五件事？這五件事中，哪些是感受，哪些可以被量測？</div></aside>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">工業工程不是看到問題就立刻加人、加設備或要求做快一點，而是先把現象轉成可分析的問題。問題定義需要說清楚目標、範圍、條件與衡量方式；改善的焦點則必須從單一工作點提升到整體流程。</div></aside>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-3" data-nav-heading data-depth="1">1.2　從「做得更快」到「整個系統更好」</h2>
+<p>在日常語言中，我們很容易把「更快」等同於「更有效率」，再把「更有效率」理解成「更好」。餐廳希望縮短點餐時間、工廠希望提高產量、醫院希望增加每小時看診人數，這些目標都合理。但只要系統中不同環節的處理能力不一致，單點速度提升就可能帶來新的等待、堆積與波動。</p>
+<p>回到校園餐廳。假設櫃台原本每分鐘完成 3 筆點餐，增加人力後提升到每分鐘 6 筆；廚房每分鐘卻只能穩定完成 4 份餐點。前端看起來效率提高一倍，但每分鐘仍有約 2 筆訂單比廚房處理能力多。這些訂單不會消失，只會形成等待中的訂單、取餐人潮或工作壓力。從櫃台角度看改善成功，從顧客總等待時間與整體流動來看，卻可能只是把隊伍從前端搬到後端。</p>
+<p>系統中限制整體表現的環節，常被稱為瓶頸（bottleneck）。在本章不需要立刻學會完整的瓶頸分析，只要先抓住直觀概念：整體流量不會因為某個非瓶頸環節變快，就自動超過真正限制系統的能力。如果水管中最窄的一段沒有改變，前端水壓再大，也不代表整條管線能通過更多水。</p>
+<p>瓶頸不一定是一台慢機器。它可能是稀缺人力、空間、資訊確認、規則、核准權限、特定技能或需求尖峰。例如醫院檢查設備本身很快，但若只有少數技師能判讀結果，限制就可能在人而不在機；倉庫有很多揀貨員，但若所有人都必須等待一台包裝設備，瓶頸可能在設備；客服中心人力充足，但若某類案件一定要經主管人工核准，限制可能在規則與權限。</p>
+<p>除了瓶頸之外，還有另一個必須注意的現象：工作在不同環節之間移動時，會形成等待中的顧客、訂單、文件或在製品。製造現場常用在製品（work in process, WIP）描述尚未完成、正在流程中等待或加工的物品。WIP 並不一定是壞事，但若前段持續大量生產、後段跟不上，WIP 會占用空間、資金與管理注意力，還可能遮蔽真正的品質問題。</p>
+<p>例如一條產線要求前段加工站提升產出，作業者成功把每小時完成量從 60 件提高到 80 件，但後段檢驗仍只能處理 65 件。如果管理者只看前段設備利用率與產量，報表會顯示明顯進步；然而後段每天都多出尚未檢驗的產品，幾天後現場堆滿 WIP，找料、搬運與插單都更困難。局部指標變好，卻使整體交期、品質追溯與空間使用變差。</p>
+<p>因此，工業工程中的「改善」不是單純追求某個工作站的最大速度，而是讓各環節之間的能力與需求更協調。這個概念也能解釋為什麼「設備不能停」不一定是好事。若市場暫時沒有需求，持續生產只會把原料變成庫存；若下一站已經塞住，讓上一站持續全速運轉，可能只是增加搬運與等待。真正重要的是系統是否穩定地產出顧客需要的結果，而不是每台設備看起來都很忙。</p>
+<p>這裡開始出現工業工程的一個重要語言：績效不是單一數字。時間、成本、品質、安全、彈性、服務、資源利用與工作負荷可能彼此牽動。降低成本可能犧牲備援；增加庫存可以降低缺貨風險，卻占用資金與空間；追求最高設備利用率可能增加 WIP；提供高度客製化可以提升某些顧客滿意度，卻提高排程複雜度。</p>
+<p>因此，好的改善方案通常不是「所有指標都同時最好」，而是在目標、限制與風險之間找到更合理的取捨（trade-off）。這也是工程判斷的重要來源：你必須說明自己優先保護什麼、願意付出什麼代價、哪些限制不可突破，以及改善後是否把風險轉移到其他地方。</p>
+<p>這種思考也提醒我們，衡量績效時要小心「代理指標」。例如客服中心用平均通話時間代表效率，員工可能為了縮短時間而快速結束通話，造成顧客再次來電；倉庫用空間利用率愈高代表愈好，貨架塞得太滿後卻讓揀貨時間變長。指標本身沒有錯，問題在於它只代表系統的一部分。如果管理者把單一指標當成唯一目標，現場行為往往會被指標牽著走。</p>
+<p>因此，從「做得更快」走向「整個系統更好」，其實是從局部效率走向系統績效。速度仍然重要，但必須放在流程、瓶頸、需求、品質與限制中解讀。這個轉變看似簡單，卻是後面工作研究、生產管理、品質、設施規劃、排程與供應鏈等方法共同的思考底座。</p>
+<figure><img src="assets/ch01-image-02.png" alt="第 1 章教材圖片 2" loading="lazy"><figcaption>第 1 章教材圖片 2</figcaption></figure>
+<p>圖 1-2　改善前後：點餐瓶頸與瓶頸往下游移動</p>
+<aside class="prompt-block prompt-ie"><strong class="prompt-title">▸ IE 思維重點</strong><div class="prompt-body">改善錯地方，壅塞可能只是搬家；局部速度提高，也可能只是更快地把工作推向下一個瓶頸。</div></aside>
+<aside class="prompt-block prompt-think"><strong class="prompt-title">▸ 先想一想</strong><div class="prompt-body">如果某工廠每台設備的「利用率」都接近 100%，你會立刻判斷這是一個管理很好的工廠嗎？還想看哪些資料，才能判斷整體系統是否真的更好？</div></aside>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">瓶頸決定整體流動的上限，非瓶頸環節的局部加速不一定提高系統產出。工業工程必須同時觀察 WIP、等待、交期、品質與資源使用，並在彼此衝突的指標中做出可說明的取捨。</div></aside>
+<p>在這裡也可以先區分「效率」與「效果」。效率常問的是「用多少資源完成多少工作」，效果則更接近「有沒有完成真正需要的結果」。一個部門可能非常有效率地完成大量工作，卻沒有解決顧客真正的需求；相反地，有些流程看起來保留了空檔或緩衝，卻能讓整體更準時、更穩定。工業工程後續會用不同指標描述這些差異，本章先建立一個基本原則：任何效率數字都必須和系統目標一起解讀。</p>
+<p>改善還需要注意時間尺度。把今天的產量拉高，可能以明天的庫存與設備保養為代價；把本月採購成本壓低，可能增加下一季的呆料；用加班暫時消化訂單，也可能在數週後帶來疲勞、錯誤與離職。局部最佳不只發生在空間與部門之間，也可能發生在「現在」與「未來」之間。這就是為什麼工程判斷不能只看改善當下的一張報表。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-4" data-nav-heading data-depth="1">1.3　工業工程師是怎麼看問題的？</h2>
+<p>當工業工程師面對一個問題時，第一件事通常不是立刻套公式，而是先把系統看清楚。要做到這件事，需要一套基本的觀察鏡頭，避免我們只注意最顯眼的表面現象。對初學者而言，本書先採用「人、機、料、法、環、資訊」六個面向，作為進入任何流程時的第一張觀察清單。</p>
+<p>「人」包含作業者、顧客、使用者、主管與跨部門協作者。觀察人，不是要找誰做錯，而是了解技能、工作負荷、資訊理解、熟練度、溝通、疲勞與需求差異。「機」不只指工廠機器，也包括設備、工具、電腦、軟體、掃碼器與自動化系統。「料」可以是原料、零件、食材、文件或任何在流程中被處理、搬運與等待的實體對象。</p>
+<p>「法」代表流程、規則、步驟、權限與工作方式。同樣一群人與設備，若流程設計不同，結果可能差很多。「環」包括空間、動線、光線、溫濕度、噪音、位置與時間條件；環境的影響常在辦公與服務流程中被忽略。「資訊」則包含訂單、標示、通知、系統狀態、資料欄位、優先順序與回饋訊號。數位化之後，很多實體流程的瓶頸其實來自資訊不完整、不同系統不同步或人員無法快速判讀。</p>
+<p>以便利商店尖峰結帳為例，如果只看到隊伍，很容易認為「店員太少」。但從六個面向觀察，可能會發現：人員是否熟悉各種服務？收銀與微波設備是否共用同一位店員？熱門商品是否集中在某區造成動線交叉？取貨、繳費與一般購物是否使用相同流程？促銷資訊是否讓顧客到櫃台才開始詢問？系統畫面是否需要多次切換？一個排隊問題可以同時受到多個因素影響。</p>
+<p>這六個面向的目的不是把責任分類，而是提醒分析者不要太早下結論。當你直覺認為「問題一定是人造成的」，框架迫使你再看設備、流程、環境與資訊；當你覺得「換一台更快的機器就好」，它也提醒你檢查材料供應、資訊輸入與下一站是否能跟上。</p>
+<p>在傳統現場改善中，常見 4M1E：Man（人）、Machine（機）、Material（料）、Method（法）與 Environment（環）；在品質管理中，也常看到 5M1E，再加入 Measurement（測量）。不同產業與教材的分類可能略有差異。本書在入門階段另外把「資訊」拉出來，是因為服務流程、資訊系統與 AI 時代的大量問題，往往不是單純由實體人機料造成，而是資料與訊息如何流動所形成。</p>
+<p>因此，現在先把這些分類當成觀察鏡頭，而不是考試口訣。未來進入品質管理、魚骨圖、作業分析或數位轉型時，你會再看到較正式的分類。重要的不是背得出幾個 M，而是能在面對問題時系統性地問：還有哪一類因素我沒有看？</p>
+<figure><img src="assets/ch01-image-03.png" alt="第 1 章教材圖片 3" loading="lazy"><figcaption>第 1 章教材圖片 3</figcaption></figure>
+<p>圖 1-3　六面向觀察：從不同角度看問題</p>
+<p>除了六面向，工業工程師還會關心「時間」與「流動」。同樣五分鐘，有可能是實際加工五分鐘，也可能是工作一分鐘、等待四分鐘；同樣十個人，也可能是十個人都在工作，或七個人在等前一站。若只看總時間與總人數，很多浪費會被平均值遮住。因此現場觀察時，除了看有哪些資源，也要看它們何時工作、何時等待、如何移動，以及工作如何在站點之間交接。</p>
+<p>另一個重要觀察是「變異」。真實世界很少每一筆訂單都一模一樣、每一位顧客都花同樣時間。有人只買一瓶水，有人同時取貨、繳費、微波與使用行動支付；有些零件加工很順，有些需要重工。平均值可以描述整體，但如果差異很大，尖峰與例外情況可能才是壅塞來源。這也是後面統計、品質與排隊觀念會重要的原因。</p>
+<p>最後，觀察並不等於蒐集越多資料越好。好的觀察要和問題定義連結。若問題是午餐尖峰等待時間過長，最有價值的資料可能是到達人數、各站服務時間、等待人數與餐點類型，而不是把所有設備溫度、員工年資與每日營收全部記下來。工業工程的分析不是資料堆積，而是有目的地找到足以理解系統的證據。</p>
+<div class="table-wrap"><table><tbody><tr><th>▸ 名詞接軌｜4M1E、5M1E 與本書六面向
+傳統 4M1E 常指 Man、Machine、Material、Method、Environment；品質管理常見的 5M1E 通常再加入 Measurement。為了貼近現代服務與數位流程，本書入門觀察另把「資訊」單獨拉出。這是教學上的現代化延伸，不把 Information 誤稱為傳統 5M1E 的固定成員。</th></tr></tbody></table></div>
+<div class="table-wrap"><table><tbody><tr><th>▸ 動手做｜現場觀察
+選擇校園中一個你每天經過的流程，站在現場觀察 10 分鐘。不要急著想改善方案，只記錄人、機、料、法、環、資訊，以及「等待、移動、重複確認」三類現象。最後圈出你原本完全沒有注意到的一項因素。</th></tr></tbody></table></div>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">人、機、料、法、環、資訊是一套入門觀察鏡頭，目的是避免太早把問題歸因給單一因素。觀察時還要注意時間、等待、流動與變異，並讓資料蒐集服務於已定義的問題。</div></aside>
+<p>真正的現場觀察還要避免「只找支持自己想法的證據」。如果你一開始就認定是店員太慢，觀察時就容易只記住店員停頓的時刻，忽略其實有很多時間是在等系統回應或等顧客付款。較好的方式是先建立簡單紀錄表，把工作、等待、移動、重複處理與例外事件都記下，再回頭判斷哪一類現象最值得深入。這種先觀察、後解釋的紀律，是工業工程和直覺評論的重要差別。</p>
+<p>同一個流程也可能因對象不同而需要不同觀察方式。對顧客而言，最重要的是從進入系統到完成服務的總時間；對作業者而言，可能更關心每個步驟的工作負荷與操作困難；對管理者而言，還會關心成本、產能與例外處理。好的分析不是選一個觀點取代其他觀點，而是理解不同角色看到的是同一系統的不同切面。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-5" data-nav-heading data-depth="1">1.4　什麼叫做「系統」？</h2>
+<p>前面一直使用「系統」這個詞，但什麼才算一個系統？簡單來說，系統是由多個彼此關聯的要素所組成，這些要素為了某個目的共同運作。對工業工程而言，真正重要的不是單一要素存在什麼，而是要素之間如何連結，以及這些連結如何共同形成最後的結果。</p>
+<p>理解系統最直觀的方法，可以先從「輸入—轉換—輸出—回饋」開始。以咖啡店為例，人力、咖啡豆、牛奶、設備、能源、顧客訂單與付款資訊都是輸入；研磨、萃取、調製、核對與交付是轉換過程；完成的飲品、顧客體驗、營收、廢棄物等是輸出。顧客評價、退貨、銷售資料、設備警示與等待時間又會成為回饋，影響下一輪備料、人力與流程安排。</p>
+<figure><img src="assets/ch01-image-04.png" alt="第 1 章教材圖片 4" loading="lazy"><figcaption>第 1 章教材圖片 4</figcaption></figure>
+<p>圖 1-4　系統思維：看到整體，優化全局</p>
+<p>這個模型的價值在於讓我們不只看輸出。當顧客抱怨出餐慢時，我們可以回頭檢查：輸入是否在尖峰突然增加？轉換中的哪一步驟處理能力不足？輸出除了速度之外，品質與正確率如何？回饋訊號有沒有被管理者看見並轉成調整？同樣的架構也能用在醫院、倉庫、學校行政或線上服務。</p>
+<p>但是，真正進行系統分析時，還有一個重要決定：系統邊界（system boundary）畫在哪裡。假設我們要研究「學生上課遲到」，如果邊界只畫在教室門口，可能只會記錄學生幾點進教室；如果把邊界擴大，就可能看到宿舍距離、公車班次、校園交通、電梯容量、前一堂課下課時間與課表安排。邊界不同，看到的原因與可採取的改善方式都不同。</p>
+<p>系統邊界不是世界上自然存在的一條線，而是分析者依問題與目的定義出來的。邊界畫得太小，真正原因可能被排除；邊界畫得太大，又會讓分析失去焦點。工業工程師需要在「足以解釋問題」與「仍然可以分析與改善」之間找到合適範圍。</p>
+<p>系統還有一個容易被忽略的特性：子系統彼此相依。餐廳中的點餐、製作、取餐可以看成三個子系統；大學中的招生、註冊、繳費、選課、住宿也可能分屬不同單位。行政組織圖上它們彼此分開，但對使用者而言，卻是一段連續體驗。只要前一個子系統的輸出成為下一個子系統的輸入，彼此就會互相影響。</p>
+<p>因此，管理上的組織邊界不一定等於流程上的系統邊界。某個問題可能跨越多個部門，卻只有一個顧客結果。例如學生辦理新生報到時，可能同時經過教務、學務、總務、圖資與系所；若每個單位只優化自己的表單與窗口，學生仍可能在不同系統間重複輸入相同資料。從部門看每個單位都完成工作，從學生旅程看卻是一個破碎的流程。</p>
+<p>回饋也是系統能否持續改善的關鍵。沒有回饋的流程，很難知道輸出是否符合需求；回饋太慢，也可能錯過調整時機。例如餐廳月底才知道顧客抱怨，而問題其實每天中午都發生；設備一個月後才統計故障，但現場早已累積大量異常。工業工程不只設計流程，也會關心回饋何時出現、誰能看見、如何轉成行動。</p>
+<p>系統思維最後帶來一個重要提醒：問題常常不是某個元素「不好」，而是元素之間的配合方式不合適。兩台很好的設備放在錯誤位置、兩個能力很強的部門使用互相衝突的 KPI、兩套功能完整的資訊系統無法交換資料，都可能產生不好的系統結果。這也是為什麼工業工程強調整合，而不只是單點最佳化。</p>
+<aside class="prompt-block prompt-ai"><strong class="prompt-title">▸ AI 共學</strong><div class="prompt-body">請選擇「大學生選課」或「網購退貨」其中一個流程，讓 AI 分別以兩種不同系統邊界分析：第一種只看最直接的操作步驟；第二種把前後相關活動納入。比較兩份分析：邊界擴大後多看見了哪些原因？又增加了哪些不必要的複雜度？最後由你決定哪一個邊界最適合目前的問題。</div></aside>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">系統由彼此關聯的要素組成，可用輸入、轉換、輸出與回饋理解其基本結構。系統邊界必須依問題定義，太小會漏掉原因，太大會失去焦點；部門邊界也不一定等於真正的流程邊界。</div></aside>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-6" data-nav-heading data-depth="1">1.5　為什麼局部最佳不等於整體最佳？</h2>
+<p>如果一個組織中的每個人、每個部門都努力把自己的績效做到最好，整個組織就一定會最好嗎？答案並不一定。這正是系統思維和一般單點管理最容易產生差異的地方。因為不同部門使用的指標、時間尺度與責任範圍不同，一個部門的「最好」有時正是另一個部門的負擔。</p>
+<p>假設一家公司希望降低成本。採購部門為了取得較低單價，一次購買大量原料；生產部門為了提高設備稼動率，偏好長時間、大批量生產；業務部門為了提高接單與顧客滿意度，希望承接更多急單與客製品；倉儲部門則希望降低庫存，減少空間與資金占用。從各自部門的績效來看，每個選擇都有理由，但把它們放進同一個系統後，目標可能彼此衝突。</p>
+<p>表 1-1　跨部門局部最佳與整體代價對照</p>
+<div class="table-wrap"><table><tbody><tr><th>部門</th><th>追求的局部最佳</th><th>常見做法</th><th>可能造成的整體代價</th></tr><tr><td>採購</td><td>最低採購單價</td><td>一次大量採購、追求數量折扣</td><td>庫存與資金占用增加，過期、呆料與需求變動風險上升。</td></tr><tr><td>生產</td><td>最高設備稼動率</td><td>設備不停機、偏好大批量生產</td><td>在製品堆積、排程彈性下降，可能生產目前不需要的品項。</td></tr><tr><td>業務</td><td>最大接單與顧客滿足</td><td>承接更多急單與客製品項</td><td>換線頻繁、插單增加，交期可靠度與生產穩定性下降。</td></tr><tr><td>倉儲</td><td>最低庫存與空間占用</td><td>嚴格限制進倉與安全庫存</td><td>缺料、停工或無法快速回應需求波動的風險提高。</td></tr></tbody></table></div>
+<p>大量採購確實可能降低單價，但同時增加庫存、現金流壓力與過期風險；設備長時間滿載，可能製造大量目前並不需要的產品；客製品愈多，換線與排程複雜度愈高；倉儲若把庫存壓得過低，又可能讓生產因缺料停工。問題不在某個部門「做錯」，而是每個部門的局部目標沒有被整合成一致的系統目標。</p>
+<p>這種現象可以用局部最佳（local optimum）與整體最佳來理解。局部最佳表示某一個工作站、部門或指標在自己的範圍內表現最好；整體最佳則關心整個系統最終要達成的結果。真實管理中，整體最佳不一定代表所有局部都同時達到最大值，有時反而需要某個環節保留餘裕或接受較低利用率，才能使整體更穩定。</p>
+<p>例如，一家醫院如果要求每位醫師把門診時段排到幾乎沒有空檔，看似最大化醫師利用率，但只要有幾位病人需要較長時間，後續預約就會持續延誤；保留少量緩衝反而可能提升整體準時率。又例如倉庫若追求每個儲位都塞滿，空間利用率很漂亮，卻可能讓揀貨路徑、補貨與盤點變得困難。局部指標不一定錯，但必須放回整體目的中解讀。</p>
+<p>這也帶出 KPI（Key Performance Indicator，關鍵績效指標）的管理意義。指標會引導行為。若採購只被評估「平均採購單價」，最合理的行為就是大量採購；若客服只看「平均通話時間」，員工就會有壓力快速結束通話；若生產只看「設備稼動率」，現場自然傾向讓機器不要停。管理者設計指標時，必須思考它會誘發什麼行為，以及那些行為對其他部門與顧客結果造成什麼影響。</p>
+<p>因此，系統思考要求我們在做任何改善決策時多問一個問題：這項改善對其他環節會造成什麼影響？這個問題很簡單，卻能避免大量「局部成功、整體失敗」的改善。例如把櫃台速度提高後，後端是否塞住？降低庫存後，缺料風險是否上升？減少人力後，服務品質或加班是否惡化？自動化某個步驟後，例外處理是否變得更困難？</p>
+<p>整體最佳並不代表有一個永遠正確的答案。企業在不同時期可能有不同優先順序：現金流緊張時可能先降低庫存；新產品上市時可能更重視交期與彈性；高風險產業可能把安全放在速度之前。工業工程的價值不是替所有人決定優先順序，而是把不同方案的效果、限制與代價看得更清楚，讓決策可以被解釋與辯護。</p>
+<aside class="prompt-block prompt-ie"><strong class="prompt-title">▸ IE 思維重點</strong><div class="prompt-body">局部最佳化，不等於整體最佳化；好的 KPI 不只要看「本部門做得多好」，還要看它是否促進整體系統的目標。</div></aside>
+<aside class="prompt-block prompt-ai"><strong class="prompt-title">▸ AI 共學｜角色辯論</strong><div class="prompt-body">請讓 AI 分別扮演採購、生產、業務與倉儲主管，對「公司應不應該一次買進一年份原料」提出立場。接著要求 AI 轉換成總經理角色，指出四個部門各自忽略了哪些系統代價。最後不要直接採用 AI 的結論，而是自行設計 2–3 個能兼顧單價、庫存、現金流與缺料風險的 KPI。</div></aside>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">部門指標會引導部門行為，但局部最好的行為可能對整體造成代價。工業工程的系統觀要求把 KPI、流程與跨部門影響放在同一張圖上思考，並接受整體最佳往往需要取捨。</div></aside>
+<p>另外，整體最佳通常需要跨部門共同定義。如果高階目標只是「降低總成本」，不同部門仍可能各自解讀；若能進一步把顧客交期、庫存週轉、缺料率與品質一起納入，部門就比較容易理解自己的行為會如何影響整體。這也意味著系統改善不是單靠分析工具就能完成，還涉及溝通、共同目標與管理制度。後續章節談組織與控制時，會再回到這個問題。</p>
+<p>因此，當你看到一個漂亮的部門績效報表時，可以練習問三件事：第一，這個指標和組織真正想達成的結果有什麼關係？第二，為了讓指標變好，現場可能採取哪些行為？第三，這些行為是否會把成本、等待或風險轉移給別人？只要開始習慣這三個問題，你就會發現「績效管理」本身也是一個系統設計問題。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-7" data-nav-heading data-depth="1">1.6　AI 時代，為什麼還需要工業工程？</h2>
+<p>生成式 AI 已經可以快速整理資料、解釋概念、撰寫程式、提出改善方案，甚至協助排程與模擬。那麼，AI 時代還需要學工業工程嗎？答案可以從前面幾節得到：工業工程真正困難的部分，往往不只是「算出答案」，而是決定要解決什麼問題、系統邊界在哪裡、哪些限制不能忽略，以及最後應該採取什麼行動。</p>
+<figure><img src="assets/ch01-image-05.png" alt="第 1 章教材圖片 5" loading="lazy"><figcaption>第 1 章教材圖片 5</figcaption></figure>
+<p>圖 1-5　工業工程的發展演進：從傳統工業到數位與智慧時代</p>
+<p>AI 很擅長根據已提供的資訊產生可能答案。當你輸入「餐廳中午排隊很久」，AI 可以迅速列出增加櫃台、預先點餐、調整菜單、分流付款、設置自助機等方案。這種能力非常有價值，因為它能快速擴大假說空間，提醒分析者想到原本沒想到的可能性。然而，AI 不知道今天現場到底是哪一個站點在塞、不同餐點服務時間差多少，也不知道學校真正允許的預算、人力與空間限制，除非你把可靠資料提供給它。</p>
+<p>因此，AI 回答必須區分「事實」「推論」與「建議」。如果你告訴 AI 某餐廳只有一個櫃台，這是你提供的事實；AI 說「可能因付款流程太慢」，這是待驗證的推論；AI 建議「增加自助點餐機」，則是方案。把三者混在一起，是使用 AI 做分析時最危險的錯誤之一，因為語句流暢很容易讓人誤以為內容已經被證實。</p>
+<p>AI 也可能在問題定義不清楚時給出非常完整卻無法落地的答案。例如「如何改善學校行政效率」範圍太大，AI 可以列出流程再造、資訊整合、自動化、KPI、教育訓練等十幾個方向，但這些內容難以直接行動。若把問題改成「新生註冊尖峰時段，學生完成身分確認到領取學生證平均需 45 分鐘，且其中 20 分鐘集中在資料重複核對」，AI 才有機會針對明確流程協助形成更有價值的假說。</p>
+<p>此外，AI 不具備組織中的責任。它可以提出裁員、增加庫存、改變排班、提高自動化等建議，但真正承擔成本、員工影響、安全與顧客風險的是人與組織。這就是工程決策和單純生成答案的差別：決策者必須知道限制、證據強度與副作用，並對最後選擇負責。</p>
+<p>所以，本書把 AI 放在一個更完整的學習循環中：ASK（提問）→ VERIFY（驗證）→ INTERPRET（解釋）→ DECIDE（決策）。提問不是把一句抱怨丟給 AI，而是建立可分析的問題；驗證不是問 AI 第二次，而是回到資料、來源、公式或現場；解釋是把結果放回系統情境；決策則是在人類設定的目標與限制下做選擇。</p>
+<p>這個循環也能避免「AI 自己驗證 AI」的假象。如果 AI 提出某原因，接著又讓同一個 AI 回答「這個原因是否合理」，你得到的仍是語言模型的第二次推論，不是新的證據。真正的 VERIFY 應該加入外部資訊，例如現場觀察、量測資料、正式文件、實驗或不同來源。AI 可以幫你設計驗證方式，但不能自動把自己的猜測變成事實。</p>
+<p>更重要的是，AI 的加入反而提高系統思考的重要性。當產生十個方案只需要幾秒鐘，人不再缺少「想法」，而更缺少判斷：哪些方案符合目標？哪些忽略關鍵限制？哪些只是把問題移到其他地方？需要哪些證據才能比較？如果答案生成的成本變得很低，問題定義、證據品質與決策邏輯就變得更珍貴。</p>
+<p>因此，學工業工程並不是和 AI 競賽誰算得快，而是學會如何把 AI 放進可靠的分析流程。當你能清楚定義問題、理解系統、辨識瓶頸、設計指標、蒐集資料、驗證假說並做出取捨，AI 會成為能力放大器；如果這些能力不存在，AI 也可能只是把模糊的問題快速包裝成一個看似完整的答案。</p>
+<aside class="prompt-block prompt-ie"><strong class="prompt-title">▸ IE 思維重點</strong><div class="prompt-body">AI 可以協助回答問題，但工業工程首先要求我們問對問題；AI 可以擴大假說，證據與決策責任仍然在使用者手上。</div></aside>
+<aside class="prompt-block prompt-think"><strong class="prompt-title">▸ 先想一想</strong><div class="prompt-body">如果 AI 在沒有看過任何現場資料的情況下，列出「餐廳排隊的 10 大原因」，你會把這 10 項稱為資料、原因、假說，還是建議？要經過什麼程序，其中某一項才有資格被稱為「已確認原因」？</div></aside>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">AI 擅長產生假說、整理資訊與輔助分析，但不能取代問題定義、外部驗證、系統解釋與責任決策。AI 時代的 IE 能力，反而更集中在問對問題、找對證據與理解取捨。</div></aside>
+<p>AI 還有一個值得注意的限制：它通常看不到組織中沒有被文字化的知識。資深作業者可能知道某台設備在特定溫度下容易異常、某類訂單在週五下午特別容易延遲、某個表單欄位其實大家都用非正式方式補正。這些隱性知識如果沒有被蒐集，AI 再強也只能根據不完整的資訊推論。因此，訪談、走動觀察與現場紀錄並不會因 AI 出現而過時，反而成為補足模型盲點的重要方法。</p>
+<p>另一方面，AI 也適合拿來做「反方檢查」。當團隊已經很喜歡某個方案時，可以要求 AI 列出這個方案最可能失敗的條件、可能被忽略的利害關係人，以及哪些指標會出現副作用。這不是把判斷交給 AI，而是利用它快速產生反例，降低團隊只尋找支持證據的偏誤。最後仍要回到現場與資料，判斷這些反例是否真的存在。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-8" data-nav-heading data-depth="1">1.7　第一次和 AI 一起做工業工程</h2>
+<p>前面幾節已經建立問題定義、六面向觀察、系統邊界、瓶頸、局部最佳與 AI 驗證觀念。現在可以把它們整合成第一次簡單的 IE–AI 協作任務。這項任務不要求複雜計算，而是練習一個完整循環：先自己定義問題，再讓 AI 協助形成假說，回到現場求證，最後在真實限制下比較方案並做出判斷。</p>
+<p>這個流程特別適合初學者，因為它把 AI 放在「中間」而不是「起點與終點」。起點是你對問題的觀察，終點也是你對證據與方案的判斷。AI 負責擴大思考、整理可能性與協助比較，而不是替你決定現場事實。</p>
+<figure><img src="assets/ch01-image-06.png" alt="第 1 章教材圖片 6" loading="lazy"><figcaption>第 1 章教材圖片 6</figcaption></figure>
+<p>圖 1-6　IE–AI 協作循環的五個階段</p>
+<h3 id="ie-ch01-full-9" data-nav-heading data-depth="2">任務：改善校園午餐排隊</h3>
+<p>1. 定義問題（不用 AI）　選擇一個你熟悉的校園餐飲場景，把「很慢、很亂、排很久」改寫成包含時間、地點、流程或對象的具體問題。最好先界定一個可觀察時段，例如「週二 12:00–12:20」，並說明你要改善的是總等待時間、隊伍長度、正確率還是其他結果。先寫下自己的初步判斷，避免一開始就讓 AI 代替你決定問題。</p>
+<p>2. AI 提出假說　讓 AI 依人、機、料、法、環、資訊六面向列出可能原因與潛在瓶頸。要求 AI 把每一項標示為「可觀察的現象」「可能原因」或「改善想法」，避免三者混在一起。從中挑選 3–5 個最值得查證的假說，並說明為什麼它們和目前問題最相關。</p>
+<p>3. 現場觀察求證（Gemba）　回到真實場域蒐集證據，例如每分鐘到達人數、點餐時間、付款時間、等待人數、廚房完成速度、取餐等待、熱門餐點比例與例外情況。逐項標記 AI 哪些猜對、哪些猜錯、哪些重要因素完全漏掉。若資料不足，不要急著下結論，先把「不知道」保留下來。</p>
+<p>4. 限制條件下生成方案　根據已確認的問題重新給 AI 任務，加入真實約束，例如「預算不超過 5,000 元」「不能增加人力」「不能改變廚房空間」「一週內必須能試行」。要求 AI 產生 2–3 個方案，並列出每個方案可能影響的時間、成本、品質、工作負荷與執行難度。限制條件愈具體，方案通常愈接近可行。</p>
+<p>5. 全局權衡與反思　不要只問「哪個方案最快」。比較方案對不同指標的影響，預想是否會把瓶頸移到其他環節，並決定你願意接受哪些代價。最後保留一份思考歷程：你接受了哪些 AI 建議、拒絕了哪些、判斷依據是什麼，以及還有哪些不確定性需要後續驗證。</p>
+<p>在實作時，你會發現「資料蒐集」本身也需要設計。若兩位同學對「開始等待」與「完成服務」的定義不同，記錄結果就無法直接比較；若只觀察五分鐘，可能剛好避開真正尖峰；若只看平均時間，又可能忽略少數等非常久的人。因此，Gemba 並不是去現場「看一看」，而是帶著明確問題與一致記錄方式取得證據。</p>
+<p>方案比較也需要先定義評估準則。假設方案 A 可以把平均等待時間降低 20%，但需要額外人力；方案 B 只降低 10%，卻幾乎不增加成本；方案 C 能改善尖峰，但平常反而較麻煩。哪個最好，取決於你如何設定時間、成本、品質與可行性的優先順序。工程決策的價值正在於讓這些取捨被看見，而不是假裝存在一個沒有代價的完美答案。</p>
+<p>最後，改善最好能以小規模試行來降低風險。若餐廳想改變取餐動線，可以先在一個中午試行並比較前後等待；若想改菜單，可以先針對尖峰熱門品項調整。小規模實驗不一定證明最終方案一定成功，但能讓原本的推測快速接受現場檢驗，也能避免一次投入太多成本。</p>
+<div class="table-wrap"><table><tbody><tr><th>▸ IE–AI 協作原則
+AI 提出假說，現場提供證據，人負責判斷。五個階段的目的不是做出漂亮報告，而是保留一條可以追溯的思考路徑。</th></tr></tbody></table></div>
+<div class="table-wrap"><table><tbody><tr><th>▸ 你來決定
+假設方案 A 可降低 20% 等待時間但每月增加 12,000 元人力；方案 B 可降低 10% 等待時間且只需調整排班；方案 C 可以降低尖峰排隊但可能增加取餐錯誤。請先設定你認為最重要的 3 個評估準則，再決定選哪一個方案。不要只寫答案，要寫判斷依據。</th></tr></tbody></table></div>
+<aside class="prompt-block prompt-summary"><strong class="prompt-title">▌ 本節小結</strong><div class="prompt-body">IE–AI 協作的五階段是：定義問題、AI 提出假說、Gemba 求證、限制條件下生成方案、全局權衡與反思。AI 的價值在於擴大與整理思考；真正的工程能力則表現在證據品質、限制理解與決策理由。</div></aside>
+<p>當小規模試行顯示方案可能有效，下一步還不是立刻全面推行，而是把成功條件說清楚並建立可持續的做法。例如新的取餐動線若只有某位熟練員工在場時才有效，就還不能視為穩定改善；若改善後等待降低，卻讓備料人員長期加班，也要重新評估。真正成熟的改善需要能被重複、被交接、被監測，並在條件改變時重新檢查。這種「改善—驗證—標準化—再改善」的精神，會在後續章節反覆出現。 因此，改善不是一次性的答案，而是一套持續校正系統的能力。 也必須留下可追溯的證據與判斷依據。 才能真正持續改善。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch01-full-10" data-nav-heading data-depth="1">1.8　本章整理：開始用 IE 的眼睛看世界</h2>
+<p>學完本章後，你應該已經開始用不同方式看待日常生活中的排隊、延誤、浪費與效率問題。工業工程的第一步不是急著找到工具，而是先看見系統：問題發生在哪個流程？哪些人、設備、材料、方法、環境與資訊彼此影響？真正限制整體結果的是什麼？某一個局部改善會不會把問題移到另一個地方？</p>
+<p>這些問題看似沒有複雜公式，卻是後面所有工業工程方法的共同基礎。工作研究會讓你更精確地分析作業方法與時間；品質管理會讓你用資料理解變異與原因；生產與作業管理會進一步討論產能、庫存、排程與流程；設施規劃會處理空間與動線；作業研究則會用數學模型協助複雜決策。這些工具不同，但如果缺少系統邊界、問題定義與取捨概念，工具很容易被用在錯的地方。</p>
+<p>所以，本章真正希望建立的不是一份名詞清單，而是一種思考習慣：先問問題，再找方法；先看整體，再看局部；先找證據，再下結論；先確認限制，再比較方案；即使使用 AI，也要知道哪些內容是事實、哪些只是推測，最後由自己做出可以說明的判斷。</p>
+<p>你也可以把這種習慣帶到日常生活。下一次遇到排隊，不要只抱怨服務太慢，可以觀察人怎麼到達、每個站點做什麼、哪裡開始累積、哪些工作其實在等待；下一次看到某部門 KPI 很漂亮，可以問它是否真的改善顧客結果；下一次 AI 給你一串完整答案，可以先問：這些內容中，哪些是它知道的，哪些只是合理猜測？</p>
+<p>從這一章開始，本書不期待你立刻像資深工程師一樣解決複雜問題，而是希望你逐步建立「IE 的眼睛」。當你能看見系統、區分現象與問題、注意瓶頸、理解局部與整體、願意到現場查證，後面的公式與工具才會真正有意義。</p>
+<h3 id="ie-ch01-full-11" data-nav-heading data-depth="2">本章六個核心提問</h3>
+<p>1. 我看到的是現象，還是已經定義清楚的問題？</p>
+<p>2. 這個問題的系統邊界應該畫在哪裡？</p>
+<p>3. 人、機、料、法、環與資訊之間如何互相影響？</p>
+<p>4. 真正限制整體表現的環節可能在哪裡？</p>
+<p>5. 改善一個地方，會不會讓其他地方變差？</p>
+<p>6. AI 的回答有哪些是推測？我需要什麼資料或現場證據來查證？</p>
+<h3 id="ie-ch01-full-12" data-nav-heading data-depth="2">關鍵詞</h3>
+<p>工業工程（Industrial Engineering, IE）、系統（System）、流程（Process）、系統邊界（System Boundary）、限制條件（Constraint）、瓶頸（Bottleneck）、在製品（Work in Process, WIP）、局部最佳（Local Optimum）、整體最佳（System Optimum）、取捨（Trade-off）、Gemba（現場）、問題定義（Problem Definition）、關鍵績效指標（KPI）。</p>
+<h3 id="ie-ch01-full-13" data-nav-heading data-depth="2">章末習題</h3>
+<p>1. 某餐廳增加一個點餐櫃台後，取餐等待時間反而變長。請用「局部改善」與「瓶頸」兩個概念解釋至少兩種可能原因。</p>
+<p>2. 請選擇你一天生活中的一個流程，用文字描述它的輸入、轉換、輸出與回饋，並說明你會把系統邊界畫在哪裡。</p>
+<p>3. 某公司為降低採購單價，一次購入一年份原料。請提出至少三項可能對整體系統造成的影響。進一步假設你是總經理：你會如何調整採購部門的 KPI，避免採購只追求最低單價，而忽略庫存、現金流、缺料風險與整體交期？</p>
+<p>4. 「我們學校的行政效率很差」為什麼還不是一個足以分析的問題？請將它改寫成包含時間、對象、流程與衡量方式的問題敘述。</p>
+<p>5. 請以人、機、料、法、環、資訊六個面向，分析一個你熟悉的排隊或等待場景。哪些因素是你目前已知的事實？哪些只是待查證假說？</p>
+<p>6. 某客服中心要求平均通話時間降低 20%。請說明這項 KPI 可能造成哪些正面效果與副作用，並提出至少一個互補指標。</p>
+<h3 id="ie-ch01-full-14" data-nav-heading data-depth="2">AI 挑戰題</h3>
+<p>選擇一個日常流程問題，先自己提出至少 3 個可能原因，再請 AI 依人、機、料、法、環、資訊六面向提出原因。比較兩份清單後，把 AI 內容標記為「事實／假說／建議」，再列出每一個重要假說需要什麼外部證據才能驗證。最後記錄你保留、修正或拒絕了哪些 AI 建議，以及理由。</p>
+<h3 id="ie-ch01-full-15" data-nav-heading data-depth="2">Mini Project｜從抱怨變成可改善的問題</h3>
+<p>以 2–4 人為一組，選擇校園中一個常被抱怨的流程，例如電梯、餐飲、借還書、停車、教室設備或行政服務。完整走過「定義問題 → AI 提出假說 → Gemba 現場查證 → 限制條件下生成方案 → 全局權衡與反思」五個階段。成果不要求證明方案一定成功，而是要能說明你們如何從模糊抱怨逐步形成有證據、可辯護的改善判斷。</p>
+<p>建議成果至少包含：問題定義與系統邊界、現場觀察記錄、AI 假說與查證結果、2–3 個方案、評估準則與限制條件、最終選擇與理由。若時間允許，可進行一次小規模試行，比較改善前後的等待、錯誤、工作負荷或其他指標。</p>
+<h3 id="ie-ch01-full-16" data-nav-heading data-depth="2">學習歷程反思</h3>
+<p>請用 150–200 字回答：你原本遇到問題時最常採取哪一種直覺解法？學完本章後，你會多問哪兩個問題？在使用 AI 時，你認為自己最需要避免哪一種錯誤？最後只寫下一個你真正想帶到下一章的習慣，例如「先定義問題，再找工具」或「AI 的原因先當假說，不當事實」。</p>
+<div class="table-wrap"><table><tbody><tr><th>▌ 本章重點回顧
+工業工程的核心不是讓單一工作站變得最快，而是在現實限制下改善整個系統。問題必須從模糊現象轉成可觀察、可衡量的敘述；分析要同時看人、機、料、法、環、資訊，並界定合適的系統邊界。瓶頸與 WIP 提醒我們局部加速可能把壅塞轉移；KPI 與局部最佳提醒我們每個部門都做得「最好」也不保證整體最好。AI 可以產生假說與方案，但現場證據、目標取捨與最終決策仍需要人負責。</th></tr></tbody></table></div>
+</section>
+</article>
+<article class="content-page" data-chapter="2" data-view="guide">
+<h1 class="hero">第2章　流程分析、工作研究與生產力</h1>
+<p class="part-label">第 2 章｜課程導讀</p>
+<blockquote>本檔為教師上課使用的「課程導讀版」內容，定位不是出版正文，也不是傳統 PPT。</blockquote>
+<blockquote>本導讀依第二章完整教材內容濃縮整理，章節與核心知識點維持一一對應，建議作為 3 小時互動式教學網頁的主要內容來源。</blockquote>
+<blockquote>教師可依班級程度調整講解深度，但學生即使只閱讀本導讀，也應能掌握本章的主要學習脈絡。</blockquote>
+<hr>
+<section class="lesson-section">
+<h3 id="ie-ch02-guide-1" data-nav-heading data-depth="2">本章定位</h3>
+<p>第一章先建立一套「工業工程看問題的方法」：不要看到排隊就直接加人，不要看到設備停下來就只要求設備繼續運轉，也不要在還沒有證據以前，就把 AI 提出的原因當成答案。</p>
+<p>第二章開始把這套思考方式轉成真正可以操作的方法。</p>
+<p>學生平常很容易說：</p>
+<ul>
+<li>這個流程很慢。</li>
+<li>排隊的人很多。</li>
+<li>店員動作太慢。</li>
+<li>人手不夠。</li>
+<li>這個步驟很麻煩。</li>
+<li>應該做一個 APP。</li>
+<li>用 AI 自動化就好了。</li>
+<li>叫大家做快一點應該就能改善。</li>
+</ul>
+<p>這些說法可能抓到部分現象，但真正的 IE 還要繼續問：</p>
+<ul>
+<li>事情究竟是怎麼一步一步完成的？</li>
+<li>中間有哪些工作？</li>
+<li>哪些是在加工、確認、移動、等待或儲存？</li>
+<li>為什麼這個步驟一定要存在？</li>
+<li>完成工作到底需要多少時間？</li>
+<li>改善之後，真的比較好嗎？</li>
+<li>如果產量變多，但錯誤也增加，還算生產力提高嗎？</li>
+</ul>
+<p>因此，本章要建立的核心觀念是：</p>
+<blockquote><strong>看不清楚流程，就很難知道真正應該改善什麼。</strong></blockquote>
+<p>本章會讓學生第一次完整經歷：</p>
+<blockquote><strong>看流程 → 記錄流程 → 拆解活動 → 研究方法 → 衡量時間 → 判斷生產力 → 驗證改善</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-2" data-nav-heading data-depth="2">本章學習目標</h3>
+<p>完成本章後，學生應能：</p>
+<ol>
+<li>區分工作（Task）、流程（Process）與系統（System）。</li>
+<li>依分析目的界定流程的開始與結束。</li>
+<li>理解服務流程中的前台（Frontstage）、後台（Backstage）與可見線（Line of Visibility）。</li>
+<li>觀察人員流、物料流與資訊流。</li>
+<li>辨認作業、檢查、搬運、等待與儲存五種基本活動。</li>
+<li>說明工作研究（Work Study）、方法研究（Method Study）與工作衡量（Work Measurement）之間的關係。</li>
+<li>使用 ECRS 思考工作方法，理解「先問能不能不做，再問怎麼做快」。</li>
+<li>理解觀察時間（Observed Time）、平均時間與現場變異（Variation）的差異。</li>
+<li>計算基本生產力（Productivity），並進一步判斷「有效產出」。</li>
+<li>使用 AI 協助提出流程假說與改善方案，再回到 Gemba 現場查證。</li>
+<li>能從時間、品質、成本、人員負荷與限制條件判斷改善是否真正有效。</li>
+</ol>
+<hr>
+<h3 id="ie-ch02-guide-3" data-nav-heading data-depth="2">課前準備</h3>
+<p>教師可準備：</p>
+<ul>
+<li>第二章正式教材 Word / PDF。</li>
+<li>本章教學圖片或網頁圖卡：</li>
+<li>前台／可見線／後台</li>
+<li>五種流程活動</li>
+<li>工作研究架構</li>
+<li>ECRS：E → C → R → S</li>
+<li>行政流程改善前／改善後</li>
+<li>投入 → 流程 → 有效產出／良品</li>
+<li>一個學生熟悉的流程案例，例如：</li>
+<li>校園餐廳</li>
+<li>網購取貨</li>
+<li>行政文件申請</li>
+<li>便利商店咖啡</li>
+<li>手機碼表。</li>
+<li>可即時投票的互動工具。</li>
+<li>學生手機可使用的生成式 AI。</li>
+</ul>
+<p>課前先請學生回答：</p>
+<blockquote>「如果一個流程很慢，你第一個想到的改善方法是什麼？」</blockquote>
+<p>常見答案可能包括：</p>
+<ul>
+<li>加人。</li>
+<li>加機器。</li>
+<li>做系統。</li>
+<li>自動化。</li>
+<li>用 AI。</li>
+<li>要工作人員快一點。</li>
+</ul>
+<p>先保留答案。</p>
+<p>到 2.4 的 ECRS 時，再回頭檢查：</p>
+<blockquote><strong>我們是不是還沒問『為什麼要做』，就已經直接跳到『怎麼做快』？</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-4" data-nav-heading data-depth="2">三小時授課流程</h3>
+<div class="table-wrap"><table><tbody><tr><th>時間</th><th>對應章節</th><th>教學內容</th><th>建議方式</th><th>學生產出</th></tr><tr><td>0:00–0:15</td><td>章首／2.1</td><td>一份午餐真的只有幾個步驟嗎？</td><td>情境提問、即時投票</td><td>一條初始流程</td></tr><tr><td>0:15–0:40</td><td>2.1</td><td>工作、流程、系統／前台與後台／流程邊界</td><td>圖像導讀、角色比較</td><td>流程邊界＋前後台</td></tr><tr><td>0:40–1:05</td><td>2.2</td><td>五種流程活動</td><td>案例分類、小組討論</td><td>活動分類</td></tr><tr><td>1:05–1:30</td><td>2.3</td><td>工作研究</td><td>概念圖、迷思辯論</td><td>Work Study 架構</td></tr><tr><td>1:30–1:40</td><td></td><td>休息</td><td></td><td></td></tr><tr><td>1:40–2:05</td><td>2.4</td><td>ECRS</td><td>行政案例、AI 比較</td><td>ECRS 改善</td></tr><tr><td>2:05–2:30</td><td>2.5</td><td>工作衡量與變異</td><td>手機碼表、小實驗</td><td>時間資料</td></tr><tr><td>2:30–2:50</td><td>2.6</td><td>生產力與有效產出</td><td>計算、品質反例</td><td>生產力判斷</td></tr><tr><td>2:50–2:58</td><td>2.7</td><td>第一次完整改善</td><td>五階段整合</td><td>改善構想</td></tr><tr><td>2:58–3:00</td><td>本章整理</td><td>出門票</td><td>個人反思</td><td>一句新的流程觀</td></tr></tbody></table></div>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-5" data-nav-heading data-depth="1">2.1　從一件工作，看見一條流程</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-6" data-nav-heading data-depth="2">教學核心</h3>
+<p>本節不是先教學生背流程圖符號，而是先建立：</p>
+<blockquote><strong>我們平常看到的流程，可能只是真實流程的一部分。</strong></blockquote>
+<p>學生要先理解三個層次：</p>
+<blockquote><strong>工作 Task → 流程 Process → 系統 System</strong></blockquote>
+<p>同時理解：</p>
+<blockquote>同一件事情，站在不同角色的位置，看到的流程可能完全不同。</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-7" data-nav-heading data-depth="2">從「買一份午餐」開始</h3>
+<p>每天中午到學校餐廳買飯，看起來是一件非常簡單的事情。學生可能只看到：</p>
+<blockquote>排隊 → 點餐 → 付款 → 等待 → 取餐</blockquote>
+<p>但當學生付款後站到取餐區，後方可能正在進行：</p>
+<ul>
+<li>POS 系統傳送訂單。</li>
+<li>廚房接收訂單。</li>
+<li>確認餐點內容。</li>
+<li>備料。</li>
+<li>製作。</li>
+<li>補充食材與包材。</li>
+<li>核對餐點。</li>
+<li>叫號與交付。</li>
+</ul>
+<p>所以，「買一份午餐」看起來是一件事，實際上卻是一連串工作共同完成的結果。</p>
+<p>在工業工程中，可以先用三個層次理解：</p>
+<h4 id="ie-ch02-guide-8" data-nav-heading data-depth="3">工作 Task</h4>
+<p>一項較具體的活動。</p>
+<p>例如：</p>
+<ul>
+<li>掃描訂單。</li>
+<li>核對餐點。</li>
+<li>把商品放進袋子。</li>
+</ul>
+<h4 id="ie-ch02-guide-9" data-nav-heading data-depth="3">流程 Process</h4>
+<p>為了完成某個目的，由多項彼此相關的工作連接而成。</p>
+<p>例如：</p>
+<blockquote>從接到訂單到把餐點交給顧客。</blockquote>
+<h4 id="ie-ch02-guide-10" data-nav-heading data-depth="3">系統 System</h4>
+<p>更大的餐廳系統還包含：</p>
+<ul>
+<li>採購</li>
+<li>庫存</li>
+<li>人力</li>
+<li>設備</li>
+<li>點餐</li>
+<li>製作</li>
+<li>支付</li>
+<li>顧客需求</li>
+</ul>
+<p>因此：</p>
+<blockquote><strong>工作構成流程，流程存在於系統之中。</strong></blockquote>
+<p>這個區分不是為了背名詞，而是提醒學生：分析問題時，要先確認現在看的到底是哪一層。</p>
+<p>如果某位員工掃描商品特別慢，可能是一項工作問題；如果所有顧客都卡在結帳區，就要看整個流程；如果結帳變快後，後方包裝開始堆積，就必須回到更大的系統重新判斷。</p>
+<hr>
+<h3 id="ie-ch02-guide-11" data-nav-heading data-depth="2">流程邊界：從哪裡開始，到哪裡結束？</h3>
+<p>分析流程之前，必須先決定：</p>
+<blockquote><strong>從哪裡開始？到哪裡結束？</strong></blockquote>
+<p>例如研究「午餐買太久」。</p>
+<p>可以從：</p>
+<blockquote>學生開始排隊</blockquote>
+<p>算起。</p>
+<p>也可以從：</p>
+<blockquote>學生下課離開教室</blockquote>
+<p>算起。</p>
+<p>如果研究的是「取餐區為什麼很擠」，下課走路可能不重要；但如果研究的是「為什麼午休時間總是不夠」，從教室走到餐廳可能就要納入。</p>
+<p>因此：</p>
+<blockquote><strong>流程邊界必須和問題一致。</strong></blockquote>
+<p>邊界太小，可能把真正原因排除在外；邊界太大，又可能把大量無關資訊帶進來。</p>
+<hr>
+<h3 id="ie-ch02-guide-12" data-nav-heading data-depth="2">前台、後台與可見線</h3>
+<p>服務流程有一個重要特色：</p>
+<blockquote><strong>使用者看得到的，不一定是完整流程。</strong></blockquote>
+<h4 id="ie-ch02-guide-13" data-nav-heading data-depth="3">前台 Frontstage</h4>
+<p>顧客可以直接看到或接觸：</p>
+<ul>
+<li>排隊</li>
+<li>點餐</li>
+<li>付款</li>
+<li>叫號</li>
+<li>取餐</li>
+</ul>
+<h4 id="ie-ch02-guide-14" data-nav-heading data-depth="3">後台 Backstage</h4>
+<p>顧客通常看不到：</p>
+<ul>
+<li>訂單傳送</li>
+<li>備料</li>
+<li>補料</li>
+<li>訂單排序</li>
+<li>餐點核對</li>
+<li>異常處理</li>
+</ul>
+<p>兩者之間可以想像存在一條：</p>
+<blockquote><strong>可見線 Line of Visibility</strong></blockquote>
+<p>這條線不是實體的牆，而是一個分析概念，用來提醒我們：</p>
+<blockquote>顧客看到的只是整個服務流程的一部分。</blockquote>
+<p>這也帶出本節非常重要的一句話：</p>
+<blockquote><strong>顧客感受到問題的位置，不一定就是問題真正發生的位置。</strong></blockquote>
+<p>例如學生在取餐區等了很久，不一定代表「取餐人員太慢」。</p>
+<p>真正原因可能是：</p>
+<ul>
+<li>訂單沒有送到廚房。</li>
+<li>某項材料缺貨。</li>
+<li>某種餐點需要比較長的製作時間。</li>
+<li>餐點已做好，但叫號資訊沒有正確送出。</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-15" data-nav-heading data-depth="2">人、物料、資訊都在流動</h3>
+<p>流程中真正流動的不只有人。</p>
+<h4 id="ie-ch02-guide-16" data-nav-heading data-depth="3">人員流</h4>
+<p>人怎麼移動？</p>
+<p>例如學生從點餐區移到取餐區。</p>
+<h4 id="ie-ch02-guide-17" data-nav-heading data-depth="3">物料流</h4>
+<p>東西怎麼移動？</p>
+<p>例如食材從儲存區到工作台，再變成餐點送到取餐區。</p>
+<h4 id="ie-ch02-guide-18" data-nav-heading data-depth="3">資訊流</h4>
+<p>誰知道下一步該做什麼？</p>
+<p>例如：</p>
+<blockquote>點餐內容 → 訂單系統 → 廚房 → 完成訊息 → 叫號</blockquote>
+<p>這三種流動不一定同步。</p>
+<p>有時候人已經走到取餐區，但訂單資訊尚未送到廚房；有時餐點已經做好，但完成訊息沒有送出去。</p>
+<p>表面上看起來都是「等餐」，真正的問題卻不一樣。</p>
+<hr>
+<h3 id="ie-ch02-guide-19" data-nav-heading data-depth="2">規定流程和實際流程</h3>
+<p>文件上可能寫：</p>
+<blockquote>填表 → 審核 → 核准 → 完成</blockquote>
+<p>但實際可能是：</p>
+<blockquote>填表 → 不知道怎麼填 → 詢問 → 補資料 → 送件 → 被退件 → 修改 → 再送 → 等簽核 → 完成</blockquote>
+<p>所以工業工程特別重視：</p>
+<blockquote><strong>Gemba 現場</strong></blockquote>
+<p>SOP 告訴我們：</p>
+<blockquote>理論上應該怎麼做。</blockquote>
+<p>現場則告訴我們：</p>
+<blockquote><strong>事情實際怎麼做。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-20" data-nav-heading data-depth="2">把看到的流程記錄下來</h3>
+<p>看到真實流程後，下一步不是急著畫複雜的專業圖，而是先把事情按順序記錄。</p>
+<p>最基本可以先使用：</p>
+<blockquote>開始 → 活動 → 判斷 → 下一活動 → 結束</blockquote>
+<p>例如：</p>
+<p>開始 → 學生填寫資料 → 資料完整嗎？ → 否：補件 → 是：承辦人審核 → 完成</p>
+<p>其中「資料完整嗎？」就會形成不同分支。</p>
+<p>流程圖最重要的目的不是畫得漂亮，而是把：</p>
+<ul>
+<li>活動順序</li>
+<li>判斷點</li>
+<li>重複</li>
+<li>回頭</li>
+<li>交接</li>
+</ul>
+<p>清楚呈現出來。</p>
+<blockquote><strong>先把事情看對，再把事情畫好。</strong></blockquote>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-21" data-nav-heading data-depth="2">AI 共學</h3>
+<p>先自己畫一條流程，再問 AI：</p>
+<blockquote>「這是我從使用者角度看到的流程。可能還有哪些後台活動？」</blockquote>
+<p>把 AI 回答分成：</p>
+<ul>
+<li>現場真的有</li>
+<li>可能有</li>
+<li>現場沒有</li>
+<li>尚待查證</li>
+</ul>
+<p>記住：</p>
+<blockquote>AI 可以幫我們想到「可能漏掉什麼」，但不能替代現場。</blockquote>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-22" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>流程分析的第一步，不是畫漂亮的圖，而是確認事情實際怎麼發生。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-23" data-nav-heading data-depth="1">2.2　把流程拆開：作業、檢查、搬運、等待與儲存</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-24" data-nav-heading data-depth="2">教學核心</h3>
+<p>當我們已經知道一件事情的實際流程後，下一步就可以問：</p>
+<blockquote><strong>流程裡的每一分鐘，究竟在做什麼？</strong></blockquote>
+<p>例如網路購物：</p>
+<p>訂單成立 → 等待揀貨 → 找到商品 → 搬到包裝區 → 核對商品 → 包裝 → 暫存在出貨區 → 等待物流車 → 出貨</p>
+<p>這些活動雖然屬於同一條流程，性質卻不同。</p>
+<hr>
+<h3 id="ie-ch02-guide-25" data-nav-heading data-depth="2">五種基本流程活動</h3>
+<h4 id="ie-ch02-guide-26" data-nav-heading data-depth="3">作業 Operation</h4>
+<p>產品、資料或服務正在發生改變。</p>
+<p>例如：</p>
+<ul>
+<li>零件鑽孔。</li>
+<li>餐點烹調。</li>
+<li>文件內容修改。</li>
+<li>商品包裝。</li>
+</ul>
+<p>這是最容易讓人覺得「真的有在工作」的一類活動。</p>
+<h4 id="ie-ch02-guide-27" data-nav-heading data-depth="3">檢查 Inspection</h4>
+<p>確認結果是否正確或符合要求。</p>
+<p>例如：</p>
+<ul>
+<li>商品尺寸是否正確。</li>
+<li>零件是否符合規格。</li>
+<li>文件是否完整。</li>
+<li>餐點是否做對。</li>
+</ul>
+<p>檢查通常不直接改變產品，但可能避免錯誤流到下一站。</p>
+<h4 id="ie-ch02-guide-28" data-nav-heading data-depth="3">搬運 Transportation</h4>
+<p>人、物品、文件或資料由一個位置移到另一個位置。</p>
+<p>例如：</p>
+<ul>
+<li>零件送到下一站。</li>
+<li>商品搬到包裝區。</li>
+<li>文件送主管。</li>
+<li>工作人員走去拿工具。</li>
+</ul>
+<h4 id="ie-ch02-guide-29" data-nav-heading data-depth="3">等待 Delay</h4>
+<p>事情本來應該繼續，但暫時停住。</p>
+<p>例如：</p>
+<ul>
+<li>顧客排隊。</li>
+<li>半成品等機器。</li>
+<li>文件等簽名。</li>
+<li>訂單等材料。</li>
+</ul>
+<h4 id="ie-ch02-guide-30" data-nav-heading data-depth="3">儲存 Storage</h4>
+<p>有計畫地保留，等待未來使用。</p>
+<p>例如：</p>
+<ul>
+<li>原料放倉庫。</li>
+<li>成品存放。</li>
+<li>備品保存在指定區域。</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-31" data-nav-heading data-depth="2">等待和儲存有什麼不同？</h3>
+<p>兩者表面上都可能呈現「沒有動」。</p>
+<p>但：</p>
+<blockquote>等待通常是希望趕快進到下一步。</blockquote>
+<blockquote>儲存則是有意識地先保留。</blockquote>
+<p>例如：</p>
+<p>半成品卡在機器前：</p>
+<blockquote>Delay。</blockquote>
+<p>原料依計畫放在倉庫等待下週使用：</p>
+<blockquote>Storage。</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-32" data-nav-heading data-depth="2">分類不等於價值判斷</h3>
+<p>不能直接說：</p>
+<blockquote>等待一定不好。</blockquote>
+<p>也不能說：</p>
+<blockquote>檢查一定沒有價值。</blockquote>
+<p>例如藥品、食品、航空安全等情境，檢查可能非常必要。</p>
+<p>因此第二章先做的是：</p>
+<blockquote><strong>把活動看清楚。</strong></blockquote>
+<p>第3章才會正式討論：</p>
+<blockquote>哪些活動可能構成浪費？</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-33" data-nav-heading data-depth="2">流程時間不等於加工時間</h3>
+<p>假設一杯飲料真正製作只要：</p>
+<blockquote>2 分鐘</blockquote>
+<p>但顧客從開始排隊到拿到飲料共花：</p>
+<blockquote>15 分鐘</blockquote>
+<p>那另外 13 分鐘去哪裡？</p>
+<p>可能是：</p>
+<ul>
+<li>等點餐</li>
+<li>等前一筆訂單</li>
+<li>等設備</li>
+<li>等補料</li>
+<li>等叫號</li>
+</ul>
+<p>所以：</p>
+<blockquote><strong>加工時間不等於整體流程時間。</strong></blockquote>
+<p>改善如果只把 2 分鐘的製作縮短一點點，顧客的 15 分鐘總時間可能幾乎沒有感覺。</p>
+<hr>
+<h3 id="ie-ch02-guide-34" data-nav-heading data-depth="2">活動有時不一定只有一種性質</h3>
+<p>真實工作有時具有複合性。</p>
+<p>例如倉庫人員拿起商品時，同時順便確認標籤。</p>
+<p>這個步驟可能同時包含：</p>
+<ul>
+<li>搬運</li>
+<li>檢查</li>
+</ul>
+<p>實際分析時，可依研究目的決定主要分類。</p>
+<p>所以流程分析並不是要追求：</p>
+<blockquote>每個活動都只有唯一標準答案。</blockquote>
+<p>而是要能說明：</p>
+<blockquote><strong>為什麼這樣判斷？</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-35" data-nav-heading data-depth="2">動手做</h3>
+<p>選擇一個日常流程：</p>
+<ul>
+<li>買咖啡</li>
+<li>借書</li>
+<li>領包裹</li>
+</ul>
+<p>記錄 5～10 個步驟，再分類。</p>
+<p>如果同學分類不同：</p>
+<blockquote>不急著問誰對，先問「你的理由是什麼？」</blockquote>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-36" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>先描述活動，再判斷問題。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-37" data-nav-heading data-depth="1">2.3　工作研究：不是叫人做快一點</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-38" data-nav-heading data-depth="2">教學核心</h3>
+<p>很多學生第一次聽到「工作研究」，會想到：</p>
+<blockquote>工業工程師拿碼表站在員工旁邊，看誰做得慢。</blockquote>
+<p>這其實把工作研究看得太窄。</p>
+<p><strong>工作研究 Work Study</strong>主要包含兩個部分：</p>
+<h4 id="ie-ch02-guide-39" data-nav-heading data-depth="3">方法研究 Method Study</h4>
+<blockquote>這件工作怎麼做比較合理？</blockquote>
+<h4 id="ie-ch02-guide-40" data-nav-heading data-depth="3">工作衡量 Work Measurement</h4>
+<blockquote>在合理方法下，需要多少時間？</blockquote>
+<p>兩者的先後關係非常重要。</p>
+<hr>
+<h3 id="ie-ch02-guide-41" data-nav-heading data-depth="2">先改方法，再量時間</h3>
+<p>假設包裝員的工作是：</p>
+<p>拿紙箱 → 走回工作台 → 拿膠帶 → 走回工作台 → 包裝 → 搬成品</p>
+<p>平均每件：</p>
+<blockquote>120 秒。</blockquote>
+<p>如果直接要求：</p>
+<blockquote>以後 110 秒完成。</blockquote>
+<p>問題可能完全沒有被處理。</p>
+<p>更合理的問題是：</p>
+<ul>
+<li>為什麼紙箱那麼遠？</li>
+<li>膠帶為什麼不在手邊？</li>
+<li>成品為什麼要搬這麼遠？</li>
+</ul>
+<p>如果工作方法不合理，就應該先改善方法。</p>
+<p>因此：</p>
+<blockquote><strong>方法研究原則上先於工作衡量。</strong></blockquote>
+<p>而且，方法一旦改變，原本的時間資料往往也不能直接沿用。</p>
+<p>如果工作台重新配置、動作順序改變，原本的 120 秒已經不再代表新方法。</p>
+<hr>
+<h3 id="ie-ch02-guide-42" data-nav-heading data-depth="2">工作研究不只追求快</h3>
+<p>更合理的工作可能意味：</p>
+<ul>
+<li>少走路。</li>
+<li>少找東西。</li>
+<li>少出錯。</li>
+<li>更安全。</li>
+<li>更容易學習。</li>
+<li>不容易疲勞。</li>
+</ul>
+<p>所以：</p>
+<blockquote><strong>「更合理」通常比單純「更快」更重要。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-43" data-nav-heading data-depth="2">Taylor 與 Gilbreth</h3>
+<p>本章不需要把歷史人物背成考試題。</p>
+<p>只要掌握一個脈絡：</p>
+<p>早期工業工程開始嘗試把：</p>
+<ul>
+<li>工作方法</li>
+<li>動作</li>
+<li>時間</li>
+</ul>
+<p>變成可以系統研究的對象。</p>
+<p>真正值得留下來的問題是：</p>
+<blockquote><strong>現在的做法，是因為合理，還是只因為以前一直都這樣做？</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-44" data-nav-heading data-depth="2">工作衡量也不是只為了管員工</h3>
+<p>組織需要時間資料，可能是為了：</p>
+<ul>
+<li>安排人力。</li>
+<li>規劃產量。</li>
+<li>估算成本。</li>
+<li>比較改善前後。</li>
+<li>安排排程。</li>
+</ul>
+<p>所以工作衡量本身是管理工具。</p>
+<p>問題在於：</p>
+<blockquote>數字怎麼被解讀與使用。</blockquote>
+<p>如果主管拿「最快一次」要求每個人長期維持，就可能把工程工具變成不合理壓力。</p>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-45" data-nav-heading data-depth="2">AI 時代仍然需要工作研究</h3>
+<p>例如：</p>
+<blockquote>每天把 A 系統資料複製到 B 系統。</blockquote>
+<p>第一個直覺可能是：</p>
+<blockquote>寫程式自動搬。</blockquote>
+<p>但 IE 還要問：</p>
+<blockquote>為什麼 A 和 B 都需要同一份資料？</blockquote>
+<p>如果其中一份根本沒有存在必要，最好的改善不是：</p>
+<blockquote>搬快一點。</blockquote>
+<p>而是：</p>
+<blockquote><strong>不要搬。</strong></blockquote>
+<p>這正是下一節 ECRS 要處理的問題。</p>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-46" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>工作研究不是把不合理的工作做得更快。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-47" data-nav-heading data-depth="1">2.4　方法研究：這件工作一定要這樣做嗎？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-48" data-nav-heading data-depth="2">教學核心</h3>
+<p>假設一份校園行政流程是：</p>
+<p>學生填資料 → 列印 → 簽名 → 承辦人重新輸入 → 列印 → 主管簽名 → 回承辦人 → 再輸入另一系統 → 完成</p>
+<p>如果問：</p>
+<blockquote>怎麼改善？</blockquote>
+<p>最常見的答案可能是：</p>
+<ul>
+<li>線上表單</li>
+<li>OCR</li>
+<li>電子簽核</li>
+<li>APP</li>
+<li>AI</li>
+<li>自動化</li>
+</ul>
+<p>這些都可能有用。</p>
+<p>但方法研究不應該從這裡開始。</p>
+<hr>
+<h3 id="ie-ch02-guide-49" data-nav-heading data-depth="2">ECRS：先問工作為什麼存在</h3>
+<p>本課程採用一個重要的改善思考優先順序：</p>
+<blockquote><strong>Eliminate → Combine → Rearrange → Simplify</strong></blockquote>
+<p>也就是：</p>
+<blockquote><strong>消除 → 合併 → 重排 → 簡化</strong></blockquote>
+<h4 id="ie-ch02-guide-50" data-nav-heading data-depth="3">Eliminate 消除</h4>
+<p>第一個先問：</p>
+<blockquote><strong>這一步能不能根本不要做？</strong></blockquote>
+<p>例如：</p>
+<ul>
+<li>為什麼同一份資料要輸入三次？</li>
+<li>為什麼一定要列印？</li>
+<li>為什麼需要三個人重複確認？</li>
+</ul>
+<p>如果活動沒有必要存在，最好的改善通常不是把它做快，而是取消。</p>
+<h4 id="ie-ch02-guide-51" data-nav-heading data-depth="3">Combine 合併</h4>
+<p>如果不能取消，再問：</p>
+<blockquote>能不能和別的活動合在一起完成？</blockquote>
+<p>例如：</p>
+<ul>
+<li>兩次身分確認是否可以一次完成？</li>
+<li>兩張重複表格是否可以整合？</li>
+</ul>
+<h4 id="ie-ch02-guide-52" data-nav-heading data-depth="3">Rearrange 重排</h4>
+<p>如果仍然需要存在：</p>
+<blockquote>能不能改變順序、位置或負責人？</blockquote>
+<p>例如：</p>
+<ul>
+<li>常用工具移到手邊。</li>
+<li>先確認資料再列印。</li>
+<li>調整交接順序。</li>
+</ul>
+<h4 id="ie-ch02-guide-53" data-nav-heading data-depth="3">Simplify 簡化</h4>
+<p>確定工作真正需要存在之後，才進一步思考：</p>
+<blockquote>怎麼做得更容易、更快、更穩定？</blockquote>
+<p>這時才開始談：</p>
+<ul>
+<li>AI</li>
+<li>自動化</li>
+<li>OCR</li>
+<li>APP</li>
+<li>新設備</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-54" data-nav-heading data-depth="2">最重要的一句話</h3>
+<blockquote><strong>不要把一件根本不需要做的事情，自動化得更有效率。</strong></blockquote>
+<p>這是 ECRS 對初學者最重要的提醒。</p>
+<p>AI 特別容易直接跳到：</p>
+<blockquote>Simplify。</blockquote>
+<p>所以工業工程要先把問題往前拉：</p>
+<blockquote><strong>為什麼要做？</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-55" data-nav-heading data-depth="2">Eliminate 也不能亂刪</h3>
+<p>例如主管簽核可能涉及：</p>
+<ul>
+<li>法規</li>
+<li>內控</li>
+<li>權責</li>
+<li>品質</li>
+<li>安全</li>
+</ul>
+<p>因此不是看到麻煩就取消。</p>
+<p>而是：</p>
+<blockquote><strong>先確認活動的功能，再決定能不能消除。</strong></blockquote>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-56" data-nav-heading data-depth="2">AI 共學</h3>
+<p>第一輪問 AI：</p>
+<blockquote>「請改善這個行政流程。」</blockquote>
+<p>第二輪改成：</p>
+<blockquote>「請依 Eliminate → Combine → Rearrange → Simplify 的優先順序分析，第一步先不要提出科技工具。」</blockquote>
+<p>比較：</p>
+<ul>
+<li>哪一輪比較快出現 APP、AI、自動化？</li>
+<li>哪一輪比較常問「為什麼」？</li>
+<li>哪些 AI 建議還需要查證？</li>
+<li>哪些活動其實可能不能取消？</li>
+</ul>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-57" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>先問能不能不做，再問怎麼做快。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-58" data-nav-heading data-depth="1">2.5　工作衡量：完成一件工作到底需要多久？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-59" data-nav-heading data-depth="2">教學核心</h3>
+<p>方法研究處理：</p>
+<blockquote>怎麼做比較合理？</blockquote>
+<p>接下來開始問：</p>
+<blockquote><strong>這樣做到底需要多少時間？</strong></blockquote>
+<p>假設同一項簡單工作連續做五次：</p>
+<p>48 秒 52 秒 50 秒 51 秒 49 秒</p>
+<p>平均為：</p>
+<blockquote>50 秒。</blockquote>
+<p>是不是可以直接規定：</p>
+<blockquote>所有人以後都必須 50 秒內完成？</blockquote>
+<p>答案是：</p>
+<blockquote>還不能。</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-60" data-nav-heading data-depth="2">Observed Time</h3>
+<p>現在真正得到的是：</p>
+<blockquote><strong>觀察時間 Observed Time</strong></blockquote>
+<p>只能說：</p>
+<blockquote>在這幾次觀察條件下，平均約 50 秒。</blockquote>
+<p>不能直接說：</p>
+<blockquote>標準時間就是 50 秒。</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-61" data-nav-heading data-depth="2">為什麼每次時間不同？</h3>
+<p>因為現場存在：</p>
+<blockquote><strong>Variation 變異</strong></blockquote>
+<p>可能來自：</p>
+<h4 id="ie-ch02-guide-62" data-nav-heading data-depth="3">工作本身的自然差異</h4>
+<p>例如每個紙箱尺寸略有不同。</p>
+<h4 id="ie-ch02-guide-63" data-nav-heading data-depth="3">隨機干擾</h4>
+<p>例如：</p>
+<ul>
+<li>卡紙</li>
+<li>膠帶用完</li>
+<li>工具位置改變</li>
+<li>材料黏住</li>
+</ul>
+<h4 id="ie-ch02-guide-64" data-nav-heading data-depth="3">人員差異</h4>
+<p>例如：</p>
+<ul>
+<li>熟練度</li>
+<li>經驗</li>
+<li>操作方式</li>
+</ul>
+<h4 id="ie-ch02-guide-65" data-nav-heading data-depth="3">疲勞與生理變化</h4>
+<p>例如：</p>
+<blockquote>上午 9 點與下午 4 點的工作狀態可能不同。</blockquote>
+<h4 id="ie-ch02-guide-66" data-nav-heading data-depth="3">異常事件</h4>
+<p>例如：</p>
+<ul>
+<li>系統當機</li>
+<li>設備故障</li>
+<li>臨時插單</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-67" data-nav-heading data-depth="2">為什麼不能只量一次？</h3>
+<p>如果第一次剛好 48 秒：</p>
+<blockquote>不代表每次都是 48 秒。</blockquote>
+<p>如果第一次剛好遇到異常，量到 70 秒：</p>
+<blockquote>也不代表正常工作需要 70 秒。</blockquote>
+<p>所以需要多次觀察。</p>
+<hr>
+<h3 id="ie-ch02-guide-68" data-nav-heading data-depth="2">平均也不是完整答案</h3>
+<p>即使平均 50 秒，也還要問：</p>
+<ul>
+<li>工作條件是否正常？</li>
+<li>是否只量了很短時間？</li>
+<li>工作是否會疲勞？</li>
+<li>是否需要必要休息？</li>
+<li>是否有不可避免延誤？</li>
+</ul>
+<p>所以：</p>
+<blockquote><strong>平均觀察時間 ≠ 完整標準工時</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-69" data-nav-heading data-depth="2">異常值能不能排除？</h3>
+<p>假設八次紀錄：</p>
+<p>49、51、50、48、78、50、52、49 秒。</p>
+<p>第五次 78 秒，是因為膠帶用完。</p>
+<p>如果研究：</p>
+<blockquote>正常操作時一件需要多久？</blockquote>
+<p>可能會另外討論這次異常。</p>
+<p>但是如果研究：</p>
+<blockquote>真實工作一小時到底可以完成多少件？</blockquote>
+<p>而膠帶平均每 20 分鐘就會用完一次，那麼換膠帶可能根本不是「可以忽略的異常」，而是工作的一部分。</p>
+<p>所以：</p>
+<blockquote><strong>資料是否排除，要看分析目的。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-70" data-nav-heading data-depth="2">最快的一次更不能直接當標準</h3>
+<p>某次最快：</p>
+<blockquote>42 秒。</blockquote>
+<p>可能只是：</p>
+<ul>
+<li>剛好很順。</li>
+<li>沒有干擾。</li>
+<li>短時間加速。</li>
+<li>甚至省略某些檢查。</li>
+</ul>
+<p>人可以短時間衝刺。</p>
+<p>不代表：</p>
+<blockquote>可以長時間一直維持 42 秒。</blockquote>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-71" data-nav-heading data-depth="2">AI 共學</h3>
+<p>把幾次時間交給 AI：</p>
+<blockquote>「請幫我設定標準時間。」</blockquote>
+<p>再追問：</p>
+<blockquote>AI 還不知道哪些現場條件？</blockquote>
+<p>可能包括：</p>
+<ul>
+<li>疲勞</li>
+<li>工作難度</li>
+<li>不同工作者</li>
+<li>是否有異常</li>
+<li>工作持續時間</li>
+<li>品質要求</li>
+<li>必要休息</li>
+</ul>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-72" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>測到的時間是證據，但不是命令。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-73" data-nav-heading data-depth="1">2.6　生產力：做得更多，就代表做得更好嗎？</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-74" data-nav-heading data-depth="2">教學核心</h3>
+<p>生產力最基本的公式很簡單：</p>
+<p>\[ 生產力= rac{產出}{投入} \]</p>
+<p>例如：</p>
+<p>兩人工作一小時。</p>
+<p>改善前：</p>
+<blockquote>40 件。</blockquote>
+<p>所以：</p>
+<p>\[ 40÷2=20件／人時 \]</p>
+<p>改善後：</p>
+<blockquote>50 件。</blockquote>
+<p>所以：</p>
+<p>\[ 50÷2=25件／人時 \]</p>
+<p>看起來：</p>
+<blockquote>生產力提高 25%。</blockquote>
+<p>但是不要太快下結論。</p>
+<hr>
+<h3 id="ie-ch02-guide-75" data-nav-heading data-depth="2">如果 50 件裡面有 10 件壞掉？</h3>
+<p>改善前：</p>
+<blockquote>40 件全部良品。</blockquote>
+<p>改善後：</p>
+<blockquote>50 件，其中 10 件不良。</blockquote>
+<p>真正可以交出去的仍然只有：</p>
+<blockquote>40 件。</blockquote>
+<p>如果用良品計算：</p>
+<p>\[ 40÷2=20件／人時 \]</p>
+<p>所以：</p>
+<blockquote><strong>有效良品生產力根本沒有增加。</strong></blockquote>
+<p>而且還多了：</p>
+<ul>
+<li>材料浪費</li>
+<li>報廢</li>
+<li>返工</li>
+<li>額外成本</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-76" data-nav-heading data-depth="2">Output 到底是什麼？</h3>
+<p>這才是生產力真正困難的地方。</p>
+<p>例如客服中心：</p>
+<p>每小時處理：</p>
+<blockquote>20 通電話。</blockquote>
+<p>但是：</p>
+<blockquote>15 個人隔天又打回來。</blockquote>
+<p>那真正的 Output 是：</p>
+<ul>
+<li>通話數？</li>
+<li>問題解決數？</li>
+<li>顧客滿意？</li>
+<li>不再重複來電？</li>
+</ul>
+<p>所以：</p>
+<blockquote><strong>公式很簡單，但「產出怎麼定義」並不簡單。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-77" data-nav-heading data-depth="2">Input 也不只有人力</h3>
+<p>本章最簡單的例子常使用：</p>
+<blockquote>人時。</blockquote>
+<p>但實際上投入可能還包括：</p>
+<ul>
+<li>材料</li>
+<li>設備時間</li>
+<li>能源</li>
+<li>資金</li>
+</ul>
+<p>例如購買昂貴設備後，人工生產力可能提高很多，但如果設備成本、維修費與能源使用都大幅增加，整體是否值得仍需另外判斷。</p>
+<p>所以：</p>
+<blockquote><strong>單一要素生產力變好，不代表整個系統成本一定更好。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-78" data-nav-heading data-depth="2">Efficiency、Effectiveness、Productivity</h3>
+<p>可以簡單理解：</p>
+<h4 id="ie-ch02-guide-79" data-nav-heading data-depth="3">Efficiency 效率</h4>
+<p>資源使用得好不好？</p>
+<h4 id="ie-ch02-guide-80" data-nav-heading data-depth="3">Effectiveness 效果</h4>
+<p>真正的目標有沒有達成？</p>
+<h4 id="ie-ch02-guide-81" data-nav-heading data-depth="3">Productivity 生產力</h4>
+<p>投入和產出的關係如何？</p>
+<p>例如：</p>
+<p>一個團隊非常快速地做出 100 份根本沒有人需要的報表。</p>
+<p>可能：</p>
+<blockquote>執行得很有效率。</blockquote>
+<p>但：</p>
+<blockquote>並沒有真正達成有價值的目標。</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-82" data-nav-heading data-depth="2">忙碌不等於生產力</h3>
+<p>例如為了讓每個員工不要閒著，拼命多做半成品。</p>
+<p>每個人看起來都很忙。</p>
+<p>但如果下一站根本處理不完：</p>
+<ul>
+<li>半成品堆積。</li>
+<li>空間變少。</li>
+<li>庫存增加。</li>
+<li>完成品沒有增加。</li>
+</ul>
+<p>所以：</p>
+<blockquote><strong>人員忙碌不等於整體生產力提高。</strong></blockquote>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-83" data-nav-heading data-depth="2">AI Scenario</h3>
+<p>給 AI：</p>
+<blockquote>「產量提高 25%，但不良率增加到 20%，是否成功？」</blockquote>
+<p>不要直接抄答案。</p>
+<p>學生要問：</p>
+<ul>
+<li>AI 使用哪些評估準則？</li>
+<li>有沒有忽略疲勞？</li>
+<li>有沒有忽略成本？</li>
+<li>安全呢？</li>
+<li>顧客呢？</li>
+<li>你的判斷是否和 AI 一樣？</li>
+</ul>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-84" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>產出增加，不代表有效產出增加。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-85" data-nav-heading data-depth="1">2.7　第一次完整做一次流程改善</h2>
+<h3 class="prompt-heading prompt-teacher" id="ie-ch02-guide-86" data-nav-heading data-depth="2">教學核心</h3>
+<p>到這裡，我們已經有：</p>
+<ul>
+<li>流程</li>
+<li>五種活動</li>
+<li>工作研究</li>
+<li>ECRS</li>
+<li>時間資料</li>
+<li>生產力</li>
+</ul>
+<p>現在要把這些方法組合在一起。</p>
+<p>本章不另外發明新的改善步驟。</p>
+<p>直接延續第一章的五階段思考：</p>
+<blockquote><strong>界定 → AI 假說 → Gemba → ECRS → 全局權衡</strong></blockquote>
+<p>只是第二章開始加入：</p>
+<ul>
+<li>流程紀錄</li>
+<li>活動分類</li>
+<li>秒數</li>
+<li>生產力</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-87" data-nav-heading data-depth="2">第 1 階段｜界定時空邊界</h3>
+<p>先不用 AI。</p>
+<p>不要只寫：</p>
+<blockquote>「影印很慢。」</blockquote>
+<p>可以改成：</p>
+<blockquote>「週三中午 12:00–12:20，從學生交出檔案到取得完成文件的總時間偏長。」</blockquote>
+<p>要寫清楚：</p>
+<ul>
+<li>哪裡？</li>
+<li>什麼時間？</li>
+<li>從哪裡開始？</li>
+<li>到哪裡結束？</li>
+<li>想改善什麼？</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-88" data-nav-heading data-depth="2">第 2 階段｜AI 提出假說</h3>
+<p>學生先自己想。</p>
+<p>再問 AI：</p>
+<ul>
+<li>還可能漏掉哪些流程？</li>
+<li>後台可能發生什麼？</li>
+<li>有哪些可能原因？</li>
+</ul>
+<p>全部先標成：</p>
+<blockquote><strong>假說 Hypothesis</strong></blockquote>
+<p>不是答案。</p>
+<hr>
+<h3 id="ie-ch02-guide-89" data-nav-heading data-depth="2">第 3 階段｜Gemba 現場查證</h3>
+<p>實際記錄：</p>
+<ul>
+<li>流程步驟</li>
+<li>活動類型</li>
+<li>時間</li>
+<li>等待</li>
+<li>移動</li>
+<li>異常</li>
+</ul>
+<p>然後把 AI 的說法標記：</p>
+<ul>
+<li>猜對</li>
+<li>猜錯</li>
+<li>漏掉</li>
+<li>尚無法判斷</li>
+</ul>
+<p>這一步的目的不是蒐集越多資料越好，而是：</p>
+<blockquote><strong>用現場證據回答前面的假說。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-90" data-nav-heading data-depth="2">第 4 階段｜ECRS</h3>
+<p>依：</p>
+<blockquote><strong>E → C → R → S</strong></blockquote>
+<p>重新思考。</p>
+<p>不能一開始就：</p>
+<blockquote>做 APP。</blockquote>
+<p>每一項改善都回答：</p>
+<ul>
+<li>要改什麼？</li>
+<li>為什麼？</li>
+<li>有什麼限制？</li>
+<li>哪些活動不能刪？</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-91" data-nav-heading data-depth="2">第 5 階段｜全局權衡</h3>
+<p>比較改善前後：</p>
+<ul>
+<li>時間</li>
+<li>有效產出</li>
+<li>品質</li>
+<li>成本</li>
+<li>人員負荷</li>
+<li>安全</li>
+<li>顧客感受</li>
+</ul>
+<p>最後才問：</p>
+<blockquote><strong>這個方案真的值得採用嗎？</strong></blockquote>
+<p>改善不能只因為：</p>
+<blockquote>秒數變短。</blockquote>
+<p>就直接宣布成功。</p>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-92" data-nav-heading data-depth="2">AI 挑戰</h3>
+<p>把你的改善方案交給 AI：</p>
+<blockquote>「請從品質、安全、工作負荷、成本與問題轉移五個角度，挑戰我的改善方案，不要直接替我做決定。」</blockquote>
+<p>最後由學生自己判斷：</p>
+<ul>
+<li>接受哪些挑戰？</li>
+<li>拒絕哪些？</li>
+<li>為什麼？</li>
+</ul>
+<hr>
+<h3 class="prompt-heading prompt-summary" id="ie-ch02-guide-93" data-nav-heading data-depth="2">本節收束</h3>
+<blockquote><strong>改善不是提出一個方案，而是能用證據說明：為什麼它比較好，以及代價是什麼。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 class="prompt-heading prompt-summary" id="ie-ch02-guide-94" data-nav-heading data-depth="1">本章整理：把「感覺」轉成「工程判斷」</h2>
+<p>第二章真正希望學生帶走的，不是流程符號與公式，而是一連串新的判斷習慣。</p>
+<p>看到流程很慢時，不再直接說：</p>
+<blockquote>「加人。」</blockquote>
+<p>而是先問：</p>
+<blockquote>真正的流程是什麼？</blockquote>
+<p>看到一項工作很麻煩，不再立即說：</p>
+<blockquote>「用 AI。」</blockquote>
+<p>而是先問：</p>
+<blockquote>這件工作真的需要存在嗎？</blockquote>
+<p>看到平均 50 秒，不再直接說：</p>
+<blockquote>「標準就是 50 秒。」</blockquote>
+<p>而會問：</p>
+<blockquote>現場有哪些變異？</blockquote>
+<p>看到產量提高，不再立即說：</p>
+<blockquote>「改善成功。」</blockquote>
+<p>而會問：</p>
+<blockquote>良品呢？成本呢？人員負荷呢？</blockquote>
+<p>這正是從直覺判斷逐漸轉向工程判斷的開始。</p>
+<hr>
+<h3 id="ie-ch02-guide-95" data-nav-heading data-depth="2">本章八個核心提問</h3>
+<ol>
+<li>真正的流程是什麼？</li>
+<li>流程邊界畫在哪裡？</li>
+<li>前台看到的，和後台實際發生的一樣嗎？</li>
+<li>每個活動屬於什麼性質？</li>
+<li>這一步真的需要存在嗎？</li>
+<li>測到的時間代表什麼？又不代表什麼？</li>
+<li>有效產出真的增加嗎？</li>
+<li>AI 的建議經過現場查證了嗎？</li>
+</ol>
+<hr>
+<h3 id="ie-ch02-guide-96" data-nav-heading data-depth="2">關鍵詞快速回顧</h3>
+<ul>
+<li>工作 Task</li>
+<li>流程 Process</li>
+<li>系統 System</li>
+<li>前台 Frontstage</li>
+<li>後台 Backstage</li>
+<li>可見線 Line of Visibility</li>
+<li>作業 Operation</li>
+<li>檢查 Inspection</li>
+<li>搬運 Transportation</li>
+<li>等待 Delay</li>
+<li>儲存 Storage</li>
+<li>工作研究 Work Study</li>
+<li>方法研究 Method Study</li>
+<li>工作衡量 Work Measurement</li>
+<li>Eliminate</li>
+<li>Combine</li>
+<li>Rearrange</li>
+<li>Simplify</li>
+<li>ECRS</li>
+<li>觀察時間 Observed Time</li>
+<li>變異 Variation</li>
+<li>生產力 Productivity</li>
+<li>產出 Output</li>
+<li>投入 Input</li>
+<li>效率 Efficiency</li>
+<li>效果 Effectiveness</li>
+<li>現場 Gemba</li>
+</ul>
+<p>教師不需要逐字考英文。</p>
+<p>可以隨機挑幾個問：</p>
+<blockquote>「你能不能不用定義，而是用生活例子解釋？」</blockquote>
+<hr>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-97" data-nav-heading data-depth="2">AI 挑戰題</h3>
+<p>請學生選一個自己熟悉的小流程。</p>
+<p>完成：</p>
+<ol>
+<li>不用 AI，先畫流程。</li>
+<li>定義開始與結束。</li>
+<li>標示前台與可能後台。</li>
+<li>自己先分類主要活動。</li>
+<li>請 AI 找可能遺漏的活動與原因。</li>
+<li>回到現場查證。</li>
+<li>使用 ECRS 提出改善。</li>
+<li>用時間、品質或有效產出判斷改善。</li>
+<li>寫下：</li>
+</ol>
+<ul>
+<li>AI 哪裡說對</li>
+<li>哪裡說錯</li>
+<li>哪裡沒有證據</li>
+<li>最終採用什麼方案</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-98" data-nav-heading data-depth="2">Mini Project｜改善我身邊的一個小流程</h3>
+<p>2–4 人一組，選擇一項低風險、可實際觀察、不涉及敏感個資的流程，例如：</p>
+<ul>
+<li>餐飲</li>
+<li>影印</li>
+<li>領包裹</li>
+<li>器材借還</li>
+<li>教室設備</li>
+<li>行政文件</li>
+</ul>
+<p>完整完成：</p>
+<blockquote><strong>界定 → AI 假說 → Gemba → ECRS → 全局權衡</strong></blockquote>
+<p>成果至少包含：</p>
+<ul>
+<li>問題定義</li>
+<li>流程邊界</li>
+<li>改善前流程</li>
+<li>前台／後台</li>
+<li>活動分類</li>
+<li>自己的第一判斷</li>
+<li>AI 假說</li>
+<li>現場證據</li>
+<li>簡單時間資料</li>
+<li>AI 查證結果</li>
+<li>ECRS</li>
+<li>改善方案</li>
+<li>改善前後比較</li>
+<li>最終決策與理由</li>
+</ul>
+<hr>
+<h3 id="ie-ch02-guide-99" data-nav-heading data-depth="2">學習歷程反思</h3>
+<p>請完成：</p>
+<ol>
+<li>我以前看到流程慢，第一個想到的是＿＿＿＿＿＿。</li>
+<li>現在我會先＿＿＿＿＿＿。</li>
+<li>我最容易跳過 ECRS 中的＿＿＿＿＿＿。</li>
+<li>我現在知道平均時間還不能直接當成＿＿＿＿＿＿。</li>
+<li>我現在知道產量增加後還要確認＿＿＿＿＿＿。</li>
+<li>AI 提出的原因，在驗證之前只能算＿＿＿＿＿＿。</li>
+</ol>
+<p>最後寫：</p>
+<blockquote><strong>我想帶到下一章的 IE 習慣是＿＿＿＿＿＿＿＿。</strong></blockquote>
+<hr>
+<h3 id="ie-ch02-guide-100" data-nav-heading data-depth="2">五分鐘出門票</h3>
+<ol>
+<li>流程分析的第一步是＿＿＿＿＿＿。</li>
+<li>ECRS 中應優先思考＿＿＿＿＿＿。</li>
+<li>Observed Time 不等於＿＿＿＿＿＿。</li>
+<li>生產力的 Output 應該盡量代表＿＿＿＿＿＿。</li>
+<li>AI 可以提供＿＿＿＿＿＿，但真正的原因仍需要＿＿＿＿＿＿。</li>
+</ol>
+<hr>
+<h3 id="ie-ch02-guide-101" data-nav-heading data-depth="2">教師收束語</h3>
+<p>可以用這段作為本章最後一頁：</p>
+<blockquote>工業工程不是看到一個人很忙，就要求他再快一點；也不是看到流程麻煩，就立刻導入設備或 AI。</blockquote>
+<blockquote>真正的改善，先從把流程看清楚開始：事情實際怎麼做、時間花在哪裡、哪些活動為什麼存在，以及改變之後究竟產生什麼結果。</blockquote>
+<blockquote>當我們開始用現場、時間與有效產出取代直覺，就從「覺得哪裡有問題」，慢慢走向「有證據地知道應該改善哪裡」。</blockquote>
+<hr>
+<h3 id="ie-ch02-guide-102" data-nav-heading data-depth="2">與下一章銜接</h3>
+<p>第二章讓我們開始學會：</p>
+<ul>
+<li>看流程</li>
+<li>記錄流程</li>
+<li>拆活動</li>
+<li>研究方法</li>
+<li>量時間</li>
+<li>看生產力</li>
+<li>驗證改善</li>
+</ul>
+<p>下一章會進一步問：</p>
+<blockquote><strong>流程裡的哪些活動真正創造價值？哪些活動可能只是浪費？</strong></blockquote>
+<p>也將正式進入：</p>
+<blockquote><strong>精實思維、浪費與持續改善。</strong></blockquote>
+<hr>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-guide-103" data-nav-heading data-depth="1">教師課後紀錄區</h2>
+<h3 id="ie-ch02-guide-104" data-nav-heading data-depth="2">本次學生最有反應的案例</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-105" data-nav-heading data-depth="2">學生最常直接跳到的改善方式</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-106" data-nav-heading data-depth="2">ECRS 中學生最容易忽略的步驟</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-107" data-nav-heading data-depth="2">學生最容易混淆的流程活動</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-108" data-nav-heading data-depth="2">工作衡量中最常見的變異</h3>
+<p>-</p>
+<h3 class="prompt-heading prompt-ai" id="ie-ch02-guide-109" data-nav-heading data-depth="2">AI 活動中最常出現的問題</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-110" data-nav-heading data-depth="2">本次授課時間不足的地方</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-111" data-nav-heading data-depth="2">下次可以補強的內容</h3>
+<p>-</p>
+<h3 id="ie-ch02-guide-112" data-nav-heading data-depth="2">可以刪減的內容</h3>
+<p>-</p>
+</section>
+</article>
+<article class="content-page" data-chapter="2" data-view="full">
+<h1 class="hero">第2章　事情是怎麼一步一步完成的？從流程看見問題</h1>
+<p class="part-label">第 2 章｜完整教材</p>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-1" data-nav-heading data-depth="1">第二篇前導暫不另立</h2>
+<p>你到學校餐廳買一份午餐。</p>
+<p>先排隊、點餐、付款，接著等待餐點製作，最後取餐離開。從學生的角度來看，這只是一件每天都會發生的小事；但如果站在工業工程的角度來看，這其實是一個由許多工作步驟、不同人員、設備、資訊與等待時間所組成的「流程」。</p>
+<p>有時候，排隊的人很多，但廚房其實並不忙；有時候，點餐櫃檯沒有排隊，取餐區卻擠滿了人；也可能明明增加了一位服務人員，整體等待時間卻沒有明顯縮短。</p>
+<p>這些現象告訴我們：</p>
+<p class="emphasis">看到「很忙」，不一定代表知道問題在哪裡。</p>
+<p>第一章談的是「系統」——工業工程不是只改善一個人、一台機器或一個工作站，而是希望整個系統運作得更好。</p>
+<p>但要改善系統，下一個問題就是：</p>
+<p class="emphasis">系統到底是怎麼運作的？</p>
+<p>我們必須先知道事情從哪裡開始、經過哪些步驟、由誰處理、在哪裡等待，又在什麼地方完成。換句話說，我們必須把原本模糊的「事情很多」、「速度很慢」、「好像塞住了」，轉換成一個可以被觀察與描述的流程。</p>
+<p>這正是本章要建立的第一項重要能力：</p>
+<p class="emphasis">把事情的發生過程看清楚。</p>
+<h3 id="ie-ch02-full-2" data-nav-heading data-depth="2">本章核心問題</h3>
+<p>學完本章後，你應該能回答以下問題：</p>
+<p>為什麼工業工程師遇到問題時，常常先了解流程，而不是立刻提出改善方法？</p>
+<p>什麼是流程？流程和單一工作有什麼不同？</p>
+<p>一件事情從開始到完成，中間可能包含哪些活動？</p>
+<p>為什麼「正在工作」以外的等待、搬運與資訊傳遞也很重要？</p>
+<p>怎麼把原本只存在腦中的工作方式畫出來？</p>
+<p>如何從流程中發現多餘步驟、重複工作、等待與瓶頸？</p>
+<p>為什麼改善某一個步驟，整體流程不一定會變快？</p>
+<p>AI能不能幫我們分析流程？它的建議又該如何查證？</p>
+<h3 id="ie-ch02-full-3" data-nav-heading data-depth="2">學習目標</h3>
+<p>完成本章後，你應能：</p>
+<p>說明流程（Process）的基本概念。</p>
+<p>區分工作、流程與系統三個不同層次。</p>
+<p>辨認流程中的加工、檢查、搬運、等待與儲存等活動。</p>
+<p>用簡單的流程圖描述一件事情從開始到完成的過程。</p>
+<p>找出流程中的等待、重複、繞路與可能的瓶頸。</p>
+<p>理解物料流、資訊流與人員流動可能同時存在。</p>
+<p>從整體流程而非單一步驟思考改善。</p>
+<p>使用AI協助整理與檢查流程，同時保持對AI答案的判斷能力。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-4" data-nav-heading data-depth="1">2.1　事情不是「做完」，而是「一步一步完成」</h2>
+<p>我們平常很容易把一件工作看成一個整體。</p>
+<p>例如：</p>
+<p>「去餐廳買午餐。」</p>
+<p>「網路買一件衣服。」</p>
+<p>「到教務處申請文件。」</p>
+<p>「工廠生產一支原子筆。」</p>
+<p>「醫院完成一次掛號與看診。」</p>
+<p>表面上看起來，每一件事情都只有一個名稱；實際上，它們都必須經過許多不同的步驟才能完成。</p>
+<p>以「到餐廳買午餐」為例，可以簡單拆成：</p>
+<p>進入餐廳
+→ 選擇餐點
+→ 排隊
+→ 點餐
+→ 付款
+→ 廚房接收訂單
+→ 製作餐點
+→ 等待
+→ 取餐
+→ 離開</p>
+<p>當我們把這些步驟拆開之後，就開始可以問一些原本不容易回答的問題：</p>
+<p>哪一個步驟最花時間？</p>
+<p>人是在什麼地方開始排隊？</p>
+<p>是點餐太慢，還是製作太慢？</p>
+<p>訂單怎麼從櫃檯傳到廚房？</p>
+<p>有沒有某些工作被重複做了兩次？</p>
+<p>有些步驟真的有必要嗎？</p>
+<p>如果增加一個人，應該加在哪裡？</p>
+<p>如果導入自助點餐機，問題真的會改善嗎？</p>
+<p>這就是把「一件事情」轉換成「一個流程」之後所產生的價值。</p>
+<h3 id="ie-ch02-full-5" data-nav-heading data-depth="2">2.1.1　什麼是流程？</h3>
+<p>流程（Process）可以簡單理解為：</p>
+<p class="emphasis">為了產生某個結果，而依照一定關係進行的一連串活動。</p>
+<p>流程通常會有：</p>
+<p>一個開始；</p>
+<p>一些中間活動；</p>
+<p>某些資源的投入；</p>
+<p>一個或多個結果。</p>
+<p>例如製作一杯珍珠奶茶，需要原料、設備、人員與訂單資訊。經過點單、取杯、加料、加茶、封膜等活動後，最後產生顧客可以拿走的飲料。</p>
+<p>因此，流程不是只有「人在做什麼」。</p>
+<p>它還可能包含：</p>
+<p>人；</p>
+<p>機器；</p>
+<p>原料；</p>
+<p>文件；</p>
+<p>資料；</p>
+<p>等待；</p>
+<p>搬運；</p>
+<p>判斷；</p>
+<p>檢查。</p>
+<p>這也是工業工程在觀察流程時，不能只盯著「真正加工」那幾秒鐘的原因。</p>
+<h3 id="ie-ch02-full-6" data-nav-heading data-depth="2">2.1.2　工作、流程與系統有什麼不同？</h3>
+<p>這三個名詞很容易混在一起。</p>
+<p>我們可以用餐廳來理解。</p>
+<p>「把漢堡放進紙袋」是一項工作（Task）。</p>
+<p>「接到訂單後，把餐點製作完成並交給顧客」是一個流程（Process）。</p>
+<p>而餐廳裡的點餐、廚房、人員排班、庫存、設備、外送平台、顧客需求與供應商共同組合起來，就是一個更大的系統（System）。</p>
+<p>可以把三者理解成：</p>
+<p class="emphasis">工作 → 流程 → 系統</p>
+<p>工作是最小的活動之一。</p>
+<p>流程把許多工作依照某種關係連接起來。</p>
+<p>系統則包含多個流程，以及流程之間相互影響的關係。</p>
+<p>因此，第一章談「看見系統」，第二章開始學習的是：</p>
+<p class="emphasis">如何把系統中的運作過程看出來。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-7" data-nav-heading data-depth="1">2.2　真正花掉時間的，不一定是「正在做事」</h2>
+<p>假設一家飲料店製作一杯飲料真正需要的工作時間只有2分鐘。</p>
+<p>但是顧客從排隊到拿到飲料，卻等了15分鐘。</p>
+<p>那麼問題來了：</p>
+<p class="emphasis">另外13分鐘去哪裡了？</p>
+<p>這13分鐘可能不是任何人在「加工」飲料，而是：</p>
+<p>等待點餐；</p>
+<p>等待前一筆訂單完成；</p>
+<p>等待封膜機；</p>
+<p>等待店員找原料；</p>
+<p>等待珍珠煮好；</p>
+<p>等待杯子送過來；</p>
+<p>飲料已經做好，但等待店員叫號。</p>
+<p>如果只研究那2分鐘的「製作動作」，即使把製作時間改善10%，也只省下12秒。</p>
+<p>原來15分鐘的等待，可能只變成14分48秒。</p>
+<p>顧客幾乎感受不到差異。</p>
+<p>這正是流程觀念非常重要的地方。</p>
+<h3 id="ie-ch02-full-8" data-nav-heading data-depth="2">2.2.1　流程中不只有加工</h3>
+<p>早期工業工程在分析工作流程時，會特別注意幾種不同性質的活動。為了讓初學者容易理解，本書先將它們整理成五種類型：</p>
+<h4 id="ie-ch02-full-9" data-nav-heading data-depth="3">1. 加工或作業（Operation）</h4>
+<p>產品、資料或服務正在被改變。</p>
+<p>例如：</p>
+<p>切割一塊金屬；</p>
+<p>組裝零件；</p>
+<p>炒一份炒飯；</p>
+<p>輸入學生資料；</p>
+<p>修改一份文件。</p>
+<p>通常我們最容易注意到這一類活動，因為看起來「真的有人在工作」。</p>
+<h4 id="ie-ch02-full-10" data-nav-heading data-depth="3">2. 檢查（Inspection）</h4>
+<p>確認東西是否正確、完整或符合要求。</p>
+<p>例如：</p>
+<p>檢查商品尺寸；</p>
+<p>確認訂單內容；</p>
+<p>核對學生資料；</p>
+<p>品管人員檢查產品；</p>
+<p>顧客確認餐點是否正確。</p>
+<p>檢查本身通常不會讓產品產生新的功能，但可以避免錯誤繼續流到下一個步驟。</p>
+<h4 id="ie-ch02-full-11" data-nav-heading data-depth="3">3. 搬運（Transportation）</h4>
+<p>人、物品或資料由一個位置移動到另一個位置。</p>
+<p>例如：</p>
+<p>把零件送到下一個工作站；</p>
+<p>店員走到後方拿杯子；</p>
+<p>推車把貨物送進倉庫；</p>
+<p>文件從一個辦公室送到另一個辦公室。</p>
+<p>在數位環境中，「資料傳遞」也具有類似意義。</p>
+<h4 id="ie-ch02-full-12" data-nav-heading data-depth="3">4. 等待（Delay）</h4>
+<p>事情暫時停住，等待下一個活動發生。</p>
+<p>例如：</p>
+<p>顧客排隊；</p>
+<p>半成品等機器；</p>
+<p>文件等主管簽核；</p>
+<p>電腦等待資料處理；</p>
+<p>訂單等待店員開始製作。</p>
+<p>等待往往是流程問題中非常重要的線索。</p>
+<h4 id="ie-ch02-full-13" data-nav-heading data-depth="3">5. 儲存（Storage）</h4>
+<p>物品被有意識地保存一段時間，等待未來使用。</p>
+<p>例如：</p>
+<p>原料放在倉庫；</p>
+<p>成品放在成品區；</p>
+<p>備品存放在櫃子中。</p>
+<p>等待與儲存有時看起來相似，但概念不完全一樣。</p>
+<p>等待通常是流程暫停，希望之後趕快繼續；儲存則是有計畫地保留物品。</p>
+<h3 id="ie-ch02-full-14" data-nav-heading data-depth="2">2.2.2　忙碌不等於有效率</h3>
+<p>有一種很常見的誤解：</p>
+<p class="emphasis">每個人都很忙，所以系統一定很有效率。</p>
+<p>其實不一定。</p>
+<p>假設餐廳裡：</p>
+<p>點餐人員一直忙著輸入訂單；</p>
+<p>廚房一直忙著製作；</p>
+<p>取餐人員一直忙著找餐點；</p>
+<p>顧客則一直在等待。</p>
+<p>每個工作人員看起來都非常忙。</p>
+<p>但如果訂單經常做錯、餐點堆在取餐區、顧客不知道自己的餐好了沒有，整個系統依然可能運作得非常差。</p>
+<p>工業工程真正關心的問題不是：</p>
+<p class="emphasis">「大家有沒有一直在做事情？」</p>
+<p>而是：</p>
+<p class="emphasis">「這些活動是否讓整體流程更順暢地完成目標？」</p>
+<p>這兩個問題看起來很像，實際上差距很大。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-15" data-nav-heading data-depth="1">2.3　先別急著改善，先把流程畫出來</h2>
+<p>當我們覺得一個流程有問題時，第一個直覺常常是提出解決方案。</p>
+<p>例如：</p>
+<p>「多派一個人就好了。」</p>
+<p>「買一台新的機器。」</p>
+<p>「改用AI。」</p>
+<p>「做一個APP。」</p>
+<p>「增加自助點餐機。」</p>
+<p>這些想法不一定錯。</p>
+<p>問題是：</p>
+<p class="emphasis">我們真的知道問題發生在哪裡嗎？</p>
+<p>如果不知道問題在哪裡，就直接提出解決方法，很容易產生「解決了不是問題的問題」。</p>
+<p>因此，工業工程常做的一件事，就是先把事情畫出來。</p>
+<h3 id="ie-ch02-full-16" data-nav-heading data-depth="2">2.3.1　流程圖的基本概念</h3>
+<p>流程圖（Flowchart）是用圖形與箭頭來表示工作進行順序的方法。</p>
+<p>對初學者而言，不需要一開始就記很多複雜符號。</p>
+<p>最基本只要能表達：</p>
+<p>開始
+→ 做一件事
+→ 做下一件事
+→ 遇到判斷
+→ 產生不同路徑
+→ 結束</p>
+<p>例如學生到圖書館借一本書：</p>
+<p>開始
+→ 找書
+→ 找到書了嗎？</p>
+<p>如果「沒有」： → 繼續搜尋或離開</p>
+<p>如果「有」： → 到借書設備
+→ 掃描學生證
+→ 掃描書籍
+→ 借閱成功
+→ 離開</p>
+<p>當流程被畫出來之後，原本只存在於腦中的事情，就變成了一個大家可以共同討論的對象。</p>
+<p>這一點非常重要。</p>
+<p>因為很多問題並不是大家不知道怎麼改善，而是每個人想像中的流程根本不一樣。</p>
+<h3 id="ie-ch02-full-17" data-nav-heading data-depth="2">2.3.2　「規定的流程」和「真正的流程」可能不同</h3>
+<p>假設某個行政流程規定：</p>
+<p>學生填表
+→ 承辦人審核
+→ 主管核准
+→ 完成</p>
+<p>看起來只有四個步驟。</p>
+<p>但實際觀察後可能發現：</p>
+<p>學生填表
+→ 發現不知道怎麼填
+→ 打電話詢問
+→ 修改
+→ 送出
+→ 承辦人發現缺資料
+→ 通知學生
+→ 學生補件
+→ 再送出
+→ 承辦人審核
+→ 列印
+→ 送主管
+→ 等待簽名
+→ 收回文件
+→ 再輸入另一個系統
+→ 完成</p>
+<p>這時候我們就會發現：</p>
+<p class="emphasis">文件上的流程，和真實世界裡發生的流程，可能完全不是同一件事。</p>
+<p>因此，流程分析非常重要的一個原則是：</p>
+<p class="emphasis">不只問「應該怎麼做」，還要看「實際怎麼做」。</p>
+<p>在工業工程中，真正有價值的改善，通常來自對真實流程的理解。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-18" data-nav-heading data-depth="1">2.4　流程裡到底是什麼東西在流動？</h2>
+<p>「流程」中的「流」，不是一個比喻而已。</p>
+<p>系統中真的有東西正在從一個地方移動到另一個地方。</p>
+<p>最常見的至少包括三種：</p>
+<p>物料流；</p>
+<p>資訊流；</p>
+<p>人員流。</p>
+<h3 id="ie-ch02-full-19" data-nav-heading data-depth="2">2.4.1　物料流</h3>
+<p>在製造工廠裡，最容易看到的是物料的移動。</p>
+<p>例如製作一張桌子：</p>
+<p>木板
+→ 切割
+→ 鑽孔
+→ 加工
+→ 組裝
+→ 檢查
+→ 包裝</p>
+<p>木板、零件與成品不斷改變位置與狀態，這就是物料流的一部分。</p>
+<p>如果工作站距離很遠，物料可能必須來回搬運。</p>
+<p>即使每一台機器都很快，過多的搬運仍然會讓整體效率下降。</p>
+<h3 id="ie-ch02-full-20" data-nav-heading data-depth="2">2.4.2　資訊流</h3>
+<p>在現代系統中，很多流程真正卡住的並不是物料，而是「資訊」。</p>
+<p>回到餐廳案例：</p>
+<p>顧客說出餐點
+→ 店員輸入訂單
+→ 廚房收到訂單
+→ 廚房知道製作內容
+→ 完成後通知前台
+→ 前台通知顧客</p>
+<p>餐點本身是一種物料流。</p>
+<p>但是「顧客要什麼」、「哪一份先做」、「餐點完成了沒有」則是資訊流。</p>
+<p>如果資訊錯了，可能發生：</p>
+<p>做錯餐；</p>
+<p>重複製作；</p>
+<p>漏單；</p>
+<p>不知道誰先誰後；</p>
+<p>餐點做好卻找不到顧客。</p>
+<p>因此，一個看起來像「人手不足」的問題，有時真正的原因其實是資訊流設計不良。</p>
+<h3 id="ie-ch02-full-21" data-nav-heading data-depth="2">2.4.3　人員流動</h3>
+<p>很多服務系統中，顧客本身就是流程中移動的對象。</p>
+<p>例如醫院：</p>
+<p>報到
+→ 候診
+→ 看診
+→ 檢查
+→ 等待結果
+→ 再回診間
+→ 批價
+→ 領藥</p>
+<p>此時不只醫療資訊在流動，病人本身也在不同位置之間移動。</p>
+<p>如果動線規劃不好，可能出現：</p>
+<p>大量來回行走；</p>
+<p>不知道下一站在哪裡；</p>
+<p>不同人流交錯；</p>
+<p>同一個地方過度擁擠。</p>
+<p>因此，分析流程時不能只看「做哪些事情」，有時還必須看：</p>
+<p class="emphasis">人、物與資訊到底怎麼走。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-22" data-nav-heading data-depth="1">2.5　流程為什麼會慢？先找四種常見問題</h2>
+<p>當流程被畫出來之後，我們就開始有機會找問題。</p>
+<p>對第一次學習工業工程的學生來說，可以先從四個最容易觀察的現象開始：</p>
+<p class="emphasis">等、繞、重、塞。</p>
+<p>這四個字雖然不是正式的專業分類，卻非常適合當作初學者觀察流程的第一套工具。</p>
+<h3 id="ie-ch02-full-23" data-nav-heading data-depth="2">2.5.1　等：等待</h3>
+<p>最容易看到的流程問題就是等待。</p>
+<p>例如：</p>
+<p>顧客等服務；</p>
+<p>零件等機器；</p>
+<p>員工等資料；</p>
+<p>文件等簽核；</p>
+<p>機器等原料。</p>
+<p>等待本身未必全部都能消除。</p>
+<p>問題在於：</p>
+<p class="emphasis">為什麼要等？</p>
+<p>不同的原因需要完全不同的改善方式。</p>
+<p>可能是：</p>
+<p>前一站速度太快；</p>
+<p>下一站產能不足；</p>
+<p>工作分配不平均；</p>
+<p>資料沒有準備好；</p>
+<p>設備故障；</p>
+<p>排程安排不當。</p>
+<p>因此，看到排隊，只是「現象」。</p>
+<p>工業工程還必須繼續追問「原因」。</p>
+<h3 id="ie-ch02-full-24" data-nav-heading data-depth="2">2.5.2　繞：不必要的移動</h3>
+<p>假設一家飲料店的工作台配置如下：</p>
+<p>杯子在左邊
+→ 茶桶在右邊
+→ 糖漿在後方
+→ 封膜機又回到左邊</p>
+<p>店員每製作一杯飲料，就必須來回走好幾次。</p>
+<p>這些步伐看起來每次只有幾秒鐘，但是一天製作數百杯飲料之後，就會累積成大量時間。</p>
+<p>在工廠也是一樣。</p>
+<p>如果半成品必須：</p>
+<p>A區
+→ C區
+→ B區
+→ D區</p>
+<p>而不是依照加工順序配置位置，就可能產生不必要的搬運。</p>
+<p>流程改善並不一定需要昂貴科技。</p>
+<p>有時只是重新安排位置，就能產生效果。</p>
+<h3 id="ie-ch02-full-25" data-nav-heading data-depth="2">2.5.3　重：重複工作</h3>
+<p>學生填了一份資料。</p>
+<p>承辦人再把同一份資料輸入另一個系統。</p>
+<p>另一個單位收到後，又重新輸入一次。</p>
+<p>如果資料錯了，三個地方都需要修改。</p>
+<p>這就是一種典型的重複工作。</p>
+<p>重複工作可能來自：</p>
+<p>系統沒有串接；</p>
+<p>不同單位各自建立資料；</p>
+<p>工作責任不清楚；</p>
+<p>過去的流程一直保留下來；</p>
+<p>沒有人重新檢視流程。</p>
+<p>「以前都是這樣做」並不代表它現在仍然合理。</p>
+<h3 id="ie-ch02-full-26" data-nav-heading data-depth="2">2.5.4　塞：瓶頸</h3>
+<p>假設一個流程有三個工作站：</p>
+<p>點餐：每分鐘可以服務2人</p>
+<p>製作：每分鐘可以完成1人</p>
+<p>取餐：每分鐘可以服務3人</p>
+<p>這時，即使點餐速度很快，顧客仍然可能大量堆積在製作區。</p>
+<p>因為整個流程中，製作的處理能力最低。</p>
+<p>這種限制整體流程能力的位置，通常稱為瓶頸（Bottleneck）。</p>
+<p>瓶頸是工業工程非常重要的概念。</p>
+<p>就像一個瓶子，即使瓶身很寬，水流出去的速度仍然受到瓶口大小限制。</p>
+<p>因此：</p>
+<p class="emphasis">系統的速度，往往不是由最快的地方決定，而是受到最慢的關鍵環節限制。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-27" data-nav-heading data-depth="1">2.6　把一個地方變快，整體真的會變快嗎？</h2>
+<p>現在假設餐廳發現排隊很嚴重。</p>
+<p>原本：</p>
+<p>點餐每分鐘2人
+製作每分鐘1人
+取餐每分鐘3人</p>
+<p>管理者決定增加一位點餐人員。</p>
+<p>於是點餐能力提高成每分鐘4人。</p>
+<p>結果會怎麼樣？</p>
+<p>很多人第一直覺會認為：</p>
+<p>「點餐變快，所以整體一定更快。」</p>
+<p>但真正可能發生的是：</p>
+<p>顧客更快完成點餐，卻更快堆積到製作區。</p>
+<p>製作仍然只能每分鐘完成1份。</p>
+<p>結果可能變成：</p>
+<p class="emphasis">點餐前的隊伍變短了，但取餐前等待的人反而更多。</p>
+<p>整體完成速度並沒有真正提高。</p>
+<p>這正好呼應第一章的重要觀念：</p>
+<p class="emphasis">局部最佳，不等於整體最佳。</p>
+<h3 id="ie-ch02-full-28" data-nav-heading data-depth="2">2.6.1　改善前先問：「問題會跑去哪裡？」</h3>
+<p>很多改善都會讓問題移動。</p>
+<p>例如：</p>
+<p>增加自助點餐機
+→ 點餐速度提高
+→ 廚房訂單更快累積</p>
+<p>縮短生產第一站時間
+→ 下一站半成品增加</p>
+<p>線上申請變快
+→ 後端人工審核量突然增加</p>
+<p>因此，每次改善流程時，都應該多問一句：</p>
+<p class="emphasis">如果這裡變快了，接下來會發生什麼？</p>
+<p>這句話看似簡單，卻是一種非常重要的系統思考。</p>
+<h3 id="ie-ch02-full-29" data-nav-heading data-depth="2">2.6.2　改善的目標不是「每一站都最忙」</h3>
+<p>如果每一個工作站都維持100%忙碌，看起來似乎很有效率。</p>
+<p>但實際上，這常常意味著系統沒有任何緩衝。</p>
+<p>一旦某個地方出現：</p>
+<p>臨時插單；</p>
+<p>設備異常；</p>
+<p>工作時間變長；</p>
+<p>顧客需求突然增加；</p>
+<p>後面的隊伍就可能迅速累積。</p>
+<p>所以一個好的系統，不一定要求所有資源永遠處於滿載。</p>
+<p>真正重要的是：</p>
+<p>流程能不能順利完成？</p>
+<p>等待是不是合理？</p>
+<p>系統有沒有能力吸收變動？</p>
+<p>顧客或使用者是否得到需要的結果？</p>
+<p>這也是工業工程與單純「叫大家做快一點」最大的不同之一。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-30" data-nav-heading data-depth="1">2.7　第一次自己分析一個真實流程</h2>
+<p>現在，試著把工業工程的眼睛帶回自己的生活。</p>
+<p>請選擇一件你熟悉的事情，例如：</p>
+<p>到便利商店買東西；</p>
+<p>學校餐廳買午餐；</p>
+<p>網路購物；</p>
+<p>學校選課；</p>
+<p>借書；</p>
+<p>搭公車；</p>
+<p>到醫院看診；</p>
+<p>社團借用教室。</p>
+<p>不要先想「怎麼改善」。</p>
+<p>先做第一件事情：</p>
+<p class="emphasis">把流程看清楚。</p>
+<h3 id="ie-ch02-full-31" data-nav-heading data-depth="2">2.7.1　第一步：決定流程的開始與結束</h3>
+<p>例如「餐廳買午餐」可以定義為：</p>
+<p>開始：進入餐廳</p>
+<p>結束：拿到餐點離開</p>
+<p>如果開始與結束沒有定義清楚，流程很容易越畫越大。</p>
+<h3 id="ie-ch02-full-32" data-nav-heading data-depth="2">2.7.2　第二步：列出實際發生的步驟</h3>
+<p>不要寫你認為「應該」發生什麼。</p>
+<p>而是記錄真正發生什麼。</p>
+<p>例如：</p>
+<p>進入餐廳
+→ 看菜單
+→ 排隊
+→ 點餐
+→ 付款
+→ 拿號碼牌
+→ 等待
+→ 查看號碼
+→ 繼續等待
+→ 聽到叫號
+→ 取餐
+→ 離開</p>
+<h3 id="ie-ch02-full-33" data-nav-heading data-depth="2">2.7.3　第三步：找出「等、繞、重、塞」</h3>
+<p>請在流程旁邊標示：</p>
+<p>哪裡需要等待？</p>
+<p>哪裡需要來回移動？</p>
+<p>哪裡有重複輸入或重複確認？</p>
+<p>哪裡最容易堆積？</p>
+<p>這時先不要急著說它一定是問題。</p>
+<p>先記錄現象。</p>
+<h3 id="ie-ch02-full-34" data-nav-heading data-depth="2">2.7.4　第四步：再問「為什麼？」</h3>
+<p>例如你觀察到：</p>
+<p>取餐區有很多人在等待。</p>
+<p>不能立刻下結論：</p>
+<p>「取餐人員太少。」</p>
+<p>因為可能的原因很多：</p>
+<p>製作速度不足；</p>
+<p>訂單一次大量進入；</p>
+<p>餐點已完成但叫號資訊不清楚；</p>
+<p>部分餐點製作時間特別長；</p>
+<p>顧客都聚集在同一處等待。</p>
+<p>好的分析會把「看到什麼」和「為什麼發生」分開。</p>
+<p>這項能力，也是後續所有工業工程方法的基礎。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-35" data-nav-heading data-depth="1">2.8　和AI一起看流程，但別把判斷交給AI</h2>
+<p>生成式AI非常適合協助整理流程。</p>
+<p>例如，你可以把自己觀察到的餐廳流程輸入AI：</p>
+<p>「我觀察到學校餐廳的流程如下：進入餐廳、排隊、點餐、付款、等待、取餐。中午12點時，點餐前大約有5人排隊，但取餐區常常有15至20人在等待。請幫我提出可能的流程問題。」</p>
+<p>AI可能會回答：</p>
+<p>廚房產能不足；</p>
+<p>點餐速度高於製作速度；</p>
+<p>菜單品項過多；</p>
+<p>訂單排序不佳；</p>
+<p>取餐叫號機制不清楚。</p>
+<p>這些回答看起來都很合理。</p>
+<p>但是，注意：</p>
+<p class="emphasis">合理，不等於正確。</p>
+<h3 id="ie-ch02-full-36" data-nav-heading data-depth="2">2.8.1　AI提供的是假設，不是答案</h3>
+<p>如果AI說：</p>
+<p>「可能是廚房人力不足。」</p>
+<p>你下一步不應該立刻建議：</p>
+<p>「增加廚房人力。」</p>
+<p>而應該去驗證：</p>
+<p>廚房人員是否真的一直滿載？</p>
+<p>哪一個工作站最慢？</p>
+<p>是否只是某些餐點特別耗時？</p>
+<p>是否設備而不是人員造成限制？</p>
+<p>是否訂單資訊傳遞有問題？</p>
+<p>因此，本書使用AI時會採用一個共同原則：</p>
+<p class="emphasis">提問 → 驗證 → 解釋 → 決策</p>
+<p>AI可以協助「提問」。</p>
+<p>學生必須負責「驗證」。</p>
+<p>接著用自己的話「解釋」。</p>
+<p>最後才做出「決策」。</p>
+<h3 id="ie-ch02-full-37" data-nav-heading data-depth="2">2.8.2　試著改變你的提問方式</h3>
+<p>比較下面兩個問題。</p>
+<h4 id="ie-ch02-full-38" data-nav-heading data-depth="3">問法A</h4>
+<p>「餐廳排隊很久，要怎麼改善？」</p>
+<p>這個問題非常模糊。</p>
+<p>AI可能提出很多方法，但你很難知道哪些真正適用。</p>
+<h4 id="ie-ch02-full-39" data-nav-heading data-depth="3">問法B</h4>
+<p>「我觀察學校餐廳中午12:00至12:20，平均點餐前有4至6人排隊，取餐區有15至20人等待。點餐約30秒完成一次，但餐點平均需要3分鐘製作。請提出3個可能造成取餐區累積的原因，並告訴我還需要蒐集哪些資料才能判斷。」</p>
+<p>第二個問題提供了更多資訊。</p>
+<p>也要求AI說明「還缺什麼證據」。</p>
+<p>這就是比較好的AI使用方式。</p>
+<p>不是要求AI直接替你做決定，而是讓AI幫助你：</p>
+<p class="emphasis">把問題想得更完整。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-40" data-nav-heading data-depth="1">本章整理：先看懂流程，再談改善</h2>
+<p>第一章我們學到，工業工程不是只看單一工作，而是關心整個系統。</p>
+<p>第二章再往前一步。</p>
+<p>系統不是靜止的。</p>
+<p>人、物料與資訊會在系統中不斷流動，而這些活動依照一定的先後與關係組成流程。</p>
+<p>當我們開始把流程拆開，就會發現真正影響系統表現的，不只有「正在加工」的時間。</p>
+<p>還包括：</p>
+<p>等待；</p>
+<p>搬運；</p>
+<p>檢查；</p>
+<p>儲存；</p>
+<p>資訊傳遞；</p>
+<p>人員移動。</p>
+<p>因此，工業工程師遇到問題時，通常不會只問：</p>
+<p>「誰做得太慢？」</p>
+<p>而會進一步問：</p>
+<p>「整件事情究竟是怎麼一步一步完成的？」</p>
+<p>當流程被看清楚之後，我們才有機會發現：</p>
+<p class="emphasis">等、繞、重、塞。</p>
+<p>也才有機會判斷：</p>
+<p>真正值得改善的地方到底在哪裡。</p>
+<p>請記住本章最重要的一句話：</p>
+<p class="emphasis">不要急著改善一個你還沒有看清楚的流程。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-41" data-nav-heading data-depth="1">本章關鍵詞</h2>
+<p>流程（Process）</p>
+<p>工作（Task）</p>
+<p>系統（System）</p>
+<p>加工／作業（Operation）</p>
+<p>檢查（Inspection）</p>
+<p>搬運（Transportation）</p>
+<p>等待（Delay）</p>
+<p>儲存（Storage）</p>
+<p>流程圖（Flowchart）</p>
+<p>物料流（Material Flow）</p>
+<p>資訊流（Information Flow）</p>
+<p>瓶頸（Bottleneck）</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-42" data-nav-heading data-depth="1">本章觀念題</h2>
+<p>請用自己的話說明「工作」、「流程」與「系統」三者的差異。</p>
+<p>為什麼一件產品真正被加工的時間很短，顧客仍然可能等待很久？</p>
+<p>下列活動分別比較接近加工、檢查、搬運、等待或儲存中的哪一種？</p>
+<p>半成品排在機器前等待加工。</p>
+<p>店員確認顧客點的是不是無糖飲料。</p>
+<p>工人把零件從A區送到B區。</p>
+<p>機器在金屬板上鑽孔。</p>
+<p>原料放在倉庫中等待下週生產。</p>
+<p>為什麼「所有員工都很忙」不能直接證明一個系統很有效率？</p>
+<p>什麼是瓶頸？請舉一個生活中的例子。</p>
+<p>如果一個流程中最慢的工作站完全沒有改變，只把前面的工作站速度提高一倍，整體產出一定會提高嗎？請說明原因。</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-43" data-nav-heading data-depth="1">應用分析題</h2>
+<p>某校餐廳中午的工作流程如下：</p>
+<p>學生排隊
+→ 點餐
+→ 付款
+→ 訂單送到廚房
+→ 製作
+→ 完成餐點
+→ 叫號
+→ 學生取餐</p>
+<p>觀察發現：</p>
+<p>點餐區通常只有3至5人排隊，但取餐區經常有20人以上等待。</p>
+<p>請回答：</p>
+<p>你目前能夠確定的「現象」是什麼？</p>
+<p>哪些事情目前還只能算是「推測」？</p>
+<p>至少提出三種可能原因。</p>
+<p>如果你要找出真正的瓶頸，還需要蒐集哪些資料？</p>
+<p>如果校方直接增加一台自助點餐機，你認為可能會發生什麼事情？</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-44" data-nav-heading data-depth="1">AI挑戰題</h2>
+<p>把上一題提供給生成式AI，請AI分析餐廳的可能問題。</p>
+<p>接著完成以下工作：</p>
+<p>記錄AI提出的三項主要原因。</p>
+<p>判斷每項原因目前是否有證據支持。</p>
+<p>找出至少一個AI「聽起來合理，但目前無法確認」的說法。</p>
+<p>告訴AI還有哪些資料沒有掌握。</p>
+<p>再請AI重新分析一次。</p>
+<p>比較兩次答案有什麼不同。</p>
+<p>最後，用100～150字回答：</p>
+<p class="emphasis">「為什麼AI提出可能原因之後，我仍然需要實際觀察流程？」</p>
+</section>
+<section class="lesson-section">
+<h2 id="ie-ch02-full-45" data-nav-heading data-depth="1">本章小任務：畫出你身邊的一個流程</h2>
+<p>選擇一項你這一週一定會經歷的活動。</p>
+<p>例如：</p>
+<p>買早餐、搭車、借書、點外送、購物、辦理學校行政作業。</p>
+<p>完成以下任務：</p>
+<p>定義流程的開始與結束。</p>
+<p>畫出主要步驟。</p>
+<p>標出至少一個等待點。</p>
+<p>找出是否有「繞」、「重」或「塞」的現象。</p>
+<p>提出一個你認為最值得進一步觀察的地方。</p>
+<p>不要立刻提出改善方案。</p>
+<p>最後回答：</p>
+<p class="emphasis">「我看到的是問題，還是只是問題的現象？」</p>
+</section>
+</article>
+    <nav class="bottom-nav" aria-label="章節移動"><button class="nav-button" id="prev-section" type="button">← 上一節</button><span class="shortcut">鍵盤 ← → 換節｜＋ − 調字｜F 全螢幕</span><button class="nav-button" id="next-section" type="button">下一節 →</button></nav>
+  </div></main>
+  <script src="../../assets/course.js"></script>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>
